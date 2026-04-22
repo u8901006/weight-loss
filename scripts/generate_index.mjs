@@ -1,0 +1,103 @@
+#!/usr/bin/env node
+
+import { readdirSync, writeFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '..');
+const DOCS = join(ROOT, 'docs');
+
+function getTaipeiDate() {
+  return new Date(Date.now() + 8 * 3600000).toISOString().slice(0, 10);
+}
+
+function esc(s) {
+  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function generateIndex() {
+  const files = readdirSync(DOCS)
+    .filter(f => /^weight-loss-\d{4}-\d{2}-\d{2}\.html$/.test(f))
+    .sort()
+    .reverse();
+
+  const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+
+  const itemsHTML = files.map(f => {
+    const dateStr = f.replace('weight-loss-', '').replace('.html', '');
+    const [y, m, d] = dateStr.split('-').map(Number);
+    const dateObj = new Date(y, m - 1, d);
+    const wd = weekdays[dateObj.getDay()];
+    const display = `${y}年${m}月${d}日（星期${wd}）`;
+    const isNew = dateStr === getTaipeiDate();
+    const badge = isNew ? ' <span style="background:#8c4f2b;color:#fff;font-size:.7rem;padding:2px 8px;border-radius:10px;vertical-align:middle">NEW</span>' : '';
+    return `<li><a href="${f}">${display}${badge}</a></li>`;
+  }).join('\n');
+
+  const html = `<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:40px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:8px;letter-spacing:.04em}
+header .subtitle{font-size:.95rem;color:var(--muted)}
+.report-list{list-style:none;animation:fadeUp .6s ease-out both;animation-delay:.1s}
+.report-list li{margin-bottom:10px}
+.report-list a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;text-decoration:none;color:var(--text);font-size:.95rem;font-weight:500;transition:all .2s}
+.report-list a:hover{border-color:var(--accent);box-shadow:0 2px 12px rgba(140,79,43,.1);transform:translateX(4px)}
+.count{text-align:center;margin-bottom:28px;font-size:.88rem;color:var(--muted)}
+footer{text-align:center;margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+@media(max-width:600px){.container{padding:32px 16px 48px}header h1{font-size:1.3rem}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="subtitle">每日自動擷取 PubMed 最新減重與肥胖研究文獻，AI 摘要分析</p>
+  </header>
+  <p class="count">共 ${files.length} 份日報</p>
+  <ul class="report-list">
+    ${itemsHTML}
+  </ul>
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by GLM-5-Turbo &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>`;
+
+  writeFileSync(join(DOCS, 'index.html'), html, 'utf8');
+  console.error(`[INFO] Index page generated with ${files.length} reports`);
+}
+
+generateIndex();
