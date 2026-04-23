@@ -26,19 +26,22 @@ function parseArgs() {
 }
 
 function buildPrompt(papers) {
-  const paperList = papers.map((p, i) => {
+  const MAX_PAPERS = 40;
+  const MAX_ABSTRACT = 800;
+  const toSend = papers.slice(0, MAX_PAPERS);
+  const paperList = toSend.map((p, i) => {
     return `--- Paper ${i + 1} ---
 PMID: ${p.pmid}
 Title: ${p.title}
 Journal: ${p.journal}
 Date: ${p.date}
-Abstract: ${p.abstract}
+Abstract: ${(p.abstract || '').slice(0, MAX_ABSTRACT)}
 Keywords: ${(p.keywords || []).join(', ')}`;
   }).join('\n\n');
 
   return `你是一位專業的減重與肥胖醫學研究員，同時也是一位科學傳播者。你的任務是分析最新的減重相關研究文獻，為醫療專業人員和一般讀者提供清晰、有用的繁體中文摘要。
 
-請仔細閱讀以下 ${papers.length} 篇減重相關研究文獻，然後進行分析：
+請仔細閱讀以下 ${toSend.length} 篇減重相關研究文獻，然後進行分析：
 
 ${paperList}
 
@@ -90,13 +93,13 @@ ${paperList}
 }
 
 規則：
-1. 從 ${papers.length} 篇中選出 5-8 篇最重要、最值得關注的研究作為 top_picks
+1. 從 ${toSend.length} 篇中選出 5-8 篇最重要、最值得關注的研究作為 top_picks
 2. 所有文獻都必須出現在 all_papers 中（包括 top_picks）
 3. utility 評分標準：高=可直接影響臨床決策或重大突破、中=有參考價值、低=初步或間接相關
 4. 標籤請從以下分類中選擇：藥物治療、飲食介入、運動與體能活動、行為與心理、減重手術、神經科學與機制、社會決定因素與政策、體重維持、小兒肥胖、糖尿病與代謝、公共衛生、其他
 5. emoji 請使用與研究主題相關的表情符號
 6. 所有摘要必須以繁體中文撰寫
-7. topic_distribution 的數字加總應等於 ${papers.length}
+7. topic_distribution 的數字加總應等於 ${toSend.length}
 8. keywords 提取 15-25 個最常出現的關鍵字
 9. 必須回覆純 JSON，不要用 \`\`\`json 包裹`;
 }

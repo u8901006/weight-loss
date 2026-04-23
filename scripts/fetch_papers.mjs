@@ -59,10 +59,11 @@ const SEARCH_STRATEGIES = [
 
 function parseArgs() {
   const args = process.argv.slice(2);
-  const opts = { days: 7, maxPapers: 50, output: '-' };
+  const opts = { days: 7, maxPapers: 15, output: '-', totalMax: 40 };
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--days' && args[i + 1]) opts.days = parseInt(args[++i]);
     else if (args[i] === '--max-papers' && args[i + 1]) opts.maxPapers = parseInt(args[++i]);
+    else if (args[i] === '--total' && args[i + 1]) opts.totalMax = parseInt(args[++i]);
     else if (args[i] === '--output' && args[i + 1]) opts.output = args[++i];
   }
   return opts;
@@ -147,7 +148,10 @@ function parseXML(xml) {
         dateStr = parts.join(' ');
       }
 
-      const pmid = String(medline?.PMID || '');
+      const pmidRaw = medline?.PMID;
+      const pmid = typeof pmidRaw === 'object' && pmidRaw !== null
+        ? String(pmidRaw['#text'] || '')
+        : String(pmidRaw || '');
       const link = pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` : '';
 
       const keywords = [];
@@ -232,8 +236,19 @@ async function main() {
 
   console.error(`[INFO] Fetched ${papers.length} papers, ${newPapers.length} are new (not in history)`);
 
+  const selected = newPapers
+    .sort((a, b) => {
+      const aHasAbs = a.abstract ? 1 : 0;
+      const bHasAbs = b.abstract ? 1 : 0;
+      if (bHasAbs !== aHasAbs) return bHasAbs - aHasAbs;
+      return b.date?.localeCompare(a.date || '') || 0;
+    })
+    .slice(0, opts.totalMax);
+
+  console.error(`[INFO] Selected top ${selected.length} papers (max ${opts.totalMax})`);
+
   const today = getTaipeiDate();
-  const output = { date: today, count: newPapers.length, papers: newPapers };
+  const output = { date: today, count: selected.length, papers: selected };
   const str = JSON.stringify(output, null, 2);
 
   if (opts.output === '-') console.log(str);
