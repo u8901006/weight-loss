@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年4月27日（星期一）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年4月27日（星期一）</p>
+    <span class="stats">本日收錄 15 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">GLP-1 致效劑對過重或肥胖成人體重與身體組成影響之系統性回顧與整合分析</h3>
+            <p class="en-title">GLP-1 agonists and changes in body mass and composition in adults with overweight or obesity with or without type 2 diabetes mellitus: a systematic review and meta-analysis.</p>
+          </div>
+        </div>
+        <p class="summary">此項系統性回顧與整合分析評估了 GLP-1 受體致效劑（含雙重致效劑）對過重或肥胖成人（含或不含第二型糖尿病）的減重效果。分析 36 項研究發現，這些藥物能顯著降低體重並改善身體組成。研究證實了 GLP-1 類藥物在體重管理中的療效，為臨床處方提供了高層次的證據支持。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">過重或肥胖成人（含或不含第二型糖尿病）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">GLP-1 受體致效劑或 GLP-1/GIP 雙重致效劑</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">對照組或基線</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">體重變化與身體組成改善</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42034831/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">❤️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">胰高血糖素樣肽-1 受體致效劑的心血管結果：一項系統性回顧</h3>
+            <p class="en-title">Cardiovascular outcomes of glucagon-like peptide-1 receptor agonists: A systematic review.</p>
+          </div>
+        </div>
+        <p class="summary">本研究系統性地評估了 GLP-1 受體致效劑在不同族群（包含有或無第二型糖尿病、肥胖及心衰竭患者）中的心血管預後試驗。分析 12 項試驗顯示，GLP-1 治療能一致性地降低主要不良心血管事件風險。此結果確認了該類藥物除減重外的心臟保護效益，對心血管代謝疾病管理至關重要。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">第二型糖尿病、肥胖、心血管疾病或心衰竭患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">GLP-1 受體致效劑</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">標準治療或安慰劑</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">主要不良心血管事件 (MACE)</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42033237/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">😴</span>
+          <div class="card-titles">
+            <h3 class="zh-title">GLP-1 受體致效劑治療阻塞型睡眠呼吸中止症之療效：心代謝與呼吸結果的系統性回顧與整合分析</h3>
+            <p class="en-title">Efficacy of GLP-1 Receptor agonists in treating Obstructive sleep apnea: A systematic review and meta-analysis of cardiometabolic and respiratory outcomes.</p>
+          </div>
+        </div>
+        <p class="summary">針對阻塞型睡眠呼吸中止症（OSA）與肥胖的強關聯，本研究透過整合分析評估 GLP-1 受體致效劑的療效。分析四項隨機對照試驗發現，GLP-1 藥物不僅顯著降低體重，還能改善呼吸中止低通氣指數（AHI）與血壓。這項研究支持將 GLP-1 藥物作為 OSA 的新兴輔助治療選項。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">阻塞型睡眠呼吸中止症成人患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">GLP-1 受體致效劑</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">安慰劑</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">AHI 指數、體重、血壓</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42029967/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">👶</span>
+          <div class="card-titles">
+            <h3 class="zh-title">兒童與青少年的抗肥胖藥物：對血壓與慢性腎臟病的影響</h3>
+            <p class="en-title">Anti-obesity medications in children and adolescents: blood pressure and chronic kidney disease implications.</p>
+          </div>
+        </div>
+        <p class="summary">本敘述性回顧探討了兒童肥胖的治療現況，特別關注藥物治療對高血壓與慢性腎臟病的影響。研究指出，雖生活型態介入為首選，但藥物治療（如 GLP-1）在面對心血管腎臟代謝症候群風險下顯得日益重要。此文為兒科醫師面對肥胖併發症時提供了整合性治療的評估框架。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">兒童與青少年肥胖患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">生活型態介入與藥物治療</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">N/A (敘述性回顧)</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">高血壓與慢性腎臟病風險</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42033464/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🌊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">微塑膠對人類健康的影響：腸道菌群的關鍵作用</h3>
+            <p class="en-title">Impact of microplastics on human health: A critical role of gut microbiota.</p>
+          </div>
+        </div>
+        <p class="summary">此評論探討了環境污染物微塑膠對人體健康的影響，特別聚焦於腸道菌群的關鍵調節角色。研究指出，微塑膠攝入會造成腸道黏膜機械性損傷並重塑菌群結構，進而誘發代謝與全身性健康問題。這項分析揭示了環境因子透過腸道軸影響代謝健康的潛在機制，值得臨床關注。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">人類 (暴露於微塑膠環境)</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">微塑膠暴露</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">N/A (機制研究)</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">腸道菌群改變與組織損傷</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42034591/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#6</span>
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">觀點：針對肥胖相關阻塞型睡眠呼吸中止症的心代謝風險，應減重、OSA 治療或雙管齊下？</h3>
+            <p class="en-title">Perspective - Weight loss, OSA therapy, or both for cardiometabolic risk in obesity-related OSA?</p>
+          </div>
+        </div>
+        <p class="summary">隨著強效減重藥物的問世，併發肥胖的 OSA 治療版圖正在改變。本文探討單純減重、傳統 OSA 治療或兩者結合對心代謝風險的影響。文章討論了如何優化現實世界的治療策略，以公平且有效的方式改善患者預後，並回應了 FDA 首度核准減重藥物治療 OSA 的臨床意義。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">肥胖相關阻塞型睡眠呼吸中止症患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">減重治療 (含藥物)</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">傳統 OSA 治療</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">心代謝風險優化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42033315/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌍</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">應用公共衛生關鍵種族理論以改進黑人女孩動起來計畫</h4>
+            <p class="en-title-sm">Application of Public Health Critical Race Praxis to Refine Black Girls Move: An Obesity Prevention Intervention for Black Adolescent Daughter/Mother Dyads.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討應用公共衛生關鍵種族理論來發展針對黑人青少女與母親的肥胖預防介入措施，旨在對抗結構性種族主義對健康的影響。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42035413/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">糖尿病患使用 Metformin 導致功能性維生素 B12 缺乏表現為亞急性脊髓合併變性症</h4>
+            <p class="en-title-sm">Metformin-Associated Functional Vitamin B12 Deficiency Presenting as Subacute Combined Degeneration in a 57-Year-Old Man With Diabetes Mellitus.</p>
+          </div>
+        </div>
+        <p class="summary-sm">病例報告描述一名長期使用 Metformin 的糖尿病患，因 B12 吸收不良導致亞急性脊髓合併變性症，出現體重下降與步態失調。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42035456/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1 致效劑對過重或肥胖成人體重與身體組成影響之系統性回顧與整合分析</h4>
+            <p class="en-title-sm">GLP-1 agonists and changes in body mass and composition in adults with overweight or obesity with or without type 2 diabetes mellitus: a systematic review and meta-analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">整合分析顯示 GLP-1 類藥物能有效改善過重及肥胖患者的體重與身體組成，為臨床減重治療提供強力證據。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42034831/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">👶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">兒童與青少年的抗肥胖藥物：對血壓與慢性腎臟病的影響</h4>
+            <p class="en-title-sm">Anti-obesity medications in children and adolescents: blood pressure and chronic kidney disease implications.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧兒童肥胖藥物治療現況，強調其在控制血壓與慢性腎病風險中的新角色，提倡整合性治療方法。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42033464/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🥗</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">飲食介入與認知功能在阿茲海默症生物標誌物層級的關係：MIND 臨床試驗</h4>
+            <p class="en-title-sm">Dietary intervention and cognition across Alzheimer's disease biomarker levels: The MIND clinical trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">MIND 飲食對認知功能的改善效果可能受阿茲海默症相關血漿生物標誌物濃度的調節，顯示個人化飲食介入的重要性。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42033408/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">😴</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">觀點：針對肥胖相關阻塞型睡眠呼吸中止症的心代謝風險，應減重、OSA 治療或雙管齊下？</h4>
+            <p class="en-title-sm">Perspective - Weight loss, OSA therapy, or both for cardiometabolic risk in obesity-related OSA?</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討在強效減重藥物時代，治療肥胖相關 OSA 應選擇減重、CPAP 治療或兩者並用以達最佳心代謝效益。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42033315/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">❤️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">胰高血糖素樣肽-1 受體致效劑的心血管結果：一項系統性回顧</h4>
+            <p class="en-title-sm">Cardiovascular outcomes of glucagon-like peptide-1 receptor agonists: A systematic review.</p>
+          </div>
+        </div>
+        <p class="summary-sm">系統性回顧確認 GLP-1 類藥物在不同患者族群中均能有效降低主要不良心血管事件風險，具心臟保護作用。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42033237/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🫁</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">超越閾值：身體質量指數在嚴重肥胖中對肺功能的非線性影響</h4>
+            <p class="en-title-sm">Beyond the Threshold: Non-Linear Impact of Body Mass Index on Pulmonary Function in Severe Obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究發現嚴重肥胖患者的 BMI 與肺功能指標呈非線性相關，隨著 BMI 增加，肺功能損害的模式更加複雜。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42033737/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">使用泛 HTT 標靶 CRISPR 核酸酶治療亨丁頓舞蹈症</h4>
+            <p class="en-title-sm">Treatment of Huntington's disease with a pan-HTT-targeting CRISPR nuclease.</p>
+          </div>
+        </div>
+        <p class="summary-sm">動物實驗顯示 CRISPR 治療能降低突變蛋白，改善運動功能並減緩亨丁頓舞蹈症引起的體重下降與神經退化。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42035261/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">KRAS G12C 突變晚期非小細胞肺癌的臨床軌跡：日本單一中心隊列研究</h4>
+            <p class="en-title-sm">Clinical trajectory of KRAS G12C-mutated advanced non-small cell lung cancer: a single-center cohort study in Japan.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧分析日本 KRAS G12C 突變肺癌患者的治療路徑與 Sotorasib 的使用效益，與肥胖醫學直接相關性低。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42034368/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">😴</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1 受體致效劑治療阻塞型睡眠呼吸中止症之療效：心代謝與呼吸結果的系統性回顧與整合分析</h4>
+            <p class="en-title-sm">Efficacy of GLP-1 Receptor agonists in treating Obstructive sleep apnea: A systematic review and meta-analysis of cardiometabolic and respiratory outcomes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">整合分析顯示 GLP-1 藥物能顯著改善 OSA 患者的睡眠呼吸指數、體重及心血管風險因子。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42029967/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">瘦素與心血管健康</h4>
+            <p class="en-title-sm">Leptin and Cardiovascular Health.</p>
+          </div>
+        </div>
+        <p class="summary-sm">綜述探討瘦素在心血管健康中的角色，分析肥胖狀態下的瘦素抗性、選擇性抗性及其對心血管疾病發病的影響。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42035234/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">微塑膠對人類健康的影響：腸道菌群的關鍵作用</h4>
+            <p class="en-title-sm">Impact of microplastics on human health: A critical role of gut microbiota.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討微塑膠透過破壞腸道菌群與黏膜屏障進而危害人類健康的機制，強調腸道菌群的調節角色。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42034591/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🥗</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">土耳其成人遵守地中海飲食與享樂性飢餓、飲食品質及肥胖的關聯性</h4>
+            <p class="en-title-sm">Mediterranean diet adherence and its associations with hedonic hunger, diet quality, and obesity in Turkish adults: a cross-sectional study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">橫斷面研究顯示高度遵守地中海飲食與較低的享樂性飢餓、較佳的飲食品質及較低的肥胖率顯著相關。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42035207/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📝</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">回應關於「GLP-1 受體致效劑與 Metformin 治療新發病青少年糖尿病的實證經驗」的評論</h4>
+            <p class="en-title-sm">Response to comment on &quot;Exploratory real-world experience with GLP-1 receptor agonists vs. metformin in youth with new-onset type 2 diabetes: a single-center retrospective study&quot;.</p>
+          </div>
+        </div>
+        <p class="summary-sm">作者對於 GLP-1 與 Metformin 在青少年糖尿病治療中的實世界比較研究評論進行回應與澄清。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42035284/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">6</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:17%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">公共衛生</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">GLP-1 受體致效劑</span><span class="keyword-pill">肥胖</span><span class="keyword-pill">心血管疾病</span><span class="keyword-pill">系統性回顧</span><span class="keyword-pill">整合分析</span><span class="keyword-pill">體重減輕</span><span class="keyword-pill">阻塞型睡眠呼吸中止症</span><span class="keyword-pill">第二型糖尿病</span><span class="keyword-pill">兒童肥胖</span><span class="keyword-pill">高血壓</span><span class="keyword-pill">慢性腎臟病</span><span class="keyword-pill">地中海飲食</span><span class="keyword-pill">微塑膠</span><span class="keyword-pill">腸道菌群</span><span class="keyword-pill">瘦素</span><span class="keyword-pill">Metformin</span><span class="keyword-pill">亞急性脊髓合併變性症</span><span class="keyword-pill">種族主義</span><span class="keyword-pill">亨丁頓舞蹈症</span><span class="keyword-pill">享樂性飢餓</span><span class="keyword-pill">肺部功能</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by GLM-5-Turbo &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
