@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年4月30日（星期四）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年4月30日（星期四）</p>
+    <span class="stats">本日收錄 29 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Tirzepatide與口服Semaglutide治療過重與肥胖之間接療效與安全性比較</h3>
+            <p class="en-title">Indirect Comparative Efficacy and Safety of Tirzepatide Versus Oral Semaglutide for the Treatment of Overweight and Obesity.</p>
+          </div>
+        </div>
+        <p class="summary">本研究透過間接比較評估每周注射Tirzepatide（5/10/15 mg）與每日口服Semaglutide（50 mg）在體重管理上的療效與安全性。研究比較SURMOUNT-1（72週）與OASIS 1（68週）試驗數據。Tirzepatide作為雙重GIP/GLP-1受體激動劑，在減重幅度上展現優勢，而口服Semaglutide則提供注射恐懼患者的便利選擇。此比較對臨床醫師選擇減重藥物具有重要參考價值，有助於個體化治療決策。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">過重或肥胖成人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">Tirzepatide 5/10/15 mg 每周注射</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">口服Semaglutide 50 mg 每日</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">體重減輕百分比與安全性</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42050884/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h3 class="zh-title">減重介入對與心臟代謝健康相關之腸道微生物代謝物的影響：系統性文獻回顧與統合分析</h3>
+            <p class="en-title">Effects of Weight Loss Interventions on Gut Microbiota-Derived Metabolites Linked to Cardiometabolic Health: A Systematic Review and Meta-Analysis.</p>
+          </div>
+        </div>
+        <p class="summary">此系統性回顧與統合分析評估減重介入對過重或肥胖者血液中腸道微生物代謝物的影響，包含脂多醣（LPS）、氧化三甲胺（TMAO）、次級膽汁酸及短鏈脂肪酸。研究搜尋MEDLINE、EMBASE及Cochrane Library至2024年7月。結果顯示減重介入可顯著改變這些關鍵代謝物濃度，這些變化可能是減重改善心臟代謝健康的重要中介機制，為精準減重策略提供微生物組學依據。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">過重或肥胖個體</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">各類減重介入措施</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">減重前後或對照組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">血液中腸道微生物代謝物濃度變化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42049393/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">⚠️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Liraglutide或Semaglutide安慰劑對照試驗中非動脈炎性前部缺血性視神經病變發生率</h3>
+            <p class="en-title">Non-arteritic anterior ischaemic optic neuropathy incidence in placebo-controlled clinical trials of liraglutide or semaglutide.</p>
+          </div>
+        </div>
+        <p class="summary">本研究針對GLP-1受體激動劑使用後發生非動脈炎性前部缺血性視神經病變（NAION）的風險進行安全性評估，統合分析已完成之第二至四期隨機安慰劑對照試驗，涵蓋諾和諾德六種含liraglutide或semaglutide成分的產品，對象為第二型糖尿病及/或過重肥胖患者。研究依發生可能性將潛在案例分類。此大型安全性數據對臨床使用GLP-1藥物時監測視覺副作用具有重要指引意義。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">第二型糖尿病及/或過重肥胖患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">Liraglutide或Semaglutide</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">安慰劑</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">NAION發生率</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42049287/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🏥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">減重手術後心臟結構與功能逆轉重塑：袖狀胃切除術與胃繞道術之前瞻性比較</h3>
+            <p class="en-title">Structural and Functional Cardiac Reverse Remodeling After Bariatric Surgery: A Prospective Comparison of Sleeve Gastrectomy and Roux-en-Y Gastric Bypass.</p>
+          </div>
+        </div>
+        <p class="summary">此前瞻性觀察性世代研究纳入100名嚴重肥胖成人（BMI&gt;35），比較袖狀胃切除術（SG）與Roux-en-Y胃繞道術（RYGB）在基線及術後六個月的心臟結構與功能變化。評估臨床、代謝、發炎及心臟超音波參數。研究探討心臟逆轉重塑在兩種手術間的差異，以及這些變化有多少是源自體重減輕，多少來自代謝與發炎機制。結果對選擇減重手術方式以獲得最佳心血管保護效益具臨床參考價值。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">嚴重肥胖成人（BMI&gt;35）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">袖狀胃切除術或胃繞道術</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">兩種手術方式間比較</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">心臟結構與功能逆轉重塑程度</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42053055/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🚨</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Semaglutide起始後快速減重誘發正常甲狀腺功能病態綜合徵：病例報告</h3>
+            <p class="en-title">Euthyroid Sick Syndrome Precipitated By Rapid Weight Loss Following Semaglutide Initiation: A Case Report.</p>
+          </div>
+        </div>
+        <p class="summary">本病例報告描述一名54歲女性因體重管理使用semaglutide，四個月內減重22公斤後出現進行性疲勞、嗜睡及新發畏寒。實驗室檢查顯示典型正常甲狀腺功能病態綜合徵（ESS）：游離T3降低、游離T4正常低值、TSH不適當地正常。排除原發性甲狀腺及腦下垂體疾病後確診。此病例提醒臨床醫師，GLP-1受體激動劑導致的快速顯著減重可能引發ESS，使用時應監測甲狀腺功能。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">使用Semaglutide減重之54歲女性</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">Semaglutide體重管理</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">無對照組（病例報告）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">正常甲狀腺功能病態綜合徵發生</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42052217/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#6</span>
+          <span class="emoji">🧪</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Lotiglipron與多種藥物之藥物交互作用潛力評估</h3>
+            <p class="en-title">Assessment of the Drug-Drug Interaction Potential of Lotiglipron (PF-07081532) with Midazolam, Omeprazole, Dabigatran, Rosuvastatin, and the Oral Contraceptives Levonorgestrel and Ethinyl Estradiol.</p>
+          </div>
+        </div>
+        <p class="summary">兩項第一期開放標記研究評估新型GLP-1受體激動劑lotiglipron與CYP3A受質（midazolam、口服避孕藥）、CYP2C19受質（omeprazole）、P-gp受質及轉運蛋白受質併用時的藥物動力學交互作用。研究對象為過重或肥胖之健康受試者。結果顯示lotiglipron與這些常見藥物併用時僅造成輕微劑量依賴性的藥物動力學變化，顯示其良好的藥物交互作用特性，對未來臨床合併用藥安全性評估具有重要意義。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">過重或肥胖之健康受試者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">Lotiglipron合併各類受質藥物</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">單獨使用受質藥物</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">藥物動力學參數變化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42053447/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#7</span>
+          <span class="emoji">🏃‍♀️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">過重或肥胖青少年女孩對高強度間歇訓練之心肺與血液學反應：隨機對照試驗</h3>
+            <p class="en-title">Cardiorespiratory and Hematological Responses to High-Intensity Interval Training in Adolescent Girls With Overweight or Obesity: A Randomized Controlled Trial.</p>
+          </div>
+        </div>
+        <p class="summary">此隨機對照試驗纳入28名過重或肥胖青少年女孩，評估10週高強度間歇訓練（HIIT）對生理及血液學結果的影響。HIIT方案為每週三次、每次4組6×15秒（達最大有氧速度90%-105%），組間15秒主動恢復。結果顯示HIIT組在體重、體脂、腰圍、最大有氧速度、估計最大攝氧量、紅血球、血紅素、肌酸激酶等指標均有顯著改善。此研究為青少年肥胖運動處方提供高品質實證。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">過重或肥胖青少年女孩</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">10週HIIT訓練</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">對照組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">體組成、有氧能力與血液學指標</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42050353/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">癌症惡病質預測EGFR突變NSCLC在TKI抗藥後接受免疫合併化療之效益</h4>
+            <p class="en-title-sm">Cancer Cachexia Predicts Benefit of Immunotherapy Plus Chemotherapy in-mutant NSCLC After TKI Resistance.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此多中心回溯性世代研究評估癌症惡病質對439名EGFR突變晚期非小細胞肺癌患者在TKI抗藥後治療選擇的影響，比較單純化療與免疫合併化療的療效差異。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42049337/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧪</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Lotiglipron與多種藥物之藥物交互作用潛力評估</h4>
+            <p class="en-title-sm">Assessment of the Drug-Drug Interaction Potential of Lotiglipron (PF-07081532) with Midazolam, Omeprazole, Dabigatran, Rosuvastatin, and the Oral Contraceptives Levonorgestrel and Ethinyl Estradiol.</p>
+          </div>
+        </div>
+        <p class="summary-sm">第一期研究評估新型GLP-1受體激動劑lotiglipron與多種常見藥物併用之藥物動力學交互作用，結果顯示僅有輕微影響，具良好合併用藥安全性。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42053447/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🏃‍♀️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">過重或肥胖青少年女孩對高強度間歇訓練之心肺與血液學反應：隨機對照試驗</h4>
+            <p class="en-title-sm">Cardiorespiratory and Hematological Responses to High-Intensity Interval Training in Adolescent Girls With Overweight or Obesity: A Randomized Controlled Trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">10週HIIT顯著改善過重肥胖青少年女孩的體組成、有氧能力及血液學指標，為青少年肥胖運動處方提供實證。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42050353/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📱</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">螢幕時間與身體活動與青春期早期BMI之關聯：前瞻性世代研究</h4>
+            <p class="en-title-sm">Associations of Screen Time and Physical Activity With Body Mass Index in Early Adolescence: A Prospective Cohort Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析5356名美國青少年資料，發現每日螢幕時間超過8小時與過重肥胖風險增加相關，即使調整身體活動量後仍具獨立效應。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">運動與體能活動</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/41916773/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🏋️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">運動作為晚期癌症相關體重減輕之支持性照護：比較嚴重與非嚴重體重減輕患者的可行性研究</h4>
+            <p class="en-title-sm">Exercise as supportive care in advanced cancer-related weight loss: a feasibility study comparing patients with and without severe weight loss.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討12週監督運動計畫在嚴重體重減輕癌症患者中的可行性，評估退出率、出席率與安全性，結果顯示運動作為惡病質支持照護具可行性。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">運動與體能活動</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42053853/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🩺</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">美國銀屑病基金會關於GLP-1受體激動劑在銀屑病中應用之指引</h4>
+            <p class="en-title-sm">The National Psoriasis Foundation Primer on GLP-1 Receptor Agonists in Psoriasis: A Review.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧GLP-1受體激動劑在銀屑病患者中的應用潛力，探討其透過免疫調節改善皮膚病變及同時處理心血管代謝共病的雙重效益。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42054048/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🏥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">減重手術後心臟結構與功能逆轉重塑：袖狀胃切除術與胃繞道術之前瞻性比較</h4>
+            <p class="en-title-sm">Structural and Functional Cardiac Reverse Remodeling After Bariatric Surgery: A Prospective Comparison of Sleeve Gastrectomy and Roux-en-Y Gastric Bypass.</p>
+          </div>
+        </div>
+        <p class="summary-sm">比較100名嚴重肥胖患者接受袖狀胃切除術或胃繞道術後六個月的心臟逆轉重塑差異，探討體重減輕與代謝發炎機制的相對貢獻。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42053055/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🍔</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">暴食行為相關之社會、健康與生活型態特徵的性別差異：法國全國隨機人口研究</h4>
+            <p class="en-title-sm">Sex Differences in Social, Health, and Lifestyle Characteristics Associated With Binge-Eating Behaviors: Results From a French National Random Population-Based Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析84995名法國民眾資料，探討暴食行為的性別差異，發現男女在社會、健康及生活型態因素上與暴食行為的關聯模式不同。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42052807/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🥥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">初榨椰子油與乙醇之神經營養與代謝後果：對生長與抗氧化防禦的影響</h4>
+            <p class="en-title-sm">Neurotrophic and metabolic consequences of virgin coconut oil and ethanol: implications for growth and antioxidant defense.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討初榨椰子油如何對抗慢性乙醇攝取造成的下視丘與紋狀體代謝調節障礙及氧化壓力，涉及BDNF表現調節。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42053679/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🍼</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">純母乳餵養期間母乳抗體、激素與巨量營養素與嬰兒早期生長之關聯</h4>
+            <p class="en-title-sm">Linking Early Infant Growth With Milk-Derived Antibodies, Hormones, and Macronutrients During Exclusive Breastfeeding.</p>
+          </div>
+        </div>
+        <p class="summary-sm">觀察49對烏拉圭母嬰，測量母乳中皮質醇、脂聯素、瘦素等成分，分析其與嬰兒第一年生長參數的關聯。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42053205/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Tirzepatide與口服Semaglutide治療過重與肥胖之間接療效與安全性比較</h4>
+            <p class="en-title-sm">Indirect Comparative Efficacy and Safety of Tirzepatide Versus Oral Semaglutide for the Treatment of Overweight and Obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">間接比較Tirzepatide注射與口服Semaglutide的減重療效與安全性，為臨床選擇減重藥物提供重要參考依據。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42050884/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">SGLT2抑制劑治療之晚期非小細胞肺癌合併糖尿病患者的體重變化與預後影響</h4>
+            <p class="en-title-sm">Weight change and impact on prognosis in patients with advanced non-small cell lung cancer with concomitant diabetes mellitus treated with sglt2 inhibitors.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回溯性分析探討SGLT2抑制劑導致的體重減輕是否影響晚期NSCLC合併糖尿病患者接受系統性治療的生存或毒性。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42049990/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌍</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">南非鄉村HIV感染者預防體重增加之觀點與策略：質性研究</h4>
+            <p class="en-title-sm">Preventing weight gain for people living with HIV in rural KwaZulu-Natal, South Africa: A qualitative study of perspectives and strategies.</p>
+          </div>
+        </div>
+        <p class="summary-sm">訪談26名過重或肥胖HIV感染者，探討轉換至TLD抗愛滋病毒藥物後面臨體重增加問題的觀點與應對策略。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42049483/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">減重介入對與心臟代謝健康相關之腸道微生物代謝物的影響：系統性文獻回顧與統合分析</h4>
+            <p class="en-title-sm">Effects of Weight Loss Interventions on Gut Microbiota-Derived Metabolites Linked to Cardiometabolic Health: A Systematic Review and Meta-Analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">系統性回顧分析減重介入對LPS、TMAO、次級膽汁酸及短鏈脂肪酸等腸道微生物代謝物的影響，揭示減重改善代謝健康的潛在機制。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42049393/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚠️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Liraglutide或Semaglutide安慰劑對照試驗中非動脈炎性前部缺血性視神經病變發生率</h4>
+            <p class="en-title-sm">Non-arteritic anterior ischaemic optic neuropathy incidence in placebo-controlled clinical trials of liraglutide or semaglutide.</p>
+          </div>
+        </div>
+        <p class="summary-sm">統合分析GLP-1受體激動劑試驗中NAION發生率，為臨床使用liraglutide或semaglutide時監測視覺副作用提供安全性數據。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42049287/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧒</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">兒童運動行為組成與身體組成之雙向關聯：比較動作協調困難與典型動作發展</h4>
+            <p class="en-title-sm">Bidirectional Association Between Movement Behavior Composition and Body Composition in Children With Motor Coordination Difficulties and Typical Motor Development.</p>
+          </div>
+        </div>
+        <p class="summary-sm">追蹤475名4-5歲兒童三年，探討清醒時運動行為與身體組成的雙向關聯，發現此關聯在動作協調困難兒童中更為顯著。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42049183/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">超越已知：肥胖與第一型糖尿病腸道-大腦軸的前瞻研究方向</h4>
+            <p class="en-title-sm">Beyond the known: prospective research directions for the gut-brain axis in obesity and type 1 diabetes mellitus.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討腸道-大腦軸在第一型糖尿病合併肥胖中的作用，提出未來研究方向，強調從相關性邁向因果關係及治療應用的需求。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42050719/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🏘️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">社區種族構成、社經地位與老年黑人肥胖之關聯</h4>
+            <p class="en-title-sm">Neighborhood Racial Composition, Socioeconomic Status, and Obesity Among Older Black Adults.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析發現居住在黑人較集中社區的老年黑人肥胖盛行率較低，探討社區種族構成與個人社經地位在肥胖中的交互作用。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42049188/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🤰</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">胎盤激素、IGF-1與早期生長：出生體型與嬰兒代謝規劃之內分泌連結系統性回顧</h4>
+            <p class="en-title-sm">Placental hormones, IGF-1, and early-life growth: endocrine links between birth size and infant metabolic programming-a systematic review.</p>
+          </div>
+        </div>
+        <p class="summary-sm">系統性回顧胎盤生長激素、人類胎盤催乳素等與胎兒生長、出生體型及早期代謝結果的關聯，探討代謝規劃的內分泌機制。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42050034/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">乳腺癌中經由ATF6-PPARγ軸對IMMT缺乏的代謝適應取決於TP53突變狀態</h4>
+            <p class="en-title-sm">Metabolic adaptation to IMMT deficiency through the ATF6-PPARγ axis is contingent on TP53 mutation status in breast cancer.</p>
+          </div>
+        </div>
+        <p class="summary-sm">揭示線粒體內膜蛋白IMMT缺失透過ATF6-PPARγ軸驅動乳腺癌細胞增殖的機制，此代謝重編程受TP53突變狀態調控。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42049712/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧪</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Linarin透過抑制NADPH氧化酶1/ROS/NLRP3發炎體信號軸緩解DSS誘導之小鼠結腸炎</h4>
+            <p class="en-title-sm">Linarin alleviates dextran sulfate sodium-induced colitis in C57BL/6J mice by suppressing the NADPH oxidase 1/ROS/NLRP3 inflammasome signaling axis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討天然黃酮類化合物linarin保護結腸炎的機制，發現其透過抑制NADPH氧化酶1/ROS/NLRP3發炎體軸發揮抗發炎作用。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42048735/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧪</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">雙氫青蒿素在膽管癌異種移植中抗腫瘤活性之療效與機制臨床前證明</h4>
+            <p class="en-title-sm">Preclinical demonstration of the efficacy and mechanisms of antitumor activity of dihydroartemisinin in cholangiocarcinoma xenograft: Induction of autophagy and reprogramming of metabolism.</p>
+          </div>
+        </div>
+        <p class="summary-sm">評估雙氫青蒿素在膽管癌異種移植模型中的抗腫瘤效果，發現其透過誘導自噬與代謝重編程發揮作用，且無顯著體重減輕毒性。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42048718/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">臨床核准之PPARα/δ/γ亞型選擇性激動劑組合治療飲食誘導早期MASLD小鼠模型</h4>
+            <p class="en-title-sm">Combination therapy with clinically approved PPARα/δ/γ subtype-selective agonists pemafibrate, seladelpar, and pioglitazone in a 4-week diet-induced early-stage MASLD mouse model.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討pemafibrate、seladelpar及pioglitazone單獨或合併使用在早期代謝功能障礙相關脂肪肝疾病模型中的治療效果。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42048716/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌍</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">非洲全球綜合徵之流行病學：新證據與關鍵見解</h4>
+            <p class="en-title-sm">The Epidemiology of the Global Syndemic in Africa: New Evidence and Key Insights.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧2019-2025年文獻，顯示非洲成人肥胖盛行率達12%，女性約17%顯著高於男性7%，探討營養不良、肥胖與氣候變遷的交互作用。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42043723/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🫁</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">腸道-肺部軸、表觀遺傳學與呼吸系統疾病</h4>
+            <p class="en-title-sm">The Gut-Lung Axis, Epigenetics and Respiratory Disease.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討腸道菌相失調透過腸道-肺部軸影響呼吸系統疾病的機制，涉及短鏈脂肪酸、腸道通透性及表觀遺傳調控。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42052832/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🚨</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Semaglutide起始後快速減重誘發正常甲狀腺功能病態綜合徵：病例報告</h4>
+            <p class="en-title-sm">Euthyroid Sick Syndrome Precipitated By Rapid Weight Loss Following Semaglutide Initiation: A Case Report.</p>
+          </div>
+        </div>
+        <p class="summary-sm">報告一名54歲女性使用semaglutide減重22公斤後出現正常甲狀腺功能病態綜合徵，提醒臨床醫師監測GLP-1用藥後甲狀腺功能。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42052217/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🦠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">人類飲食與腸道微生物組之協同進化：對營養基因組學與跨人群健康的影響</h4>
+            <p class="en-title-sm">Coevolution of Human Diet and Gut Microbiome: Implications for Nutrigenomics and Cross-Population Health.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧人類飲食與腸道微生物組的協同進化歷史，探討現代加工食品對微生物多樣性的影響及對個人化營養的啟示。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42051940/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">下視丘能量恆定調節：何去何從</h4>
+            <p class="en-title-sm">Hypothalamic regulation of energy homeostasis: Quo vadis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討下視丘作為能量恆定中樞調節器的最新研究進展，回顧神經內分泌機制在肥胖中的角色。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42053913/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">SGLT2抑制劑與GLP-1受體激動劑在第二型糖尿病中的腎臟難題</h4>
+            <p class="en-title-sm">SGLT2 Inhibitors versus GLP-1 Receptor Agonists Type 2 Diabetes, The Kidney Conundrum.</p>
+          </div>
+        </div>
+        <p class="summary-sm">比較SGLT2抑制劑與GLP-1受體激動劑在第二型糖尿病患者中的腎臟保護效果，探討臨床選擇的考量因素。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42054103/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">8</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+          <span class="bar-count">6</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:38%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:38%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:13%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:13%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill" style="width:13%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">公共衛生</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">GLP-1受體激動劑</span><span class="keyword-pill">腸道微生物組</span><span class="keyword-pill">Tirzepatide</span><span class="keyword-pill">Semaglutide</span><span class="keyword-pill">減重手術</span><span class="keyword-pill">體重管理</span><span class="keyword-pill">高強度間歇訓練</span><span class="keyword-pill">短鏈脂肪酸</span><span class="keyword-pill">腸道-大腦軸</span><span class="keyword-pill">下視丘</span><span class="keyword-pill">心血管風險</span><span class="keyword-pill">藥物交互作用</span><span class="keyword-pill">代謝症候群</span><span class="keyword-pill">青少年肥胖</span><span class="keyword-pill">惡病質</span><span class="keyword-pill">視神經病變</span><span class="keyword-pill">PPAR激動劑</span><span class="keyword-pill">表觀遺傳學</span><span class="keyword-pill">社區環境</span><span class="keyword-pill">第二型糖尿病</span><span class="keyword-pill">腸道微生物代謝物</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by GLM-5-Turbo &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
