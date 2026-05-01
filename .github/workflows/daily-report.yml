@@ -10,6 +10,7 @@ on:
         required: false
         default: ""
 
+# Minimum permissions required for the workflow
 permissions:
   contents: write
 
@@ -18,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
           fetch-depth: 0
 
@@ -34,8 +35,9 @@ jobs:
       - name: Determine date
         id: date
         run: |
-          if [ -n "${{ github.event.inputs.date }}" ]; then
-            echo "target=${{ github.event.inputs.date }}" >> $GITHUB_OUTPUT
+          INPUT_DATE="${{ github.event.inputs.date }}"
+          if [ -n "$INPUT_DATE" ]; then
+            echo "target=$INPUT_DATE" >> $GITHUB_OUTPUT
           else
             TARGET=$(TZ=Asia/Taipei date +%Y-%m-%d)
             echo "target=$TARGET" >> $GITHUB_OUTPUT
