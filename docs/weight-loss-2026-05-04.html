@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年5月4日（星期一）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年5月4日（星期一）</p>
+    <span class="stats">本日收錄 19 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">超越減重：將GLP-1受體促效劑整合於肥胖與暴食症的心理與行為照護</h3>
+            <p class="en-title">Beyond weight loss: Integrating GLP-1 RA therapies into psychological and behavioral care for obesity and binge eating disorder.</p>
+          </div>
+        </div>
+        <p class="summary">GLP-1受體促效劑帶來減重突破，但其在神經行為層面的影響同樣關鍵。本文採生物心理社會觀點，探討GLP-1 RA如何調節食慾、獎勵敏感性與自我控制，特別針對合併暴食症或精神共病的肥胖患者。研究提出一項創新臨床框架，主張應將藥物治療與心理行為介入整合。GLP-1 RA誘發的食慾與食物獎勵暫時下降，被視為一個「低驅動視窗」，若能在此黃金時期同步介入認知行為治療，將有助於強化自我調節能力，打破暴食循環，從而實現更持久的生活方式改變與體重維持。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">肥胖與暴食症患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">GLP-1受體促效劑合併心理行為介入</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">單一藥物或單一心理治療</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">行為改變、暴食頻率下降與長期減重維持</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068458/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">💉</span>
+          <div class="card-titles">
+            <h3 class="zh-title">GLP-1受體促效劑與二甲雙胍在預防抗精神病藥物患者糖尿病方面的有效性比較</h3>
+            <p class="en-title">Effectiveness of GLP-1RA vs metformin for diabetes prevention in antipsychotic-treated patients.</p>
+          </div>
+        </div>
+        <p class="summary">抗精神病藥物常導致嚴重的體重增加與代謝異常。本回顧性世代研究利用全球數據庫，納入近萬名使用抗精神病藥且合併過重或肥胖的成人，比較GLP-1 RA與二甲雙胍在預防第二型糖尿病及降低體重方面的成效。經傾向分數匹配後，發現在治療後1至5年的追蹤期內，起始使用GLP-1 RA的患者，其新發生糖尿病的風險與全因死亡率均顯著低於二甲雙胍組，且BMI下降幅度更大。此研究為精神科高代謝風險族群的精準預防與藥物選擇提供了強力實證。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">服用抗精神病藥物且合併過重或肥胖的成人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">GLP-1受體促效劑</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">二甲雙胍</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">新發生第二型糖尿病率、全因死亡率與BMI變化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068648/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">👨‍🍳</span>
+          <div class="card-titles">
+            <h3 class="zh-title">遠距烹飪醫學計畫後的一年減重效果：雙中心隨機對照試驗</h3>
+            <p class="en-title">One-Year Weight Loss Following a Remote Culinary Medicine Program: A Bi-Center Randomized Controlled Trial.</p>
+          </div>
+        </div>
+        <p class="summary">遠距醫療在慢性病管理的應用日益廣泛，但「烹飪醫學」的長期效果尚待驗證。本雙中心隨機對照試驗招募BMI介於27.5至35的成年人，將其分為「飲食諮商加上12次遠距烹飪醫學課程」的干預組，以及「僅飲食諮商加上自學資源」的對照組。結果顯示，干預組在3個月時即出現顯著減重，且此成效能穩定維持至12個月。這項研究證實，結合實作技能的遠距烹飪介入不僅能短期改善飲食品質，更是實現長期體重管理且具高擴展性的有效策略。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">BMI 27.5-35 kg/m²的成年人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">飲食諮商合併12次遠距烹飪醫學課程</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">飲食諮商合併自學資源</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">12個月後的體重變化與營養指標</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/41947527/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">陣發性偏頭痛的代謝功能障礙與代謝管理</h3>
+            <p class="en-title">Metabolic Dysfunction and Metabolic Management in Episodic Migraine.</p>
+          </div>
+        </div>
+        <p class="summary">偏頭痛與代謝症候群之間存在顯著的雙向關聯，尤其是慢性或難治型偏頭痛患者，發展為代謝異常的風險更高。本文回顧近期文獻，探討肥胖、高血壓、高凝血與糖尿病等代謝症候群後遺症如何與偏頭痛交互作用。研究指出，規律運動與減重不僅能改善代謝，更是有效的偏頭痛預防與治療手段。此外，GLP-1受體促效劑等新型減重藥物，展現出同時緩解偏頭痛與治療肥胖的潛力，為共病患者開闢了嶄新的治療思維。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">合併代謝症候群與肥胖的偏頭痛患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">減重、運動與GLP-1受體促效劑</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">傳統偏頭痛藥物治療</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">偏頭痛發作頻率、嚴重度與代謝指標改善</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068433/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🌐</span>
+          <div class="card-titles">
+            <h3 class="zh-title">飲食障礙與肥胖的共同大腦因子：功能性近紅外光譜研究的系統性回顧</h3>
+            <p class="en-title">Shared Brain factors in eating disorders and obesity: a systematic review of functional near-infrared spectroscopy (fNIRS) studies.</p>
+          </div>
+        </div>
+        <p class="summary">飲食障礙與肥胖過去被視為獨立疾病，但越來越多證據顯示兩者在基因、神經生物與行為層面有重疊的脆弱性。本系統性回顧聚焦於功能性近紅外光譜技術，檢視厭食症、暴食症與肥胖患者的大腦皮質活動。結果發現，這些族群在衝動控制、獎勵處理與情緒調節上存在共通的異常，特別是前額葉皮質的功能變化。fNIRS作為一種臨床易取得的工具，不僅有助於釐清疾病的共病機制，未來也可能作為評估治療反應的客觀生物標記。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">飲食障礙與肥胖患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">功能性近紅外光譜檢測</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">健康對照組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">前額葉皮質活動與執行功能差異</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068457/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#6</span>
+          <span class="emoji">🦠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">乳酸菌與內源性乙醇介導質子幫浦抑制劑相關的代謝功能障碍相關脂肪性肝病</h3>
+            <p class="en-title">Lactic acid bacteria and endogenous ethanol mediate proton pump inhibitor-associated MASLD: a multicohort cross-sectional mediation analysis.</p>
+          </div>
+        </div>
+        <p class="summary">質子幫浦抑制劑（PPI）廣泛使用，但多項研究指出其與代謝功能障碍相關脂肪性肝病（MASLD）的關聯。本研究在減重手術族群與一般族群中進行腸道菌中介分析，旨在釐清其病理機制。研究鎖定乳酸菌等特定細菌叢，並評估微生物衍生之內源性乙醇的連續中介路徑。結果發現，PPI的使用會改變腸道菌相，增加特定乳酸菌豐度，進而提升腸道內源性乙醇濃度，這條路徑有效解釋了PPI導致脂肪肝變化的部分機制，為用藥安全提供重要警訊。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">使用PPI的減重手術患者與一般族群</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">PPI使用與腸道微生物群變化</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">未使用PPI者</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">脂肪肝等級與餐後內源性乙醇濃度</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42070114/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">二甲雙胍在第二型糖尿病中的神經認知機制與精準藥物治療</h4>
+            <p class="en-title-sm">Metformin in T2DM: neurocognitive mechanisms and precision pharmacotherapy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討二甲雙胍對中樞神經的雙面刃效應，兼具神經保護與因B12缺乏致神經毒性之風險，並與新型降糖藥比較其對認知功能的影響。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068584/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🥗</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">銀屑病的輔助策略：全面管理的非藥物方法</h4>
+            <p class="en-title-sm">Complementary strategies in Psoriasis - non-pharmacological approaches for comprehensive management.</p>
+          </div>
+        </div>
+        <p class="summary-sm">銀屑病常伴隨肥胖等代謝問題。本回顧分析飲食調整、微量元素、運動及心理介入等非藥物療法作為輔助治療的證據，強調地中海飲食的角色。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42070323/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🦠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">兒童SARS-CoV-2結果研究：感染與未感染參與者長期症狀的12個月縱向分析</h4>
+            <p class="en-title-sm">Pediatric SARS-CoV-2 outcomes study (PECOS): 12-month longitudinal analysis of post-COVID symptoms in infected versus uninfected participants.</p>
+          </div>
+        </div>
+        <p class="summary-sm">針對0-21歲青少年追蹤一年，比較感染與未感染者的症狀差異，識別出20種在感染者中更常見的症狀，以了解兒童長期新冠的演變。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42070008/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">超越減重：將GLP-1受體促效劑整合於肥胖與暴食症的心理與行為照護</h4>
+            <p class="en-title-sm">Beyond weight loss: Integrating GLP-1 RA therapies into psychological and behavioral care for obesity and binge eating disorder.</p>
+          </div>
+        </div>
+        <p class="summary-sm">GLP-1受體促效劑除減重外，能調節食慾與獎勵敏感性。本文提出將藥物與心理介入整合的框架，利用食慾下降的「低驅動視窗」促進暴食症患者的行為改變。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068458/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">陣發性偏頭痛的代謝功能障礙與代謝管理</h4>
+            <p class="en-title-sm">Metabolic Dysfunction and Metabolic Management in Episodic Migraine.</p>
+          </div>
+        </div>
+        <p class="summary-sm">偏頭痛與代謝症候群密切相關。本文回顧減重與運動作為偏頭痛治療的證據，並指出GLP-1受體促效劑等新藥可能同時改善肥胖與偏頭痛。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068433/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🩺</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">胰臟導管腺癌患者的疼痛病理生理學、評估與治療</h4>
+            <p class="en-title-sm">Pathophysiology, assessment, and treatment of pain in patients with pancreatic ductal adenocarcinoma.</p>
+          </div>
+        </div>
+        <p class="summary-sm">超過60%胰臟癌患者伴隨嚴重疼痛，且隨病情惡化伴隨厭食與體重減輕。本文詳述腫瘤生長與中樞致敏等疼痛機制，強調多維度評估的重要性。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068358/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📝</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">西班牙語版BEDS-7在智利高症狀樣本中的跨文化調適與心理測量評估</h4>
+            <p class="en-title-sm">Cross-cultural adaptation and psychometric evaluation of the Spanish BEDS-7 in a high-symptom Chilean sample: evidence for a two-factor model.</p>
+          </div>
+        </div>
+        <p class="summary-sm">將暴食症篩檢工具BEDS-7翻譯為西班牙語並在智利過重/肥胖成人中驗證，確認其雙因子模型具良好信效度，有助於西語系族群的臨床篩檢。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42069661/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌐</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">飲食障礙與肥胖的共同大腦因子：功能性近紅外光譜研究的系統性回顧</h4>
+            <p class="en-title-sm">Shared Brain factors in eating disorders and obesity: a systematic review of functional near-infrared spectroscopy (fNIRS) studies.</p>
+          </div>
+        </div>
+        <p class="summary-sm">利用fNIRS技術檢視飲食障礙與肥胖的大腦皮質活動，發現前額葉皮質在衝動控制與獎勵處理的功能異常是兩者的共通神經生物特徵。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068457/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">利用食物線索誘發的神經影像學優化肥胖與暴食症的治療</h4>
+            <p class="en-title-sm">Harnessing food cue evoked neuroimaging towards treatment optimisation for obesity and binge eating disorder.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本範圍回顧分析57項fMRI研究，探討食物線索反應性作為預測與反應生物標記物的潛力，有助於針對藥物或心理介入制定個人化策略。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068456/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🩸</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">中國血脂異常的血脂水準與風險分層管理缺口</h4>
+            <p class="en-title-sm">Lipid levels and risk-stratified management gaps of dyslipidemia in China.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析中國60萬名門診患者發現，女性、中年及肥胖者膽固醇較高。研究揭示了不同地區與社經地位下的血脂控制率差異，指出管理存在顯著缺口。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42069594/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🏘️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">兒童機會指數與先天性心臟病青少年肥胖及高血壓的盛行率</h4>
+            <p class="en-title-sm">Child Opportunity Index and Prevalence of Obesity and Hypertension in Adolescents with Congenital Heart Disease.</p>
+          </div>
+        </div>
+        <p class="summary-sm">利用地理定位計算社區機會指數，發現居住在低機會地區的先天性心臟病青少年，其肥胖與高血壓盛行率顯著更高，凸顯社會決定因素的影響。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068340/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🥫</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">糧食不安全家庭中的營養安全、飲食品質與糧食援助計畫使用情形</h4>
+            <p class="en-title-sm">Nutrition security, diet quality, and food assistance program use among food insecure households with children.</p>
+          </div>
+        </div>
+        <p class="summary-sm">區分糧食安全與營養安全，分析顯示低營養安全的家庭飲食品質較差，且嚴重程度與糧食援助計畫使用率相關，強調需提升援助的健康促進功能。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068285/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">👨‍👩‍👧</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">在真實世界環境中檢視共病精神病理症狀作為神經性厭食症青少年家庭基礎治療的預測因子</h4>
+            <p class="en-title-sm">Examining Comorbid Psychopathology Symptoms as Predictors of Family Based Treatment for Adolescents With Anorexia Nervosa and Atypical Anorexia Nervosa in a Real-World Setting.</p>
+          </div>
+        </div>
+        <p class="summary-sm">針對135名接受家庭基礎治療的厭食症青少年進行前瞻性研究，發現患者本身的共病精神病理症狀是影響治療結果的重要預測因子。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068578/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💉</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1受體促效劑與二甲雙胍在預防抗精神病藥物患者糖尿病方面的有效性比較</h4>
+            <p class="en-title-sm">Effectiveness of GLP-1RA vs metformin for diabetes prevention in antipsychotic-treated patients.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧性比較近萬名抗精神病藥物合併過重/肥胖成人，發現GLP-1RA在1至5年內預防糖尿病、降低全因死亡率及減重效果上均顯著優於二甲雙胍。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068648/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">👨‍🍳</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">遠距烹飪醫學計畫後的一年減重效果：雙中心隨機對照試驗</h4>
+            <p class="en-title-sm">One-Year Weight Loss Following a Remote Culinary Medicine Program: A Bi-Center Randomized Controlled Trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">雙中心RCT顯示，合併12次遠距烹飪醫學課程與飲食諮商的干預組，在3個月顯著減重並成功維持至12個月，證實遠距烹飪介入對長期體重管理的有效性。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/41947527/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🦠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">乳酸菌與內源性乙醇介導質子幫浦抑制劑相關的代謝功能障碍相關脂肪性肝病</h4>
+            <p class="en-title-sm">Lactic acid bacteria and endogenous ethanol mediate proton pump inhibitor-associated MASLD: a multicohort cross-sectional mediation analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">在減重手術與一般族群中進行腸道菌中介分析，發現PPI會增加乳酸菌豐度並提升內源性乙醇，此路徑解釋了PPI導致脂肪肝的部分機制。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42070114/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🚶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">周邊血管介入治療成功後下肢周邊動脈疾病患者的次級預防策略</h4>
+            <p class="en-title-sm">Secondary Prevention Strategies For Patients with Lower Extremity Peripheral Artery Disease After Successful Peripheral Vascular Intervention.</p>
+          </div>
+        </div>
+        <p class="summary-sm">強調下肢周邊動脈疾病患者在血管重建後，面臨極高心血管風險，必須採取包含症狀控制、生活型態改變與藥物的積極次級預防策略。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42069036/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">連接蛋白43的亞細胞定位：從運輸動態到病理生理結果與治療機會</h4>
+            <p class="en-title-sm">Connexin 43 subcellular localization: From trafficking dynamics to pathophysiological outcomes and therapeutic opportunities.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討連接蛋白43在細胞膜、細胞核與線粒體間的動態轉位，及其運輸異常導致心律不整、缺血再灌注損傷等病理狀態的機制與治療潛力。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42069098/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🫀</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">使用Reprieve系統進行急性心衰竭的體液管理：FASTR隨機對照試驗</h4>
+            <p class="en-title-sm">Fluid Management of Acute Heart Failure With the Reprieve System: The Randomized Controlled FASTR Trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">評估自動化利尿劑滴定系統在急性心衰竭去充血治療中的效果，結果顯示該系統能提供個別化鈉離子補充，實現更安全快速的尿液鈉排泄。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42068320/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">GLP-1受體促效劑</span><span class="keyword-pill">肥胖</span><span class="keyword-pill">暴食症</span><span class="keyword-pill">糖尿病預防</span><span class="keyword-pill">二甲雙胍</span><span class="keyword-pill">烹飪醫學</span><span class="keyword-pill">減重</span><span class="keyword-pill">代謝症候群</span><span class="keyword-pill">偏頭痛</span><span class="keyword-pill">神經影像學</span><span class="keyword-pill">食物線索</span><span class="keyword-pill">前額葉皮質</span><span class="keyword-pill">飲食障礙</span><span class="keyword-pill">篩檢工具</span><span class="keyword-pill">血脂異常</span><span class="keyword-pill">先天性心臟病</span><span class="keyword-pill">社會決定因素</span><span class="keyword-pill">營養安全</span><span class="keyword-pill">減重手術</span><span class="keyword-pill">腸道菌</span><span class="keyword-pill">內源性乙醇</span><span class="keyword-pill">脂肪肝</span><span class="keyword-pill">心血管疾病</span><span class="keyword-pill">體重管理</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by GLM-5-Turbo &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
