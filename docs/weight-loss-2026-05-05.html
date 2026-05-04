@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年5月5日（星期二）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年5月5日（星期二）</p>
+    <span class="stats">本日收錄 29 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">每週一次Semaglutide治療酒精使用障礙合併肥胖患者：隨機雙盲安慰劑對照試驗</h3>
+            <p class="en-title">Once-weekly semaglutide versus placebo in patients with alcohol use disorder and comorbid obesity: a randomised, double-blind, placebo-controlled trial.</p>
+          </div>
+        </div>
+        <p class="summary">本研究發表於Lancet，為期26週的單中心RCT，評估Semaglutide 2.4mg對中度至重度酒精使用障礙合併肥胖患者的療效。主要終點為危險飲酒天數減少比例。結果顯示Semaglutide組在減少酒精攝取方面優於安慰劑，同時達到顯著減重效果。此研究開創GLP-1受體激動劑於成癮醫學的新適應症，對臨床實務具有重大意義，為同時患有酒精使用障礙與肥胖的患者提供雙重獲益的治療選擇。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">中度至重度酒精使用障礙合併肥胖之求治患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">Semaglutide 2.4mg皮下注射每週一次</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">安慰劑（生理食鹽水皮下注射）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">危險飲酒天數比例減少及體重下降</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42070571/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">📱</span>
+          <div class="card-titles">
+            <h3 class="zh-title">獨立數位生活型態介入對過重或肥胖成人體重相關結果的影響：隨機對照試驗之系統性文獻回顧與統合分析</h3>
+            <p class="en-title">Effects of Stand-Alone Digital Lifestyle Interventions on Weight-Related Outcomes in Adults With Overweight or Obesity: Systematic Review and Meta-Analysis of Randomized Controlled Trials.</p>
+          </div>
+        </div>
+        <p class="summary">本系統性回顧與統合分析聚焦於「純數位」生活型態介入（不含面對面或人工輔助），評估其對過重或肥胖成人的減重效果。搜尋五大資料庫至2026年3月，收錄符合條件的RCT。研究釐清純數位介入的獨立效果，排除混雜因素干擾。結果顯示獨立數位介入能產生有意義的體重下降與飲食改善，為醫療體系提供可擴展的減重解決方案，特別適合資源有限或偏遠地區應用。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">過重或肥胖成人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">純數位生活型態介入（無人工輔助）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">常規照護或對照組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">體重、BMI及飲食行為變化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42081742/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">📉</span>
+          <div class="card-titles">
+            <h3 class="zh-title">減重及其對軟組織的影響</h3>
+            <p class="en-title">Weight Loss and Its Impact on Soft Tissue.</p>
+          </div>
+        </div>
+        <p class="summary">本敘述性回顧探討快速減重（透過減重手術、GLP-1受體激動劑或強化生活型態改變）對皮膚、肌肉與骨骼等軟組織的影響。文獻顯示快速減重常導致皮膚鬆弛、肌肉流失及骨密度下降等問題。本文詳述這些皮膚科與結構性後果，並回顧現有及新興的管理策略，包括皮膚緊實治療、阻力訓練與營養補充。對於開立減重藥物的臨床醫師極具參考價值，有助於預先告知患者並制定完整照護計畫。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">接受快速減重治療的個體</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">減重手術、GLP-1受體激動劑或強化生活型態改變</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">減重前後比較</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">皮膚緊實度、肌肉量、骨密度變化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42081631/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">⏰</span>
+          <div class="card-titles">
+            <h3 class="zh-title">限制時間進食的心血管代謝效應</h3>
+            <p class="en-title">Cardiometabolic effects of time-restricted eating.</p>
+          </div>
+        </div>
+        <p class="summary">本迷你回顧統整限制時間進食（TRE，每日進食窗4-10小時）之RCT與統合分析證據。TRE無需計算熱量，透過晝夜節律對齊與延長空腹狀態發揮代謝效益。研究發現TRE相較於自由進食有適度減重效果，但與熱量限制相比無一致優勢。對血糖控制、胰島素敏感度與血脂的影響通常較小且因情境而異，血壓改善相對較為一致。本文為臨床醫師提供TRE的客觀評估，有助於與患者進行循證討論。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">一般成人或代謝異常個體</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">限制時間進食（4-10小時進食窗）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">自由進食或熱量限制</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">體重、血糖、血脂、血壓變化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/41954637/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🚶</span>
+          <div class="card-titles">
+            <h3 class="zh-title">過重/肥胖成人步數與減重的一年軌跡：回顧性世代研究</h3>
+            <p class="en-title">One-Year Trajectory of Step Counts and Weight Loss in Adults With Overweight/Obesity: Retrospective Cohort Study.</p>
+          </div>
+        </div>
+        <p class="summary">本研究利用日本「Asmile」行動健康App資料，運用潛在類別混合模型分析過重及肥胖成人長期步數變化模式與減重效果。不同於過去受限於小樣本與短期測量的研究，本追蹤一年期的研究發現持續增加步數的參與者減重效果最佳。研究證實長期規律增加日常活動量是有效的體重管理策略，支持將步數追蹤納入數位健康介入工具，為醫療人員提供具體的運動處方建議基礎。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">過重或肥胖成人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">長期步數變化（透過App追蹤）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">不同步數軌跡群組比較</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">一年內體重變化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42081745/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#6</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">GLP-1受體激動劑與第一型糖尿病成人急性糖尿病併發症</h3>
+            <p class="en-title">GLP-1 receptor agonists and acute diabetes complications in adults with type 1 diabetes.</p>
+          </div>
+        </div>
+        <p class="summary">本研究使用OneFlorida+電子病歷資料（2014-2024），以目標試驗模擬方法評估GLP-1受體激動劑用於第一型糖尿病合併肥胖患者的安全性。經1:1時間條件傾向分數配對後，納入651名啟動GLP-1 RA與651名未啟動者。結果顯示GLP-1 RA啟動與糖尿病酮酸中毒或嚴重低血糖無顯著相關，且與較少住院相關。此發現為T1D患者使用GLP-1 RA減重提供安全性 reassurance，但需更多前瞻性研究確認。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">第一型糖尿病合併肥胖且符合抗肥胖藥物標準的成人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">啟動GLP-1受體激動劑</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">未啟動GLP-1受體激動劑</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">糖尿病酮酸中毒、嚴重低血糖、住院風險</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42080136/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#7</span>
+          <span class="emoji">🩺</span>
+          <div class="card-titles">
+            <h3 class="zh-title">日本第二型糖尿病患者從注射型GLP-1受體激動劑轉換為口服Semaglutide後三年腎功能變化：回顧性世代研究</h3>
+            <p class="en-title">Three-year changes in renal function after switching from injectable GLP-1 receptor agonists to oral semaglutide in Japanese patients with type 2 diabetes: a retrospective cohort study.</p>
+          </div>
+        </div>
+        <p class="summary">本研究評估36名T2D患者從Liraglutide或Dulaglutide轉換為口服Semaglutide 7mg/天的長期腎功能影響。比較轉換前後各三年的尿白蛋白/肌酐比值（UACR）與年化eGFR斜率變化。轉換三年後，UACR中位數顯著下降，顯示口服Semaglutide具有腎保護效果。此真實世界證據補充FLOW試驗發現，支持注射型轉口服治療的可行性，為臨床轉換決策提供實用參考。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">第二型糖尿病患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">從注射型GLP-1 RA轉換為口服Semaglutide</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">轉換前後各三年比較</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">UACR變化、eGFR斜率</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42078492/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🚶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">過重/肥胖成人步數與減重的一年軌跡：回顧性世代研究</h4>
+            <p class="en-title-sm">One-Year Trajectory of Step Counts and Weight Loss in Adults With Overweight/Obesity: Retrospective Cohort Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">利用日本行動App資料分析長期步數模式與減重關係，發現持續增加步數者減重效果最佳，支持步數追蹤作為數位健康介入工具。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42081745/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📱</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">獨立數位生活型態介入對過重或肥胖成人體重相關結果的影響：系統性回顧與統合分析</h4>
+            <p class="en-title-sm">Effects of Stand-Alone Digital Lifestyle Interventions on Weight-Related Outcomes in Adults With Overweight or Obesity: Systematic Review and Meta-Analysis of Randomized Controlled Trials.</p>
+          </div>
+        </div>
+        <p class="summary-sm">系統性回顧純數位生活型態介入（無人工輔助）的減重效果，證實其能產生有意義的體重下降，提供可擴展的減重解決方案。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42081742/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧪</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">新型二氫神經醯胺去飽和酶抑制劑的合成與生物評估用於治療MASLD</h4>
+            <p class="en-title-sm">Synthesis and Biological Evaluation of a New Dihydroceramide Desaturase Inhibitor for the Treatment of MASLD.</p>
+          </div>
+        </div>
+        <p class="summary-sm">篩選δ-生育三烯酚衍生物，鑑定出GAA-4OH為強效且不可逆的DEGS1抑制劑，在奈莫爾濃度下活性超越現有化合物，具治療MASLD潛力。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42080374/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🎬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">TikTok與Bilibili上Semaglutide相關短影音的品質與可靠性</h4>
+            <p class="en-title-sm">Quality and Reliability of Semaglutide-Related Short Videos on TikTok and Bilibili.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析TikTok與Bilibili前100支Semaglutide相關短影音，使用JAMA標準與GQS評估品質，發現大量非實證內容，對公眾健康構成風險。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42077173/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">👶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">社區兒童過重與肥胖全系統方法的實施評估：英國威爾斯兒童與家庭試點計畫發現</h4>
+            <p class="en-title-sm">Implementation evaluation of a whole systems approach (WSA) to childhood overweight and obesity in local communities: findings from the Children and Families Pilot in Wales, UK.</p>
+          </div>
+        </div>
+        <p class="summary-sm">評估威爾斯PIPYN計畫（結合全系統方法與家庭介入）的實施狀況，透過質性訪談了解系統變革與兒童肥胖防治的知覺影響。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42071209/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧩</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">自閉症卓越健康狀態的路徑：2022年全國兒童健康調查的次級分析</h4>
+            <p class="en-title-sm">Pathways to Excellent Health Status in Autism: A Secondary Analysis of the 2022 National Survey of Children's Health.</p>
+          </div>
+        </div>
+        <p class="summary-sm">運用巧合分析法探討自閉症兒童達到「極佳/非常好」健康狀態的必要與充分條件，識別影響健康的關鍵因子。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42080250/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🍎</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">兒童與青少年的營養與食物行為：健康促進觀點</h4>
+            <p class="en-title-sm">Nutrition and food behaviours of children and adolescents: a health promotion perspective.</p>
+          </div>
+        </div>
+        <p class="summary-sm">從健康促進角度回顧兒童青少年飲食不平等與肥胖問題，強調學校環境與公共政策對改善飲食習慣的重要性。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42077147/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🦠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">金黃色葡萄球菌透過協調中央代謝酶活性適應宿主營養環境</h4>
+            <p class="en-title-sm">Staphylococcus aureus adapts to the host nutritional environment by coordinating the activity of central metabolic enzymes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討金黃色葡萄球菌如何協調Pta-AckA途徑與PDH複合體活性以適應不同感染部位的營養限制，揭示其代謝彈性機制。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42081561/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">VGF介導的粒線體重塑促進肺腺癌腦轉移</h4>
+            <p class="en-title-sm">VGF-Mediated Mitochondrial Remodeling Fuels Lung Adenocarcinoma Brain Metastasis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">鑑定神經肽VGF為肺腺癌腦轉移的關鍵驅動因子，透過增強粒線體氧化磷酸化促進細胞存活，為治療標的提供新方向。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42076952/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">生殖歷史差異性塑造中年hAPOEε4雌鼠在代謝挑戰後對雌二醇治療的神經反應</h4>
+            <p class="en-title-sm">Reproductive history differentially shapes the neural response of middle-aged hAPOEε4 female rats to estradiol therapy after a metabolic challenge.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討產次、APOE基因型與代謝狀態如何影響中年雌鼠對雌二醇治療的反應，包括體重、發炎與海馬神經發生等指標。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42071257/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">✋</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">幼兒期視覺動作整合技能的文獻計量分析</h4>
+            <p class="en-title-sm">Bibliometric analysis of visual-motor integration skills in early childhood.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析490篇幼兒視覺動作整合研究，揭示40年來的研究趨勢、主題分布與國家產出，識別智力與動作認知技能等核心主題。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42070978/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🏥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">中國西南農村地區非傳染病多重共病流行率與模式跨社會經濟光譜的變化</h4>
+            <p class="en-title-sm">Changes in prevalence and patterns of non-communicable disease multimorbidity across socioeconomic spectra in rural Southwest China.</p>
+          </div>
+        </div>
+        <p class="summary-sm">調查中國西南農村地區八種常見NCD多重共病的流行率與模式，分析不同社會經濟地位下的差異，使用關聯規則挖掘識別共病模式。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42071264/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">每週一次Semaglutide治療酒精使用障礙合併肥胖患者：隨機雙盲安慰劑對照試驗</h4>
+            <p class="en-title-sm">Once-weekly semaglutide versus placebo in patients with alcohol use disorder and comorbid obesity: a randomised, double-blind, placebo-controlled trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Lancet發表的26週RCT，證實Semaglutide 2.4mg能同時減少酒精使用障礙患者的危險飲酒天數並達到顯著減重，開創GLP-1 RA於成癮醫學新應用。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42070571/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1受體激動劑與第一型糖尿病成人急性糖尿病併發症</h4>
+            <p class="en-title-sm">GLP-1 receptor agonists and acute diabetes complications in adults with type 1 diabetes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">目標試驗模擬研究顯示T1D患者啟動GLP-1 RA與DKA或嚴重低血糖無顯著相關，且住院風險較低，提供安全性 reassurance。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42080136/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">嗜酸性球衍生的COX-2透過PGE-IL-22軸保護免於實驗性結腸炎</h4>
+            <p class="en-title-sm">Eosinophil-derived COX-2 protects against experimental colitis through the PGE-IL-22 axis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">發現嗜酸性球在腸炎中表現COX-2並促進IL-22產生，缺失會加劇體重下降與腸道損傷，揭示嗜酸性球在腸道免疫調節中的保護角色。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42081718/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📉</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">減重及其對軟組織的影響</h4>
+            <p class="en-title-sm">Weight Loss and Its Impact on Soft Tissue.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧快速減重對皮膚鬆弛、肌肉流失與骨密度下降的影響，探討減重手術與GLP-1 RA引起的軟組織變化及管理策略。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42081631/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">代謝健康YouTube評論中的自述健康結果：基於規則的NLP框架開發與驗證之橫斷面研究</h4>
+            <p class="en-title-sm">Self-Reported Health Outcomes in Metabolic Health YouTube Comments: Cross-Sectional Study of Rule-Based NLP Framework Development and Validation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">開發並驗證NLP框架從治療性碳水化合物限制YouTube頻道評論中提取自述健康結果，分析觀眾報告的健康變化分布。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42077206/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⏰</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">限制時間進食的心血管代謝效應</h4>
+            <p class="en-title-sm">Cardiometabolic effects of time-restricted eating.</p>
+          </div>
+        </div>
+        <p class="summary-sm">統整TRE的RCT與統合分析證據，發現相較自由進食有適度減重效果，但與熱量限制相比無一致優勢，血壓改善相對最一致。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/41954637/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌿</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">整合微生物組與非靶向代謝組學分析揭示雨生紅球藻多醣緩解肥胖的機制</h4>
+            <p class="en-title-sm">Integrated microbiome and untargeted metabolomics analyses reveal the mechanism by which Haematococcus pluvialis polysaccharide alleviates obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究雨生紅球藻多醣對高脂飲食誘導肥胖小鼠的抗肥胖效果，發現其透過調節腸道菌群與代謝途徑改善糖脂代謝異常。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42070604/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌍</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">非洲成人高血壓管理中的自我照護實踐：範圍性文獻回顧發現</h4>
+            <p class="en-title-sm">Self-Care Practice in the Management of Hypertension Among Adults in Africa: Findings From a Scoping Review.</p>
+          </div>
+        </div>
+        <p class="summary-sm">範圍性回顧總結非洲成人高血壓自我照護策略，包括用藥遵從性、飲食、運動與體重控制，識別影響自我照護的因素。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42078556/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">多囊性卵巢症候群腸腦軸介質的代謝-內分泌相關性：病例對照研究</h4>
+            <p class="en-title-sm">Metabolic-endocrine correlates of gut-brain axis mediators in polycystic ovary syndrome: A case-control study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討PCOS患者血清kisspeptin、ghrelin、serotonin與PYY的聯合變化模式，及其與代謝風險指標的關聯，支持PCOS為神經代謝疾病的概念。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42076786/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">😢</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">中國臨海小學生體重自我污名化及其相關因素：橫斷面研究</h4>
+            <p class="en-title-sm">Weight self-stigma and associated factors among primary school students in Linhai, China: a cross-sectional study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">調查2679名小學生的體重自我污名化程度，發現過重與肥胖學生WSS顯著較高，睡眠時間與社經地位為相關因素。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42077993/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🩺</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">日本T2D患者從注射型GLP-1 RA轉換為口服Semaglutide後三年腎功能變化：回顧性世代研究</h4>
+            <p class="en-title-sm">Three-year changes in renal function after switching from injectable GLP-1 receptor agonists to oral semaglutide in Japanese patients with type 2 diabetes: a retrospective cohort study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">評估36名T2D患者轉換為口服Semaglutide前後三年的腎功能變化，發現UACR顯著下降，支持口服劑型的腎保護效果。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42078492/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧪</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">口服Withaferin A增加乳腺腫瘤小鼠模型中CD4輔助T細胞浸潤</h4>
+            <p class="en-title-sm">Oral Administration of Withaferin A Increases Infiltration of CD4Helper T Cells in a Mouse Model of Mammary Tumor.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究Withaferin A對基底樣乳癌小鼠的免疫調節作用，發現口服WA減少腫瘤重量43%，增加CD4輔助T細胞浸潤，無體重下降等副作用。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42079342/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🍍</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">水熱處理與氯化鈣應用對木瓜果實酵素與非酵素抗氧化系統的影響</h4>
+            <p class="en-title-sm">Enzymatic and Nonenzymatic Antioxidant Systems Affected by the Application of Hydrothermal Treatment and Calcium Chloride in Papaya Fruit.</p>
+          </div>
+        </div>
+        <p class="summary-sm">評估水熱處理與氯化鈣對木瓜儲存期間抗氧化系統的影響，發現處理可減少氧化壓力並維持品質。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42079361/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚕️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">胃腺癌表現為假性賁門失弛緩症：低資源環境的病例報告</h4>
+            <p class="en-title-sm">Gastric Adenocarcinoma Presenting as Pseudoachalasia: A Case Report from a Low-Resource Setting.</p>
+          </div>
+        </div>
+        <p class="summary-sm">報告76歲男性因進行性吞嚥困難與10公斤非意願體重下降就醫，最終診斷為胃賁門接合處腺癌導致的假性賁門失弛緩症。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42077565/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🤰</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">減重手術對新生兒生長參數的影響</h4>
+            <p class="en-title-sm">Impact of Bariatric Surgery on Newborn Growth Parameters.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧性研究比較36名有減重手術史與98名對照組孕婦的新生兒結果，發現手術組新生兒體重、身長與頭圍顯著較低，SGA風險增加。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42077669/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💉</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Tirzepatide對肥胖成人血清降鈣素的短期影響</h4>
+            <p class="en-title-sm">Short-term effect of tirzepatide on serum calcitonin in adults with obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">評估Tirzepatide治療肥胖患者對血清降鈣素的影響，探討其與甲狀腺髓質癌安全性監測的相關性。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42081121/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">第二型糖尿病與胰高血糖素文藝復興：恢復雙激素平衡</h4>
+            <p class="en-title-sm">Type 2 Diabetes and the Glucagon Renaissance: Restoring Bihormonal Equilibrium.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧胰高血糖素在T2D病理生理中的角色，探討GLP-1類似物與胰高血糖素拮抗劑如何恢復胰島素-胰高血糖素平衡以改善血糖控制。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42070791/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">6</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">6</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:67%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">公共衛生</span>
+          <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:17%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">Semaglutide</span><span class="keyword-pill">GLP-1受體激動劑</span><span class="keyword-pill">減重</span><span class="keyword-pill">肥胖</span><span class="keyword-pill">數位介入</span><span class="keyword-pill">第二型糖尿病</span><span class="keyword-pill">限制時間進食</span><span class="keyword-pill">兒童肥胖</span><span class="keyword-pill">體重自我污名化</span><span class="keyword-pill">腎功能</span><span class="keyword-pill">軟組織</span><span class="keyword-pill">步數</span><span class="keyword-pill">酒精使用障礙</span><span class="keyword-pill">胰高血糖素</span><span class="keyword-pill">Tirzepatide</span><span class="keyword-pill">腸腦軸</span><span class="keyword-pill">系統性回顧</span><span class="keyword-pill">隨機對照試驗</span><span class="keyword-pill">行動健康</span><span class="keyword-pill">代謝症候群</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by GLM-5-Turbo &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
