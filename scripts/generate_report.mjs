@@ -9,8 +9,8 @@ const ROOT = join(__dirname, '..');
 const DOCS = join(ROOT, 'docs');
 const DATA = join(DOCS, 'data');
 
-const API_BASE = process.env.ZHIPU_API_BASE || 'https://open.bigmodel.cn/api/coding/paas/v4';
-const MODELS = ['glm-5-turbo', 'glm-4.7', 'glm-4.7-flash'];
+const API_BASE = 'https://integrate.api.nvidia.com/v1';
+const MODELS = ['nvidia/nemotron-3-super-120b-a12b', 'nvidia/nemotron-3-nano-30b-a3b'];
 const MAX_RETRIES = 3;
 const TIMEOUT_MS = 660000;
 const MAX_TOKENS = 16384;
@@ -104,7 +104,7 @@ ${paperList}
 9. 必須回覆純 JSON，不要用 \`\`\`json 包裹`;
 }
 
-async function callGLM(prompt, model, apiKey) {
+async function callNvidia(prompt, model, apiKey) {
   const url = `${API_BASE}/chat/completions`;
   const body = {
     model,
@@ -112,9 +112,11 @@ async function callGLM(prompt, model, apiKey) {
       { role: 'system', content: '你是一位專業的減重與肥胖醫學研究分析師，擅長將研究文獻轉譯為易懂的繁體中文摘要。你必須以純 JSON 格式回覆，不要使用 markdown code block。' },
       { role: 'user', content: prompt }
     ],
-    temperature: 0.3,
-    top_p: 0.9,
-    max_tokens: MAX_TOKENS
+    temperature: 1.0,
+    top_p: 0.95,
+    max_tokens: MAX_TOKENS,
+    stream: false,
+    chat_template_kwargs: { enable_thinking: false }
   };
 
   const resp = await fetch(url, {
@@ -391,7 +393,7 @@ footer .subscribe a:hover{text-decoration:underline}
     <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
     <div class="section-divider"></div>
     <p class="footer-meta">
-      Powered by GLM-5-Turbo &middot; 資料來源：PubMed &middot;
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
       <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
     </p>
   </footer>
@@ -425,7 +427,7 @@ async function tryWithFallback(prompt, apiKey) {
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
       try {
         console.error(`[INFO] Calling ${model} (attempt ${attempt}/${MAX_RETRIES})...`);
-        const text = await callGLM(prompt, model, apiKey);
+        const text = await callNvidia(prompt, model, apiKey);
         if (text) {
           const parsed = parseJSON(text);
           if (parsed) {
@@ -451,9 +453,9 @@ async function main() {
     process.exit(1);
   }
 
-  const apiKey = process.env.ZHIPU_API_KEY;
+  const apiKey = process.env.NVIDIA_API_KEY;
   if (!apiKey) {
-    console.error('[ERROR] ZHIPU_API_KEY environment variable is required');
+    console.error('[ERROR] NVIDIA_API_KEY environment variable is required');
     process.exit(1);
   }
 
