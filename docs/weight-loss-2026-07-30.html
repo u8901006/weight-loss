@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年7月30日（星期四）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年7月30日（星期四）</p>
+    <span class="stats">本日收錄 26 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">💉</span>
+          <div class="card-titles">
+            <h3 class="zh-title">低劑量替爾泊肽在肥胖非糖尿病日本成人中的比較療效：2.5 mg  vs 5 mg</h3>
+            <p class="en-title">Low-Dose Tirzepatide for Obesity: Comparative Efficacy of 2.5 mg Versus 5 mg in Non-Diabetic Japanese Adults.</p>
+          </div>
+        </div>
+        <p class="summary">此多中心前瞻性非隨機隊列研究評估非糖尿病肥胖日本成人（BMI≥30 或 ≥27 合併併發症）使用 2.5 mg 或 5 mg 替爾泊肽（GLP-1/GIP 雙重激動劑）聯注生活方式介入的療效與安全性。參與者從 2.5 mg 起劑，4 週後根據共同決策維持或增劑至 5 mg。結果顯示兩劑量均達顯著體重減輕，5 mg 組平均減重約 8.2%，2.5 mg 組約 5.6%，且胃腸道不良反應為主要安全性關注點。低劑量替爾泊肽在真實世界中展現良好耐受性與臨床意義的體重減輕，為資源有限或對高劑量敏感人群提供可行選擇。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">非糖尿病肥胖日本成人（年齡 18-65 歲，BMI ≥30 kg/m² 或 ≥27 kg/m² 並有合併症）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">替爾泊肽 2.5 mg 或 5 mg 每週一次 + 生活方式介入</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">2.5 mg 維持劑量 vs 5 mg 增強劑量</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">體重變化百分比、安全性（不良事件）、依從性</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42521631/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">昏夜節律 disruption 為代謝性減重手術後體重軌跡的新興決定因素：範疇性文獻回顧</h3>
+            <p class="en-title">Chronodisruption as an Emerging Determinant of Weight Loss Trajectories after Metabolic Bariatric Surgery: A Scoping Review.</p>
+          </div>
+        </div>
+        <p class="summary">此範疇性回顧整理了 18 項人類研究，探討昏夜節律亂進（chronodisruption）與代謝性減重手術（MBS）後體重結果之關聯，涵蓋睡眠品質與時機、昏夜型、社會時差、營養時學、輪班工作及季節性六個領域。初步證據顯示：就寢時間晚、睡眠品質差、夕昏型、高社會時差、晚間進餐及輪班工作皆與次佳臨床反應或體重快速反彈相關。多數研究未調整關鍵混雜因子（如手術類型），但提醒臨床醫師關注患者昏夜節律健康，以優化減重手術長期效果。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">接受代謝性減重手術的成人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">昏夜節律相關因素（如睡眠時間、進餐時機、輪班工作）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">規律昏夜節律 vs 昏夜節律亂進</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">術後體重變化、體重反彈、臨床反應</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42521931/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">🥦</span>
+          <div class="card-titles">
+            <h3 class="zh-title">腦腸脂肪軸在超加工食品與肥胖中的機制整合及其對食品分類的意涵</h3>
+            <p class="en-title">The Gut-brain-adipose Axis in Ultra-processed Food and Obesity: A Mechanistic Synthesis and Its Implications for Food Classification.</p>
+          </div>
+        </div>
+        <p class="summary">本機制綜述指出，超加工食品（UPF）攝取與肥胖流行相關，並提出三個傳統上被孤立研究的機制——腸道微生物擾亂、視下腦發炎及脂肪組織功能失調——實際構成一個共享通路：UPF 中的乳化劑與非糖甜劑改變腸道微生物叢並弱化腸道屏障，導致代謝內毒素血症，進而刺激視下腦發炎與脂肪組織功能障礙，促進脂肪積累與食慾失調。此一體化觀點支持將 UPF 的健康風險納入 Nova 分類系統的依據，並暗示未來食品政策應針對其生物學機制進行監管。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">一般人群（特別是高 UPF 消費群）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">超加工食品攝取</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">低或無 UPF 飲食</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">腸道通透性、視下腦發炎標誌、脂肪組織炎症、體重增加</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42525211/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h3 class="zh-title">肥胖破壞 CtBP2 介導之視下攝食神經迴路轉錄平衡的維持</h3>
+            <p class="en-title">Obesity Disrupts CtBP2-Mediated Maintenance of Transcriptional Equilibrium in Hypothalamic Feeding Circuitry.</p>
+          </div>
+        </div>
+        <p class="summary">此研究發現，結合脂蛋白 2（CtBP2）是一個具代謝感應能力的轉錄共抑制蛋白，在視下神經中維持或exigenic（促食）與anorexigenic（抑食）肽的轉錄平衡。經 ChIP-seq 全域映射 CtBP2 結合位點並進行功能分析後發現，CtBP2 直接作用於 AgRP 和 NPY 等促食神經肽啟動子區域進行轉錄抑制。在肥胖狀態下，CtBP2 功能被破壞，導致促食訊號過度活化、攝食行為失調，進而驅動能量攝取增加與體重增加。此機制揭示了代謝訊號如何經由轉錄調控直接影響視下攝食中樞，為理解肥胖的神經生物學基礎提供關鍵證據。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">肥胖動物模型（小鼠）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">高脂飲食誘導肥胖</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">正常飲食對照組 vs 高脂飲食肥胖組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">CtBP2 在視下的結合、AgRP/NPY 轉錄表達、攝食行為、體重變化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42522895/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🍽️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Effect of Chitosan Supplementation and Lifestyle Changes on Health and Gut Microbiota in Icelandic Females With Obesity.</h3>
+            <p class="en-title">Effect of Chitosan Supplementation and Lifestyle Changes on Health and Gut Microbiota in Icelandic Females With Obesity.</p>
+          </div>
+        </div>
+        <p class="summary">此冰島雙盲安慰劑對照 randomised 試驗（N=33，BMI 30.0-54.1 kg/m²）評估每日 3 克 LipoSan Ultra 葡甲胺結合結構化生活方式介入（含飲食、運動、行為療法）12 週的效果。結果顯示，生活方式介入本身顯著增加瘦体重、握力、耐力與自我評估健康，但未顯著改變體脂或體重。葡甲胺補充組在腸道微生物層面顯示細菌多樣性暫時增加（週 2），但於週 4 與安慰劑組無顯著差異；臨床代謝指標（如血脂、空腹血糖）兩組無顯著分離。提示單獨葡甲胺對肥胖女性之代謝益處有限，其可能價值主要在腸道短暫調節，而非直接減重。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">冰島肥胖女性（BMI 30.0-54.1 kg/m²）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">每日 3 克葡甲胺 + 結構化生活方式介入</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">安慰劑 + 相同生活方式介入</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">體重、體脂、瘦体重、腸道微生物叢 (16S rRNA)、自我評估健康</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility low">臨床實用性：低</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42522290/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">小鼠胰腺腫瘤誘發關鍵咀嚼與吞嚼肌肉的病理重塑</h4>
+            <p class="en-title-sm">Murine pancreatic tumors induce pathological remodeling of muscles critical to chewing and swallowing.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究探討胰腺癌惡液質是否影響咀嚼（咬肌）與吞嚼（二腹肌）肌肉。結果顯示，患有orthotopic KPC 胰腺腫瘤的快取惡液質小鼠，其咬肌與二腹肌皆出現肌纖維萎縮與轉錄重新編程，提示惡液質導致的肌肉損傷延伸至進食關鍵肌群，可能進一步惡化營擺攝取與生活品質。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42526053/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💉</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">低劑量替爾泊肽在肥胖非糖尿病日本成人中的比較療效：2.5 mg  vs 5 mg</h4>
+            <p class="en-title-sm">Low-Dose Tirzepatide for Obesity: Comparative Efficacy of 2.5 mg Versus 5 mg in Non-Diabetic Japanese Adults.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此多中心前瞻性非隨機隊列研究評估非糖尿病肥胖日本成人（BMI≥30 或 ≥27 合併併發症）使用 2.5 mg 或 5 mg 替爾泊肽（GLP-1/GIP 雙重激動劑）聯注生活方式介入的療效與安全性。參與者從 2.5 mg 起劑，4 週後根據共同決策維持或增劑至 5 mg。結果顯示兩劑量均達顯著體重減輕，5 mg 組平均減重約 8.2%，2.5 mg 組約 5.6%，且胃腸道不良反應為主要安全性關注點。低劑量替爾泊肽在真實世界中展現良好耐受性與臨床意義的體重減輕，為資源有限或對高劑量敏感人群提供可行選擇。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42521631/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">透過 NMN 共同處理增強人臍帶間葉幹細胞對D-半糖誘導小鼠與細胞 senescence 模型之抗老化能力</h4>
+            <p class="en-title-sm">Enhancing the Anti-Aging Capacity of hUC-MSCs via NMN Co-Treatment in D-Galactose-Induced Mice and Cellular Senescence Models.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究發現，人臍帶來源間葉幹細胞（hUC-MSCs）單獨或與煙鹼單核苷酸（NMN）共同處理，可減輕D-半糖誘導小鼠之胸腺與脾臟萎縮，減緩身體重量流失，並改善運動與認知功能。聯用組效果優於單一處理，顯示NMN透過激活Nrf2/HO-1途徑減輕氧化應力與細胞老化，提升hUC-MSCs的抗免疫老化潛力，為老化相關疾病的細胞療法提供新策略。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">其他</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42520895/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Diet Quality and Micronutrient Intake Among U.S. Adults Eligible for GLP-1 Receptor Agonist Anti-Obesity Medications: A Nationally Representative Analysis.</h4>
+            <p class="en-title-sm">Diet Quality and Micronutrient Intake Among U.S. Adults Eligible for GLP-1 Receptor Agonist Anti-Obesity Medications: A Nationally Representative Analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析 NHANES 2005-2020 數據發現，符合GLP-1 RA使用資格（BMI≥30 或 ≥27 合併症）的美國成人，其飲食品質（HEI-2015 分數）顯著低於不符合資格者，尤其在全穀物、豆類與鈣攝取不足。微量營養素方面，維生素D、鈣、鈣質攝取不足比例高。提示即使準備使用GLP-1RA，此群體基礎營養風險高，需同步介入飲食品質以避免營養不良風險。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42520970/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🍷</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Incretin-based therapies, alcohol and tobacco use, and acute substance-related events: emerging implications for cardiovascular medicine.</h4>
+            <p class="en-title-sm">Incretin-based therapies, alcohol and tobacco use, and acute substance-related events: emerging implications for cardiovascular medicine.</p>
+          </div>
+        </div>
+        <p class="summary-sm">多項證據顯示GLP-1受體激動劑（如semaglutide）可降低酒精自我給與與渴求，大型真實世界研究進一步關聯其使用與降低酒精相關住院與事件。對菸草使用證據較弱，但有暗示潛在益處。此一副作用（或額外效益）提示GLP-1RA可能經由調節賞識系統影響成癮行為，對併有酒 uży disorder之糖尿病或肥胖患者具額外心血管保護潛力。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42520399/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🏥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Comparable Outcomes Following Bariatric Surgery Before or After Kidney Transplantation Support Individualized Sequencing.</h4>
+            <p class="en-title-sm">Comparable Outcomes Following Bariatric Surgery Before or After Kidney Transplantation Support Individualized Sequencing.</p>
+          </div>
+        </div>
+        <p class="summary-sm">單中心隊列研究（2012-2023）比較接受腎移植（KTx）前或後進行代謝與減重手術（MBS）的肥胖終末期腎病患者，發現兩組在手術併發症、移植物功能及存活率上無顯著差異。結果支持根據患者個別狀況（如緊急度、營養風險）靈活安排手術時序，而非強制固定順序，有助於優化資源使用與患者預後。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42522208/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔪</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">One-Year Outcomes of Sleeve-Dor Fundoplication for Obesity and Gastroesophageal Reflux Disease.</h4>
+            <p class="en-title-sm">One-Year Outcomes of Sleeve-Dor Fundoplication for Obesity and Gastroesophageal Reflux Disease.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究評估一種修飾的袖狀胃切除術（Sleeve-Dor），其在標準SG基礎上加建前方180° Dor折疊，以減少術後胃食逆流（GERD）及Barrett食管風險。一年隨訪結果顯示，該程式有效減少逆流症狀與藥物使用，且未觀察到食管癌前病變增加。顯示此技術為懼怕GERD之肥胖患者提供較安全的袖狀胃手術選項。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42522091/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💧</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Wastewater-Based Human Gut Microbiome Surveillance Links Microbial Signatures to Population Health in Ohio Communities.</h4>
+            <p class="en-title-sm">Wastewater-Based Human Gut Microbiome Surveillance Links Microbial Signatures to Population Health in Ohio Communities.</p>
+          </div>
+        </div>
+        <p class="summary-sm">透過分析俄亥俄州八城市（2022年5-6月）進水廢水樣本之人類腸道細菌叢，並結合地理空間與公共衛生數據，發現特定微生物簽名（如某些艰难梭菌科減少、來賓 bacterium 增多）與較高肥胖率、糖尿病罹患率及社會經濟劣勢顯著相關。此研究證明廢水監測可作為非侵入性、早期警戒工具，以追蹤社區腸道健康趨勢並 informing 公共衛生干預。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">公共衛生</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42520903/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🫀</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1 receptor agonists at the crossroads of diabetes, hepatic steatosis, and hepatocellular carcinoma.</h4>
+            <p class="en-title-sm">GLP-1 receptor agonists at the crossroads of diabetes, hepatic steatosis, and hepatocellular carcinoma.</p>
+          </div>
+        </div>
+        <p class="summary-sm">閱文指出GLP-1受體激動劑（GLP-1RA）不僅改善血糖與減重，同時顯著減輕代謝功能障礙相關脂肪性肝病（MASLD）及其進展為酒精性steatohepatitis（MASH），並在非肝硬化患者中降低肝細胞癌（HCC）風險。機制可能經由減少肝臟脂肪積聚、改善胰島素敏感性與抑制肝發炎。提示GLP-1RA具代謝多器官保護效應，對併有T2D與脂肪肝之肥胖患者為重要治療選擇。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42521944/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Nuclear class 3 PI3K co-activates fasting-specific chromatin remodelling.</h4>
+            <p class="en-title-sm">Nuclear class 3 PI3K co-activates fasting-specific chromatin remodelling.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究發現PI3K-3傳統上調控自噬，但在細胞核內亦充當染質共激活因子：它與磷酸化Ser5的RNA聚合酶II及Setd1a/COMPASS複合體結合，促進H3K4me3活化標誌之沉積，從而增進禁食誘導之基因轉錄。敲除PI3K-3會減少RNAPII染質結合與轉錄啟動，提示其在營養感應與表觀遺傳調控之間擔任關鍵橋梁，可能影響代謝適應與長期健康。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42521791/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1 Receptor Agonists and Risk of Skin Cancer in Adults With Type 2 Diabetes: A Target Trial Emulation.</h4>
+            <p class="en-title-sm">GLP-1 Receptor Agonists and Risk of Skin Cancer in Adults With Type 2 Diabetes: A Target Trial Emulation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">使用TriNetX EHR資料（2014-2025）擬真目標試驗，比較2型糖尿病成人 initiating GLP-1RA、SGLT2i 或 DPP4i 後3年內發生黑色素瘤與非黑色素瘤皮膚癌（NMSC）之風險。經傾向評分匹配後，GLP-1RA組與對照組（SGLT2i/DPP4i）在皮膚癌發生率上無顯著差異（HR約1.0），提示目前證據不支持GLP-1RA會顯著增加或減少皮膚癌風險，需更長期研究以確認長期安全性。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42521622/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🦴</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Effects of mitochondrial complex I subunit NDUFS5 deficiency on osteogenic differentiation.</h4>
+            <p class="en-title-sm">Effects of mitochondrial complex I subunit NDUFS5 deficiency on osteogenic differentiation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究發現，NDUFS5（線粒體複合體I subunit）在小鼠脛骨及MC3T3-E1成骨前細胞中表達降低，將導致線粒體功能受損及GABA途徑代謝紊亂，進而抑制成骨標誌（如Runx2、ALP）表達、鹼性磷酸酶活性及礦物質結節形成。提示線粒體呼吸鏈缺損不僅影響能量代謝，亦干擾骨形成代謝訊號，對代謝性疾病併發骨質疏鬆有潛在機制意涵。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42520880/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧫</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Lung cancer stem cells in the tumor microenvironment: translational biomarkers and therapeutic strategies for immune evasion and treatment resistance.</h4>
+            <p class="en-title-sm">Lung cancer stem cells in the tumor microenvironment: translational biomarkers and therapeutic strategies for immune evasion and treatment resistance.</p>
+          </div>
+        </div>
+        <p class="summary-sm">文釐清肺癌幹細胞（LCSCs）如何與腫瘤免疫微環境（TIME）相互調控：包括腫瘤相關巨噬細胞、抑制性 myeloid 細胞、調節性T細胞、纖維母細胞、缺氧及細胞外基質重塑等共同維持其幹細胞特性與癌症耐受性。強調需同時靶向LCSCs及其護龍節環境以克服治療失效，並提出轉移生物標誌（如CD133、ALDH、EpCAM結合）及聯合治療策略（免疫療法+幹細胞抑制劑）為未來方向。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42520476/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🍽️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Effect of Chitosan Supplementation and Lifestyle Changes on Health and Gut Microbiota in Icelandic Females With Obesity.</h4>
+            <p class="en-title-sm">Effect of Chitosan Supplementation and Lifestyle Changes on Health and Gut Microbiota in Icelandic Females With Obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此冰島雙盲安慰劑對照 randomised 試驗（N=33，BMI 30.0-54.1 kg/m²）評估每日 3 克 LipoSan Ultra 葡甲胺結合結構化生活方式介入（含飲食、運動、行為療法）12 週的效果。結果顯示，生活方式介入本身顯著增加瘦体重、握力、耐力與自我評估健康，但未顯著改變體脂或體重。葡甲胺補充組在腸道微生物層面顯示細菌多樣性暫時增加（週 2），但於週 4 與安慰劑組無顯著差異；臨床代謝指標（如血脂、空腹血糖）兩組無顯著分離。提示單獨葡甲胺對肥胖女性之代謝益處有限，其可能價值主要在腸道短暫調節，而非直接減重。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42522290/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Cognitive benefits of a lifestyle-induced prediabetes remission intervention in Canada.</h4>
+            <p class="en-title-sm">Cognitive benefits of a lifestyle-induced prediabetes remission intervention in Canada.</p>
+          </div>
+        </div>
+        <p class="summary-sm">在DIABEPIC-1可行性研究中，有冠心病並伴糖尿病前期（HbA1c 5.7%-6.4%）的參與者接受6個月多學科增強型心臟康復。結果顯示介入後，多項認知測試（MoCA、RAVLT、DSST、TMT、Stroop、VFT）皆有顯著改善，提示經由生活方式改變達致糖尿病前期緩解，同時可帶來認知功能受益，支持將代謝健康與腦健康視為相互關聯的目標。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42519658/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🗺️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Mapping Obesity Care Pathways and Healthcare Resource Use From 2015 to 2019 in England.</h4>
+            <p class="en-title-sm">Mapping Obesity Care Pathways and Healthcare Resource Use From 2015 to 2019 in England.</p>
+          </div>
+        </div>
+        <p class="summary-sm">透過Discover與Salford Integrated Record（SIR）兩個英格蘭連結電子健康紀錄資料庫，回顧2015-2018年間就診肥胖門診之成人（BMI≥30）。結果顯示約75%首選生活方式介入為首療，只有6.2%-16.3%獲藥物或減重手術。顯示肥胖照護仍以基礎行為介入為主，藥物與手術使用率偏低，資源分配與路徑優化尚有空間。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">減重手術</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42518524/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💓</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Changes in Lipoprotein Fractions and Lipoprotein-Associated Alpha-Tocopherol After Sleeve Gastrectomy in Patients With Severe Obesity.</h4>
+            <p class="en-title-sm">Changes in Lipoprotein Fractions and Lipoprotein-Associated Alpha-Tocopherol After Sleeve Gastrectomy in Patients With Severe Obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探索性研究分析日本嚴重肥胖患者（SG術前後）之血清脂蛋白組分（透過AEX-HPLC），發現術後LDL-C、TG顯著下降，HDL-C輕微上升；而脂蛋白結合的α-生育酚（維生素E）隨LDL-C下降而比例減少，提示雖改善異常血脂，但需監測脂溶性維生素狀態以避免潛在營養不良。結果強調減重手術後營養跟進的重要性，特別是脂溶性營養素。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42524589/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Contextual Factors Affecting SGLT2 Inhibitors and GLP-1 Receptor Agonists Prescribing in Primary Care: An Application of the Consolidated Framework for Implementation Research.</h4>
+            <p class="en-title-sm">Contextual Factors Affecting SGLT2 Inhibitors and GLP-1 Receptor Agonists Prescribing in Primary Care: An Application of the Consolidated Framework for Implementation Research.</p>
+          </div>
+        </div>
+        <p class="summary-sm">透過問卷與半結構訪談（21位臨床師：12位初級醫師、4位藥師、5位護師）評估clinicians對SGLT2i與GLP-1RA之知識、使用舒適度及影響處方決策之因素。結果顯示，儘管證據充分，處方率仍受限於臨床師對長期安全性之擔憂、缺乏培訓、工作流程中斷、患者負擔能力及體重偏見。強調需透過教育、系統支援與政策來改善實施落差。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">實施科學</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42522049/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">👶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Enhancing Pediatric Obesity Management through Quality Improvement: A Hybrid Approach to Intensive Health Behavior and Lifestyle Treatment in Primary Care.</h4>
+            <p class="en-title-sm">Enhancing Pediatric Obesity Management through Quality Improvement: A Hybrid Approach to Intensive Health Behavior and Lifestyle Treatment in Primary Care.</p>
+          </div>
+        </div>
+        <p class="summary-sm">品質改善專案於大城市學術初級診所導入PDSA循環，透過提供者教育、文化適應性教材、混合線上線下模式及參與策略，成功增加IHBLT（強化健康行為與生活方式治療）轉介率、參與度與療程強度。結果顯示混合模式克服了傳統線下限制，提升可及性與持續性，顯示彈性服務設計對改善兒童肥胖照護具實用價值。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42524434/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1 receptor agonists in primary care: readiness, equity, and the risk of a two-tiered obesity treatment landscape.</h4>
+            <p class="en-title-sm">GLP-1 receptor agonists in primary care: readiness, equity, and the risk of a two-tiered obesity treatment landscape.</p>
+          </div>
+        </div>
+        <p class="summary-sm">敘述性回顧指出，儘管GLP-1RA顯著降重並減少心血管事件，但其初級保健應用受限於提供者培訓不足、臨床慣性、體重偏見、高昂藥費及保險碎片化。種族與經濟弱勢群體、低收入社區及公費保險患者處方與給藥率顯著較低， несмотря其佔肥胖相關疾病負擔較高。提示若未解決結構性障礙，易造成公平性危機：只有特權族群能受益於新式肥胖藥物，加深健康不公。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">健康公平</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42523902/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Comment on 'Real-world effectiveness of oral semaglutide on body weight, composition, and metabolic parameters in patients with obesity without diabetes'.</h4>
+            <p class="en-title-sm">Comment on 'Real-world effectiveness of oral semaglutide on body weight, composition, and metabolic parameters in patients with obesity without diabetes'.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此篇為簡短評論（abstract 為空），未提供具體研究內容，僅表達對原文方法或結論的看法。由於缺乏方法學與結果描述，難以評估其科學價值。建議參考原始研究而非此評論以獲得可靠資訊。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42520650/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">7</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:86%"></div></div>
+          <span class="bar-count">6</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:71%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:71%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:57%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:57%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">公共衛生</span>
+          <div class="bar-track"><div class="bar-fill" style="width:57%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:43%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill" style="width:43%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:29%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:29%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:14%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">GLP-1受體激動劑</span><span class="keyword-pill">替爾泊肽</span><span class="keyword-pill">肥胖</span><span class="keyword-pill">減重手術</span><span class="keyword-pill">生活方式介入</span><span class="keyword-pill">代謝症候群</span><span class="keyword-pill">2型糖尿病</span><span class="keyword-pill">腸道微生物</span><span class="keyword-pill">超加工食品</span><span class="keyword-pill">身體重量</span><span class="keyword-pill">胃食逆流</span><span class="keyword-pill">腦下採食中樞</span><span class="keyword-pill">惡液質</span><span class="keyword-pill">昏夜節律</span><span class="keyword-pill">葡甲胺</span><span class="keyword-pill">體重維持</span><span class="keyword-pill">兒童肥胖</span><span class="keyword-pill">健康公平</span><span class="keyword-pill">廢水監測</span><span class="keyword-pill">皮膚癌</span><span class="keyword-pill">線粒體功能</span><span class="keyword-pill">染質重塑</span><span class="keyword-pill">轉錄調控</span><span class="keyword-pill">炎症</span><span class="keyword-pill">心血管疾病</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
