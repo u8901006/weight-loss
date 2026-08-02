@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年8月3日（星期一）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年8月3日（星期一）</p>
+    <span class="stats">本日收錄 16 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">替爾泊肽在肥胖患者中的真實世界有效性與安全性前瞻性研究</h3>
+            <p class="en-title">Real-world evaluation of the effectiveness and safety of tirzepatide in patients with obesity: a prospective study.</p>
+          </div>
+        </div>
+        <p class="summary">本研究旨在評估替爾泊肽在常規臨床實務中用於體重管理的有效性與安全性。研究納入107名BMI≥30 kg/m²或BMI≥27 kg/m²且伴有至少一項體重相關併發症的肥胖成人患者，進行6個月的前瞻性縱向觀察。主要終點為體重與身體組成變化，次要終點包括人類測量指標、心血管代謝參數及生活品質。結果顯示替爾泊肽在真實世界中能顯著降低體重與改善身體組成，安全性良好，未出現嚴重不良事件。此研究補充了隨機對照試驗之外的實證，支持替爾泊肽作為肥胖治療的有效選項，尤其適合伴有代謝併發症的患者。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">BMI≥30 kg/m² 或 BMI≥27 kg/m² 且伴有至少一項體重相關併發症的肥胖成人患者 (n=107)</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">替爾泊肽 (tirzepatide) 6個月治療</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">無對照組 (單臂前瞻性觀察研究)</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">6個月後體重變化、身體組成改善、心血管代謝指標變化、生活品質提升及安全性評估</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542297/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">📊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">動物性與植物性蛋白質攝取對更前及更後婦女體脂與身體組成的影響：隨機對照試驗的系統性文獻回顧</h3>
+            <p class="en-title">Dietary Intake of Animal and Plant-Based Protein on Adiposity Measurements and Body Composition in Pre- and Postmenopausal Women: A Systematic Review of Randomized Clinical Trials.</p>
+          </div>
+        </div>
+        <p class="summary">本系統性文獻回顧分析了15項隨機臨床試驗（共1161名更年期前後婦女），探討動物性與植物性蛋白質攝取對身體指標與身體組成的影響。結果顯示，動物性蛋白質介入（8項試驗）在減重與減脂方面效果更一致，尤其當結合熱量限制時；植物性蛋白質則較少顯示顯著影響。研究指出蛋白質來源可能影響更年期婦女的體重管理策略，動物性蛋白質在保持肌肉質量同時促進脂肪減少方面具潛在優勢。此研究為婦女更年期營養干預提供重要依據，有助於設計個性化飲食方案以預防與改善更年期相關體重變化。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">更年期前後婦女 (pre- to postmenopausal women)</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">動物性蛋白質或植物性蛋白質攝取介入</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">對照組（通常為標準飲食或低蛋白飲食）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">身體質量指數 (BMI)、體重、體脂肪率、身體組成（瘦質量與脂肪量）變化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42541706/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">⚠️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">雙極性障礙中鋰與GLP-1類藥物的合併使用：新興藥物警訊與監測考量</h3>
+            <p class="en-title">Lithium and GLP-1-based therapies in bipolar disorder: an emerging pharmacovigilance signal and monitoring considerations.</p>
+          </div>
+        </div>
+        <p class="summary">本文報告自2025年以來六起文獻病例，指出在雙極性障礙患者中，GLP-1受體激動劑（如司美格鲁肽、替爾泊肽）或雙重GIP/GLP-1激動劑（如替爾泊肽）啟動、切換或劑量增加後，可能導致鋰血濃度升高或中毒。2026年6月，歐洲藥品管理局藥物警訊風險評估委員會（PRAC）正式啟動此藥物互訊號誌。研究指出可能機制包括GLP-1藥物對腎功能、體液狀態或鋰腎排泄的影響。雖屬未控制的藥物警訊訊號，但具生物學 plausibility，提醒臨床醫師在併用此類藥物時需密切監測鋰血濃度、腎功能與容量狀態，以防止嚴重不良反應。此為用藥安全的重要提醒，特別是肥胖或糖尿病併雙極症患者。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">接受鋰治療的雙極性障礙患者，併用GLP-1受體激動劑或雙重GIP/GLP-1激動劑</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">GLP-1受體激動劑或GIP/GLP-1雙重激動劑 (如司美格鲁肽、替爾泊肽)</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">單獨使用鋰治療</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">鋰血濃度升高、鋰中毒風險增加、腎功能變化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542974/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">👶</span>
+          <div class="card-titles">
+            <h3 class="zh-title">肥胖兒童及其父母報告的健康抱怨、社會影響與照護效果感覺：Obesity Center CGG隊列的前瞻性觀察研究</h3>
+            <p class="en-title">Health complaints, social impacts, and perceived care effectiveness reported by children with obesity and their parents: a prospective observational study in the Obesity Center CGG cohort.</p>
+          </div>
+        </div>
+        <p class="summary">本研究探討肥胖兒童（0-18歲）及其父母在臨床照護中的主觀體驗，包括健康抱怨（如關節痛、氣短、抑鬱）、社會影響（如被嘲笑、自尊心低落）以及對生活方式介入的 perceived effectiveness。透過問卷調查蒐集兒童與父母的回應，並依性別、年齡、肥胖程度及照護頻率進行次級分析。結果顯示，肥胖兒童不僅面臨身體健康風險，更經歷顯著的社會與心理負擔，而父母對照護效果的感覺受介入類型與頻率顯著影響。研究強調，單靠身高體重指標不足以評估照護成效，納入兒童與父母的主觀報告對改善肥胖照護服務至關重要，尤其是在提升治療依從性與長期效果方面。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">0-18歲肥胖兒童及其父母 (來自Obesity Center CGG隊列)</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">生活方式改善介入（營養、運動、行為治療等）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">無對照組 (觀察性研究)</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">兒童自我報告的健康抱怨、父母報告的社會影響、對照護效果的主觀感覺</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542436/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🍇</span>
+          <div class="card-titles">
+            <h3 class="zh-title">1-MCP 預處理結合SO保鮮墊透過調節細胞壁代謝與抗氧化活性延遲『Shine Muscat』葡萄採後老化與軟化</h3>
+            <p class="en-title">1-MCP pretreatment combined with SOpreservation pad delays postharvest senescence and softening of 'Shine Muscat' grapes by regulating cell-wall metabolism and antioxidant activity.</p>
+          </div>
+        </div>
+        <p class="summary">本研究探討1-甲基環丁烯（1-MCP）與SO保鮮墊單獨及合併處理對『Shine Muscat』葡萄在儲存期間品質變化的影響。結果顯示，合併處理能有效延遲品質劣化，維持果實顏色、降低呼吸速率與重量損失，並顯著保留特徵性萜類香氣化合物（如芳樟醇），同時抑制異味產生。進一步機制分析發現，合併處理透過調節細胞壁代謝酶活性、降低惡二醛（MDA）與活性氧（HO）積累，顯著改善果實組織 hardness。在儲存49天后，合併組仍維持較佳品質。儘管本研究聚焦於食品科學，其調節細胞壁與氧化應激的機制，間接提供類似細胞老化與代謝功能 decline 的研究啟發，對理解肥胖相關組織功能障礙具啟發性價值。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">'Shine Muscat' 葡萄果實</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">1-MCP 預處理 + SO保鮮墊 (合併處理)</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">單獨1-MCP處理、單獨SO保鮮墊處理或無處理 (對照組)</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">果實顏色、呼吸速率、重量損失、萜類香氣化合物濃度、細胞壁代謝酶活性、MDA與HO積累、果實硬度 (textural properties)</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility low">臨床實用性：低</span>
+          <div class="tags"><span class="tag">其他</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542087/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">精準打靶：針對PSMA的小分子藥物共軛用於前列腺癌治療</h4>
+            <p class="en-title-sm">Hitting the bullseye: PSMA-targeted small molecule drug conjugate for prostate cancer treatment.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究設計一種針對前列腺特異性膜抗原（PSMA）的小分子藥物共軛（DUPA-SS-Exa, 10），將PSMA結合配體DUPA經半硫醇可裂解連結器連結至抗癌藥物exatecan (8)。透過電腦模擬評估其在動態環境中的PSMA結合親和力，結果顯示結合能為 -115.85 ± 4.52 kcal/mol，表明具有強結合親和力。此策略旨在實現藥物的局部釋放，提升腫瘤內療效同時降低全身毒性。雖與減重無直接關聯，但標的藥物遞送技術為肥胖相關併發症（如腫瘤風險）之潛在治療提供技術啟發。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42540690/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">1-MCP 預處理結合SO保鮮墊透過調節細胞壁代謝與抗氧化活性延遲『Shine Muscat』葡萄採後老化與軟化</h4>
+            <p class="en-title-sm">1-MCP pretreatment combined with SOpreservation pad delays postharvest senescence and softening of 'Shine Muscat' grapes by regulating cell-wall metabolism and antioxidant activity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究探討1-甲基環丁烯（1-MCP）與SO保鮮墊單獨及合併處理對『Shine Muscat』葡萄在儲存期間品質變化的影響。結果顯示，合併處理能有效延遲品質劣化，維持果實顏色、降低呼吸速率與重量損失，並顯著保留特徵性萜類香氣化合物（如芳樟醇），同時抑制異味產生。進一步機制分析發現，合併處理透過調節細胞壁代謝酶活性、降低惡二醛（MDA）與活性氧（HO）積累，顯著改善果實組織 hardness。在儲存49天后，合併組仍維持較佳品質。儘管本研究聚焦於食品科學，其調節細胞壁與氧化應激的機制，間接提供類似細胞老化與代謝功能 decline 的研究啟發，對理解肥胖相關組織功能障礙具啟發性價值。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542087/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">整合轉錄組與功能分析識別PRR7為與Wnt/β--catenin訊號通路相關並與紫杉醇耐藥性相關的治療標的</h4>
+            <p class="en-title-sm">Integrated transcriptomic and functional analyses identify PRR7 as a therapeutic target that associated with Wnt/&amp;#x3b2;-catenin signaling and docetaxel resistance in prostate cancer.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究結合大規模RNA測序與單細胞轉錄組資料，探索紫杉醇耐藥前列腺癌的細胞基礎。透過將抗藥性基因簽名投射至單細胞圖譜，成功鑑定出紫杉醇耐藥相關癌細胞（DRACs），並經交叉資料分析篩選候選調節因子。經分子、細胞及類器官 assays 驗證後，發現PRR7在維持耐藥狀態中扮演關鍵角色，其透過調節Wnt/β--catenin訊號通路影響幹細胞樣特性與治療反應。PRR7的表達與耐藥性呈正相關，抑制PRR7可部份逆轉耐藥表型。此研究揭示耐藥性的新機制，雖聚焦於前列腺癌，但Wnt訊號在代謝調節與脂肪細胞分化中的角色，提示其在肥胖相關代謝功能障礙中可能具備類似調節潛力，值得進一步探索。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542043/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">雙極性障礙中鋰與GLP-1類藥物的合併使用：新興藥物警訊與監測考量</h4>
+            <p class="en-title-sm">Lithium and GLP-1-based therapies in bipolar disorder: an emerging pharmacovigilance signal and monitoring considerations.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本文報告自2025年以來六起文獻病例，指出在雙極性障礙患者中，GLP-1受體激動劑（如司美格鲁肽、替爾泊肽）或雙重GIP/GLP-1激動劑（如替爾泊肽）啟動、切換或劑量增加後，可能導致鋰血濃度升高或中毒。2026年6月，歐洲藥品管理局藥物警訊風險評估委員會（PRAC）正式啟動此藥物互訊號誌。研究指出可能機制包括GLP-1藥物對腎功能、體液狀態或鋰腎排泄的影響。雖屬未控制的藥物警訊訊號，但具生物學 plausibility，提醒臨床醫師在併用此類藥物時需密切監測鋰血濃度、腎功能與容量狀態，以防止嚴重不良反應。此為用藥安全的重要提醒，特別是肥胖或糖尿病併雙極症患者。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542974/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">還原型氧化石墨烯-金屬氧化物納米複合材料對硫氰酸鹽的吸附動力學與等溫線建模</h4>
+            <p class="en-title-sm">Batch Adsorption Kinetics and Isotherm Modeling of Thiocyanate Using Reduced GO-Metal Oxide Nanocomposites.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究合成了一種以還原氧化石墨烯（rGO）為基礎，功能化金屬氧化物（Al₂O₃、MgO、K₂O）的納米複合材料 (rGO-AlO/MgO/KO)，用於有效去除工業廢水中持續性污染物硫氰酸鹽（SCN⁻）。經FTIR、XPS驗證功團修飾及SCN⁻透過親核反應與表面變化的吸附機制；XRD顯示結構改變；SEM/TEM觀察到從疏鬆rGO片層轉變為緊密不規則的rGO-MOs-SCN結構；EDX與元素映射確認金屬氧化物分布均勻。結果顯示該複合材料具備較高的SCN⁻吸附容量與選擇性，適合作為環境修復的吸附劑。雖與減重無直接關聯，但納米材料在污染物去除中的應用，為生物相容性納米載體在藥物遞送或代謝調節中的潛在應用提供材料科學基礎。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42540314/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">剛果民主共和國貝恩博市場攤販者對2型糖尿病成因、症狀、併發症、預防與管理的社區認知：描述性橫斷面研究</h4>
+            <p class="en-title-sm">Community perceptions of type 2 diabetes causes, symptoms, complications, prevention, and management among market vendors in Butembo, DR Congo: A descriptive cross-sectional study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究於2025年3至4月在剛果民主共和國貝恩博市七個主要市場，以面對面問卷調查433名成人市場攤販者（使用法語或斯瓦希里語，透過KoboCollect軟體），探討其對2型糖尿病的認知。結果顯示，雖多數受訪者知道糖尿病與高血糖有關，但對成因（如胰島素抵抗）、預防（如飲食控制、運動）及併發症（如神經病變、足部潰瘍）認知有限。許多人將糖尿病視為「糖尿 urine多」的簡單症狀，缺乏對慢性病管理的理解。研究凸顯低資源環境中健康素養不足對疾病預防與控制的障礙，強調需針對特定職業群體（如市場攤販）開展文化適切的健康教育，以提升早期發現與自我管理能力，對減少糖尿病併肥胰島素抵抗相關之肥胖風險具備公共衛生意義。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542630/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">來源於PPE2蛋白質的肽能透過耗竭肥大細胞來緩解DSS誘發的結腸炎</h4>
+            <p class="en-title-sm">PPE2 protein-derived peptide ameliorates DSS-induced colitis by depleting mast cells.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究發現，由PPE2蛋白質衍生的合成肽（PPE2-peptide）可顯著改善小鼠DSS誘導的結腸炎症狀，表現為體重損失減少、疾病活動指數（DAI）下降、結腸長度增加及過氧化物酶活性降低。PPE2-peptide進一步抑制促炎細胞因子表達，上調緊密連接蛋白（Occludin、Claudin-1、ZO-1）mRNA水平，增強腸道屏障功能。關鍵機制為針對肥大細胞：移除肥大細胞後PPE2-peptide失效，而將肥大細胞轉移至處理過的小鼠中可復原結腸炎症狀。此研究證實PPE2-peptide透過調節腸道免疫微環境（特別是肥大細胞）發揮抗炎作用。雖主要聚焦於腸道炎症，但腸道免疫與代謝、肥胖相關低度發炎存在密切關聯，提示此類調節策略或許可探索用於代謝性疾病的輔助介入。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42541189/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">啟用人工智慧的胸部X光潛在可檢測糖尿病併肥胖（diabesity）患者的亞臨床舒張功能障礙，並監測其對GLP-1或GLP-1/GIP受體激動劑的功能性反應：初步探索與概念證明</h4>
+            <p class="en-title-sm">AI-enabled chest x-ray potentially detects subclinical diastolic dysfunction in diabesity and monitors its functional responses to GLP-1 or GLP-1/GIP receptor agonists: initial exploration and proof-of-concept.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本探索性研究納入15名接受胸部X光檢查（距離治療開始不超過1個月）且至少接受12個月GLP-1或GIP/GLP-1受體激動劑治療的糖尿病併肥胖（diabesity）患者，且無心室或瓣膜功能異常。研究利用AI模型分析胸部X光影像，預測肺靜脈高壓（即「肺鬱 congestion」）作為舒張功能障礙的替代指標。結果顯示，AI模型能於治療前後偵測肺靜脈高壓的變化，並發現接受激動劑治療後，部分患者的肺鬱跡象有所改善， suggering 改善左心舒張功能。此為首次利用常規胸部X光結合AI評估diabesity患者心血管功能的嘗試，顯示潛在作為低成本、可擴充的篩選與追蹤工具，尤其適合資源有限環境。雖樣本小，但為將影像AI應用於代謝性心臟病提供重要概念驗證。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542549/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">RAB18依賴性招募OPTN啟動成骨細胞中的選擇性脂肪自噬</h4>
+            <p class="en-title-sm">RAB18-dependent recruitment of OPTN initiates selective lipophagy in osteoblasts.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究發現，小GTP酶RAB18在脂質應激下被激活並定位於 lipid droplets (LDs)，其中RAB18直接與自噬受體OPTN（optineurin）結合，促成OPTN-LC3橋接作用，進而導致LDs溶酶體降解。當RAB18或OPTN缺失時，脂質自噬流通受阻，導致LDs積累且成骨細胞分化受損；反之，OPTN過表達可部分救回RAB18缺失的表型。此研究揭示了一個由RAB18啟動、OPTN介導的選擇性脂質滴蛋白質招募機制，為理解脂質代謝與細胞自噬如何協調提供關鍵證據。雖在成骨細胞中觀察，但脂質滴代謝與自噬調節在代謝器官（如肝臟、脂肪組織）中的普遍性，提示此通路可能在肥胖相關脂肪肝或胰島素抵抗中發揮調節角色，值得進一步在代謝細胞類型中驗證。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42543006/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">動物性與植物性蛋白質攝取對更前及更後婦女體脂與身體組成的影響：隨機對照試驗的系統性文獻回顧</h4>
+            <p class="en-title-sm">Dietary Intake of Animal and Plant-Based Protein on Adiposity Measurements and Body Composition in Pre- and Postmenopausal Women: A Systematic Review of Randomized Clinical Trials.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本系統性文獻回顧分析了15項隨機臨床試驗（共1161名更年期前後婦女），探討動物性與植物性蛋白質攝取對身體指標與身體組成的影響。結果顯示，動物性蛋白質介入（8項試驗）在減重與減脂方面效果更一致，尤其當結合熱量限制時；植物性蛋白質則較少顯示顯著影響。研究指出蛋白質來源可能影響更年期婦女的體重管理策略，動物性蛋白質在保持肌肉質量同時促進脂肪減少方面具潛在優勢。此研究為婦女更年期營養干預提供重要依據，有助於設計個性化飲食方案以預防與改善更年期相關體重變化。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42541706/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">替爾泊肽在肥胖患者中的真實世界有效性與安全性前瞻性研究</h4>
+            <p class="en-title-sm">Real-world evaluation of the effectiveness and safety of tirzepatide in patients with obesity: a prospective study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究旨在評估替爾泊肽在常規臨床實務中用於體重管理的有效性與安全性。研究納入107名BMI≥30 kg/m²或BMI≥27 kg/m²且伴有至少一項體重相關併發症的肥胖成人患者，進行6個月的前瞻性縱向觀察。主要終點為體重與身體組成變化，次要終點包括人類測量指標、心血管代謝參數及生活品質。結果顯示替爾泊肽在真實世界中能顯著降低體重與改善身體組成，安全性良好，未出現嚴重不良事件。此研究補充了隨機對照試驗之外的實證，支持替爾泊肽作為肥胖治療的有效選項，尤其適合伴有代謝併發症的患者。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542297/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">甘草秦蓮顆粒在緩解潰瘍性結腸炎中的作用機制與活性成分：體內、體外、網路藥理學及非靶向代謝物學綜合研究</h4>
+            <p class="en-title-sm">Mechanism and Active ingredients of Gancao Qinlian Granules in ameliorating ulcerative colitis:integrated in vivo, in vitro, network pharmacology and untargeted metabolomics investigation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究針對傳統中藥方劑甘草秦蓮顆粒（GQG），藉由體內、體外實驗、網路藥理學與非靶向代謝物學分析，探討其在緩解潰瘍性結腸炎（UC）中的作用機制與活性成分。方劑由甘草、黃耆、棗子、乾薑、半夏及黃連六味藥材組成。結果顯示，GQG透過調節NF-κB/NLRP3發炎通路、改善腸道菌群結構及影響代謝物 profile（如短鏈脂肪酸、膽汁酸）發揮療效。網路藥理預測多個關鍵靶點，經驗證後認為黃連的 berberine 與黃qin 的 baicalein 為主要活性成分。此研究傳統藥方的現代科學驗證，雖聚焦於腸道炎症，但腸道屏障、微生態與代謝功能障礙在肥胖與代謝症候群中高度相關，提示GQG或類似方劑有潛力作為調節腸道-代謝軸的輔助介入，值得在肥胖相關低度發炎或代謝功能障礙人群中進一步探索。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542265/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">肥胖兒童及其父母報告的健康抱怨、社會影響與照護效果感覺：Obesity Center CGG隊列的前瞻性觀察研究</h4>
+            <p class="en-title-sm">Health complaints, social impacts, and perceived care effectiveness reported by children with obesity and their parents: a prospective observational study in the Obesity Center CGG cohort.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究探討肥胖兒童（0-18歲）及其父母在臨床照護中的主觀體驗，包括健康抱怨（如關節痛、氣短、抑鬱）、社會影響（如被嘲笑、自尊心低落）以及對生活方式介入的 perceived effectiveness。透過問卷調查蒐集兒童與父母的回應，並依性別、年齡、肥胖程度及照護頻率進行次級分析。結果顯示，肥胖兒童不僅面臨身體健康風險，更經歷顯著的社會與心理負擔，而父母對照護效果的感覺受介入類型與頻率顯著影響。研究強調，單靠身高體重指標不足以評估照護成效，納入兒童與父母的主觀報告對改善肥胖照護服務至關重要，尤其是在提升治療依從性與長期效果方面。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42542436/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">胰高血糖素樣肽-1受體激動劑與糖尿病視網膜病變：糖尿病視網膜病變結果的系統性文獻回顧</h4>
+            <p class="en-title-sm">Glucagon-like peptide-1 receptor agonists and diabetic retinopathy: a systematic review of diabetic retinopathy outcomes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本系統性文獻回顧（遵循PRISMA 2020，PROSPERO登記號CRD420251237987）檢視了截至2025年10月31日的31項研究，探討GLP-1受體激動劑對2型糖尿病患者糖尿病視網膜病變（DR）的影響。研究包含10項隨機對照試驗證據（5項主要RCT及5項其二次或事後分析）和21項觀察性/真實世界研究。結果顯示，儘管GLP-1RAs在血糖控制、心血管與腎臟保護方面益處明顯，但對視網膜病變的影響存在顯著異質性：部分研究指出可能減緩病變進展，但亦有研究未見顯著益處或甚至擔心潛在風險。基線視網膜狀態的差異被認為是主要異質性來源。研究結論認為，目前證據不足以確定GLP-1RAs對DR具有明顯保護或傷害作用，強調需進行更大規模、視網膜特定結局設計的長期試驗。此為評估GLP-1RA長期併用安全性的重要參考，特別是糖尿病患者併有肥胖風險者。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42541561/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">食物不安全對肥胖的直接及調節效應：橫斷面研究</h4>
+            <p class="en-title-sm">The Direct and Moderating Effect of Food Insecurity on Obesity-A Cross-Sectional Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本橫斷面研究共納入859名參與者（平均年齡34.7±13.8歲，範圍18-85歲），使用Household Food Insecurity Access Scale (HFIAS) 評估食物不安全狀況。結果顯示，雖食物不安全總體上與較高肥胖率相關，但其影響呈複雜模式：在輕度食物不安全組中，肥胖 prevalence僅為4.5%，顯著低於中度或重度不安全組。研究進一步探討調節因素，發現能量密集飲食攝取與蛋白質不足可能中介此關係。有趣的是，極端食物不安全可能因熱量攝取不足而導致體重下降，複雜化了食物不安全與肥胖之間的單向假設。此研究挑戰了「食物不安全必然導致肥胖」的簡化觀念，強調需考慮飲食品質、文化與個體代謝反應的調節角色，對設計精準的營養與社會干預具備重要啟發。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42540222/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">線粒體疾病合併罕見幽門狹門緊縮：經手腹腔鏡輔助下幽門切開術治療</h4>
+            <p class="en-title-sm">Rare Pyloric Stenosis in Mitochondrial Disease Treated with Hand-Assisted Laparoscopic Pyloromyotomy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本病例報告描述了一位患有線粒體疾病（特別是MELAS基因型）的年輕患者，因胃腸道併發症（包括胃縮窄、胃排空遲緩及腸道運動障礙）導致營養攝取 severely 受限、體重下降與營養不良，罕見地發展出幽門狹窄（胃腸道出口阻塞）。雖幽門狹窄在線粒體病中極少見，但作者指出，線粒體功能障礙可能影響胃腸道平滑肌與腸內神經功能，從而導致胃Outlet阻塞。患者接受手腹腔鏡輔助下的幽門切開術（hand-assisted laparoscopic pyloromyotomy），手術成功緩解梗阻，改善營養攝取與體重。此案例提醒臨床醫師，在線粒體病患者出現不明原因的體重下降或營養不良時，應考慮消化道梗阻的可能性。雖為個案，但為理解線粒體功能與消化道運動控制之間的關係提供臨床線索，提示代謝性疾病併發症需多系統評估。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42540578/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">肥胖</span><span class="keyword-pill">體重減輕</span><span class="keyword-pill">GLP-1</span><span class="keyword-pill">替爾泊肽</span><span class="keyword-pill">胰島素抵抗</span><span class="keyword-pill">2型糖尿病</span><span class="keyword-pill">飲食介入</span><span class="keyword-pill">身體組成</span><span class="keyword-pill">代謝症候群</span><span class="keyword-pill">心血管代謝</span><span class="keyword-pill">炎症</span><span class="keyword-pill">腸道菌群</span><span class="keyword-pill">生活方式改善</span><span class="keyword-pill">隨機對照試驗</span><span class="keyword-pill">真實世界研究</span><span class="keyword-pill">兒童肥胖</span><span class="keyword-pill">更年期</span><span class="keyword-pill">蛋白質攝取</span><span class="keyword-pill">食物不安全</span><span class="keyword-pill">視網膜病變</span><span class="keyword-pill">雙極性障礙</span><span class="keyword-pill">鋰</span><span class="keyword-pill">線粒體疾病</span><span class="keyword-pill">細胞自噬</span><span class="keyword-pill">脂質滴</span><span class="keyword-pill">Wnt訊號</span><span class="keyword-pill">網路藥理</span><span class="keyword-pill">藥物共軛</span><span class="keyword-pill">人工智慧</span><span class="keyword-pill">胸部X光</span><span class="keyword-pill">舒張功能障礙</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
