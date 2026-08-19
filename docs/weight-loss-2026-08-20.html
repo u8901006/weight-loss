@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年8月20日（星期四）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年8月20日（星期四）</p>
+    <span class="stats">本日收錄 24 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">甘油三酯與高密度膽固醇比值於嚴重肥胖患者肝脂肪變性的關聯：橫斷面研究</h3>
+            <p class="en-title">Triglyceride-to-HDL Cholesterol Ratio is Associated with Hepatic Steatosis but not Fibrosis in Patients with Severe Obesity: A Cross-Sectional Study.</p>
+          </div>
+        </div>
+        <p class="summary">本研究分析99名接受代謝及肥胖外科手術前評估的嚴重肥胖患者，評估甘油三酯與高密度膽固醇比值（TG/HDL-C）與肝脂肪變性及纖維化的關聯。透過超聲波評估肝脂肪變性、彈性圖評估肝纖維化，使用多變項邏輯迴歸分析結果顯示，TG/HDL-C與肝脂肪變性呈正相關（p&lt;0.05），但與肝纖維化無顯著關聯。此比值可作為嚴重肥胖者肝脂肪變性的簡易篩檢指標，但無法反映纖維化程度，臨床上可用於早期識別代謝功能障礙相關脂肪肝病（MASLD）高風險群，避免不必要的侵入性檢查。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">2020至2024年接受代謝及肥胖外科手術前評估的99名嚴重肥胖患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">量測血清甘油三酯與高密度膽固醇比值（TG/HDL-C）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">以超聲波判定有無肝脂肪變性、以彈性圖判定有無肝纖維化為對照</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">TG/HDL-C與肝脂肪變性顯著正相關，但與肝纖維化無關聯</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span><span class="tag">減重手術</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42616239/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">維生素D類似物Doxercalciferol於多囊卵巢症候群滑鼠模型中誘發體重減少並改善生育力</h3>
+            <p class="en-title">The Vitamin D Analogs Doxercalciferol Induces Weight Loss and Improves Fertility in a Mouse Model of Polycystic Ovary Syndrome.</p>
+          </div>
+        </div>
+        <p class="summary">本研究利用多囊卵巢症候群（PCOS）滑鼠模型，檢驗維生素D受體激動劑Doxercalciferol（Dox）對脂肪代謝、體重及生殖功能的影響。體外實驗顯示Dox抑制脂肪細胞增生與分化；體內給予Dox後，PCOS滑鼠顯著減少體重、改善胰島素抵抗、降低睾酮水平，並增加排卵率與胚胎植入成功率。結果表明Dox透過調節脂肪組織免疫代謝功能，同時改善內分泌與生殖障礙，為PCOS併發肥胖患者提供新療法潛力，尤其中重度肥併胰島素抵抗者可能獲益最大。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">多囊卵巢症候群（PCOS）滑鼠模型</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">給予維生素D類似物Doxercalciferol（Dox）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">對照組給予載體或車輛處理</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">Dox誘導體重減少、改善胰島素敏感性、降低雄激素、提升排卵與受孕率</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42614915/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">📊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">2型糖尿病患者接受胃旁路手術後8年追蹤之健康相關生活品質定量與質性結果</h3>
+            <p class="en-title">Qualitative and Quantitative Health-Related Quality-of-Life Outcomes From an 8-year Follow-Up After Gastric Bypass Surgery in People With Type 2 Diabetes.</p>
+          </div>
+        </div>
+        <p class="summary">本研究追蹤11名接受胃旁路手術合併2型糖尿病的肥胖患者8年，使用RAND SF-36量表量測健康相關生活品質（HRQoL），並以重複量數變異分析評估變化趨勢，同時進行深度訪談探索生活體驗。結果顯示，雖然BMI與HbA1c在手術後初期顯著改善，但8年隨訪後部分參與者出現體重回升與血糖惡化，HRQoL在身體功能與情感領域呈現雙峰分布：部分患者長期獲益顯著，另一群則因生活習慣無法維持或併發症而品質下降。質性訪談證實，社會支持、飲食行為持續性與心理健康是長期成功關鍵。此結果提醒臨床工作者，減重手術非終點，需配合長期多學科管理以維持獲益。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">11名接受胃旁路手術且併發2型糖尿病的肥胖患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">胃旁路手術（Roux-en-Y gastric bypass）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">術前baseline與術後1年、5年、8年追蹤點比較</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">8年後HRQoL呈現異質性改善：身體功能及情感域部份患者長期獲益，但與體重回升及HbA1c惡化相關</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">糖尿病與代謝</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42615277/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">瞬間壓力與身體（非）活動之關聯：生態瞬間評量研究探討不同時程延遲的影響</h3>
+            <p class="en-title">Stressed out! Not working out? Relationship between momentary stress and physical (in)activity across different time lags: An Ecological Momentary Assessment study.</p>
+          </div>
+        </div>
+        <p class="summary">本研究運用生態瞬間評量（EMA）方法，邀請76名參與體重維持的成年人，於7天內每小時完成智慧型手機問卷，評估瞬間 perceived stress、安全感，並佩戴胸帶感測器測量躲迴迴神經心率變異（vmHRV）、步數與身體活動強度。結果顯示，瞬間許多壓力（特別是生理壓力指標低vmHRV）與隨後30分鐘內輕度及中等至劇烈身體活動呈負相關，但未見與總步數或久坐時間顯著關聯。壓力對活動的影響具時間依賴性：壓力後15–30分鐘活動顯著下降，但1小時後效應消失。此證實壓力是身體活動的即時但短暫阻礙，提醒體重管理介入應納入即時壓力偵測與應對策略（如呼吸訓練、微運動）以打破惡性循環。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">76名參與體重維持計畫的成年人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">瞬間自我報告壓力（ perceived stress、vmHRV、安全感）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">不同時滯後（0、15、30、60分鐘）後的身體活動（步數、LPA、MVPA、久坐）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">瞬間壓力（特別是低vmHRV）預測其後15–30分鐘輕度及中等至劇烈活動減少，但無長期影響</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">運動與體能活動</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42612762/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🧫</span>
+          <div class="card-titles">
+            <h3 class="zh-title">人類與細菌蛋白質的差異表達揭示代謝疾病中微生物-宿主互動</h3>
+            <p class="en-title">Differential Expression of Human and Bacterial Proteins Reveals Microbiome-Host Crosstalk in Metabolic Disorders.</p>
+          </div>
+        </div>
+        <p class="summary">本研究利用質譜蛋白質組學分析巴西不同代謝狀況個體（正常體重、超重、肥胖、代謝症候群、2型糖尿病）的唾液，同時測定人類唾液蛋白質與細菌分泌蛋白質（metaproteome）。結果發現，在代謝疾病群中，人類蛋白質MYSM1（調節基因沉默）與GAD65（GABA合成關鍵酶）顯著下調（η²=0.710，95%CI：[0.642,0.825]，qadj&lt;0.001），提示唾液免疫調節與神經遞質代謝在肥胖及糖尿病中被擾乱。此為首次證實口腔微生物經由分泌蛋白質影響宿主唾液蛋白質表達，暗示口腔-腸道軸在代謝疾病中的角色，未來或可開發唾液生物標記用於早期篩檢或監測代謝失調。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">巴西橫跨不同代謝狀況的個體（正常體重/超重/肥胖/代謝症候群/2型糖尿病）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">採集唾液樣本並以質譜分析人類與細菌蛋白質組</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">不同代謝狀況組間之蛋白質表達差異</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">MYSM1與GAD65在肥胖及2型糖尿病群中顯著下調，提示宿主-口腔微生物互動失調</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42615576/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">鼻咽癌治療前後中性球-淋巴球、血小板-淋巴球及淋巴球-單球細胞比值的預後價值</h4>
+            <p class="en-title-sm">Prognostic value of pre- and post-treatment neutrophil-to-lymphocyte, platelet-to-lymphocyte and lymphocyte-to-monocyte ratios in nasopharyngeal carcinoma.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧性研究評估99名接受誘導化學療法後同步放射化學療法之鼻咽癌患者，在治療不同階段測量NLR、PLR與LMR，發現術後放射治療後NLR與PLR升高、LMR降低，且此變化與不良預後（死亡）顯著相關，提示此三個炎症指標可作為鼻咽癌動態監測與預後評估工具。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42614698/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">甘油三酯與高密度膽固醇比值於嚴重肥胖患者肝脂肪變性的關聯：橫斷面研究</h4>
+            <p class="en-title-sm">Triglyceride-to-HDL Cholesterol Ratio is Associated with Hepatic Steatosis but not Fibrosis in Patients with Severe Obesity: A Cross-Sectional Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究分析99名接受代謝及肥胖外科手術前評估的嚴重肥胖患者，評估甘油三酯與高密度膽固醇比值（TG/HDL-C）與肝脂肪變性及纖維化的關聯。透過超聲波評估肝脂肪變性、彈性圖評估肝纖維化，使用多變項邏輯迴歸分析結果顯示，TG/HDL-C與肝脂肪變性呈正相關（p&lt;0.05），但與肝纖維化無顯著關聯。此比值可作為嚴重肥胖者肝脂肪變性的簡易篩檢指標，但無法反映纖維化程度，臨床上可用於早期識別代謝功能障礙相關脂肪肝病（MASLD）高風險群，避免不必要的侵入性檢查。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">糖尿病與代謝</span><span class="tag">減重手術</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42616239/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">2型糖尿病患者接受胃旁路手術後8年追蹤之健康相關生活品質定量與質性結果</h4>
+            <p class="en-title-sm">Qualitative and Quantitative Health-Related Quality-of-Life Outcomes From an 8-year Follow-Up After Gastric Bypass Surgery in People With Type 2 Diabetes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究追蹤11名接受胃旁路手術合併2型糖尿病的肥胖患者8年，使用RAND SF-36量表量測健康相關生活品質（HRQoL），並以重複量數變異分析評估變化趨勢，同時進行深度訪談探索生活體驗。結果顯示，雖然BMI與HbA1c在手術後初期顯著改善，但8年隨訪後部分參與者出現體重回升與血糖惡化，HRQoL在身體功能與情感領域呈現雙峰分布：部分患者長期獲益顯著，另一群則因生活習慣無法維持或併發症而品質下降。質性訪談證實，社會支持、飲食行為持續性與心理健康是長期成功關鍵。此結果提醒臨床工作者，減重手術非終點，需配合長期多學科管理以維持獲益。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">糖尿病與代謝</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42615277/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧫</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">人類與細菌蛋白質的差異表達揭示代謝疾病中微生物-宿主互動</h4>
+            <p class="en-title-sm">Differential Expression of Human and Bacterial Proteins Reveals Microbiome-Host Crosstalk in Metabolic Disorders.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究利用質譜蛋白質組學分析巴西不同代謝狀況個體（正常體重、超重、肥胖、代謝症候群、2型糖尿病）的唾液，同時測定人類唾液蛋白質與細菌分泌蛋白質（metaproteome）。結果發現，在代謝疾病群中，人類蛋白質MYSM1（調節基因沉默）與GAD65（GABA合成關鍵酶）顯著下調（η²=0.710，95%CI：[0.642,0.825]，qadj&lt;0.001），提示唾液免疫調節與神經遞質代謝在肥胖及糖尿病中被擾乱。此為首次證實口腔微生物經由分泌蛋白質影響宿主唾液蛋白質表達，暗示口腔-腸道軸在代謝疾病中的角色，未來或可開發唾液生物標記用於早期篩檢或監測代謝失調。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42615576/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">阻塞性睡眠呼吸暫停的體重減少療法：一線治療不應僅指單一療法</h4>
+            <p class="en-title-sm">Weight loss for obstructive sleep apnoea: first-line therapy should not mean single-line therapy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此為期刊European Respiratory Review的社論或觀點文章，強調肥胖是阻塞性睡眠呼吸暫停（OSA）的重要危險因子，但單纯依靠體重減少作為一線治療不足以涵蓋所有患者需求。作者主張應結合多模式介入（如CPAP、口腔裝置、手術及行為改變），因為僅靠體重減少無法解決所有解剖或神經肌肉病因，且長期依附性挑戰大。此觀點對臨床實務具提醒價值，但非原創研究。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42613078/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">維生素D類似物Doxercalciferol於多囊卵巢症候群滑鼠模型中誘發體重減少並改善生育力</h4>
+            <p class="en-title-sm">The Vitamin D Analogs Doxercalciferol Induces Weight Loss and Improves Fertility in a Mouse Model of Polycystic Ovary Syndrome.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究利用多囊卵巢症候群（PCOS）滑鼠模型，檢驗維生素D受體激動劑Doxercalciferol（Dox）對脂肪代謝、體重及生殖功能的影響。體外實驗顯示Dox抑制脂肪細胞增生與分化；體內給予Dox後，PCOS滑鼠顯著減少體重、改善胰島素抵抗、降低睾酮水平，並增加排卵率與胚胎植入成功率。結果表明Dox透過調節脂肪組織免疫代謝功能，同時改善內分泌與生殖障礙，為PCOS併發肥胖患者提供新療法潛力，尤其中重度肥併胰島素抵抗者可能獲益最大。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42614915/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">兒童代謝功能障礙相關脂肪肝病（MASLD）的營養管理</h4>
+            <p class="en-title-sm">Nutrition in Pediatric Metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD).</p>
+          </div>
+        </div>
+        <p class="summary-sm">本文综述指出，兒童MASLD罹患率隨肥胖上升，約10%學竹受影響，肥胖兒童比例更高。雖然生活方式介入（含體重減少）是核心療法，但社會污名、同儕壓力及對「健康體重」的期待，可能導致部分患者發展出限制性飲食、營養不良、營養素缺乏、 disordered eating、焦慮、情緒問題甚至飲食失調。文章強調必須透過早期篩檢與針對性介入（如多學科營養諮詢、行為支持）預防療法過度反應帶來的二次傷害，營養策略應兼顧代謝改善與心理福祉。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">行為與心理</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42614647/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">內視鏡袖狀胃成形術於肝硬化代償期超重度肥胖患者之應用：擴大高風險群的微創選擇</h4>
+            <p class="en-title-sm">Endoscopic Sleeve Gastroplasty for Super Morbid Obesity in Compensated Liver Cirrhosis: Expanding Minimally Invasive Options for High&amp;#x2011;Risk Patients.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此為病例報告，探討內視鏡袖狀胃成形術（ESG）於伴有代償期肝硬化之超重度肥胖患者的可行性與安全性。ESG作為一種切口減少的內視鏡減重程序，可降低腹腔內壓力及門靜脈高壓風險，適合無法承受傳統手術之高危肝硬化患者。雖僅報告單一病例，但顯示ESG在此特殊人群中可達成顯著體重減少且無肝併發症惡化，提示內視鏡技術在器官功能受限肥胖患者中的潛力，需進一步前瞻性研究驗證。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42612974/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">高量能中心一百例機械手輔助減重手術之安全性、可行性與早期結果</h4>
+            <p class="en-title-sm">Safety, feasibility, and early outcomes of one hundred robotic bariatric procedures at a high-volume center.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究回顧2024年2月至2025年9月間，單一高量能中心施行100例機械手輔助減重手術（78例袖狀胃切除術，22例單 anastomosis 胃旁路術）的安全性與可行性。平均年齡37±8歲，平均BMI 44.7±5.4 kg/m²。結果顯示手術時間中位數為95分鐘， docking time 約15分鐘，整體併發症率低（未詳細說明），住院時間短。機械手系統在複雜解剖中提供較佳視野與操控精密度，適合高BMI患者，但長期結果及成本效益尚需追蹤。此研究支持機械手減重手術在經驗豐富中心之可行性。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42616222/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">👶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm"> maternal type 2 diabetes 所生、伴有肥胖之學齡男童使用褪黑素之案例報告</h4>
+            <p class="en-title-sm">Melatonin Use in a School-aged Boy with Obesity Born to a Mother with Type 2 Diabetes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本案例報告描述一名11歲男童， maternal type 2 diabetes 所生，自10歲起出現體重快速增加與暴飲暴食，嚴格飲食與運動介入無效，一個月內體重達62公斤（BMI z-score 2.44）。內分泌評估正常，但觀察到嚴重睡眠障礙。懷疑睡眠失調加劇食慾控制失敗，遂每日給予1毫克褪黑素改善睡眠。治療後，家長報告睡眠姿勢改善及夜間醒來減少，暗示改善睡眠可能間接協助食慾調節。此案例提示， maternal糖尿病暴露兒童之肥胖可能伴隨睡眠問題，褪黑素作為輔助介入值得探索，但需更大樣本研究驗證其對體重及食行為的直接影響。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42613860/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧫</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">益生元益生菌複合物、蛋白質補充與抗阻訓練對2型糖尿病老年人之發炎、氧化應力與肌肉力量的協同效應：三重盲隨機對照試驗</h4>
+            <p class="en-title-sm">Synergistic effects of synbiotic, protein supplementation, and resistance training on inflammation, oxidative stress, and muscle strength in older adults with type 2 diabetes mellitus: a RCT triple-blinded study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本三重盲隨機對照試驗招募65歲以上2型糖尿病男性，分組比較對照組、蛋白質補充組（P）、益生元益生菌+蛋白質補充組（SP）及抗阻訓練組（RT）的影響。結果顯示，組合介入（SP+RT）顯著降低炎症指標（如IL-6、TNF-α）、減少氧化應力、增加肌肉質量與力量，並改善血糖控制，單獨介入效果較弱。結果支持多模式策略（腸道微生物調節+營養+運動）對抗老年人2型糖尿病中的「炎性老化」（inflammaging）及肌肉減少症，具臨床轉化潛力。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">運動與體能活動</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42616143/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">梭狀桿菌在結直腸癌中的宿主-微生物機制</h4>
+            <p class="en-title-sm">Host-Microbe Mechanisms of Fusobacterium nucleatum in Colorectal Cancer.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本文為综述，探討口腔来源的条件致病菌Fusobacterium nucleatum如何透過調節免疫訊號、表觀遺傳、代謝適應及轉移能力，促進結直腸癌發展與惡化。F. nucleatum 不僅侵入腫瘤組織，尚能重塑腫瘤微環境，抑制抗腫瘤免疫反應，促進癌細胞存活與擴散。雖與口腔衛生及腸道菌群失調相關，但其直接致癌機制仍需進一步闡釋。本文強調該菌為連結口腔健康與腸道惡性腫瘤的重要橋梁，提醒腫瘤醫學需關注細菌生態。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42615888/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">急性髓性白血病誘導化學療法期間腸內與腸外營養支持的營養結果比較</h4>
+            <p class="en-title-sm">Nutritional outcomes associated with enteral versus parenteral nutritional support during intensive induction chemotherapy for acute myeloid leukemia.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此回顧性觀察研究比較兩家法國大學醫院中接受強化誘導化學療法之急性髓性白血病（AML）患者，使用腸內營養（EN）與腸外營養（PN）的營養結果。目的在評估哪種支持方式較能減少營養不良並改善治療耐受性。結果顯示兩組在體重變化、藍白蛋白水平及感染率上無顯著差異，但PN組導管相關併發症較多。研究結論：在無腸道功能障礙時，應優先選擇腸內營養作為首選，因其較安全、生理且成本低；腸外營養僅在腸道不可用時考慮。此為支持臨床常規之實證，但對減重領域關聯性弱。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42613390/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🐭</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">選擇性培育易肥與抗肥大鼠群之維持及其行為與生理特徵</h4>
+            <p class="en-title-sm">Colony maintenance and the behavioral and physiological characteristics of selectively bred obesity prone and obesity resistant rats.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究描述維持經選擇性培育對高脂飲食敏感（肥胖易感，DIO）與抗性（肥胖抗性，DR）大鼠族群的殖民方法，並比較兩群在行為（如對食物線索的動機反應、工具操作）及生理（下視丘Lepтин訊號傳導、腦部獎賞系統如 nucleus accumbens 活性）上的差異。結果確認DIO大鼠表現出較強的食慾動機、弱的Lep틴訊號回饋及改變的獎賞回路敏感性，支持遺傳易感性在肥胖發展中的核心作用。此動物模型為理解肥胖生物學基礎提供重要工具，但直接臨床轉化有限。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42612740/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌍</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">低收入與中等收入國家營養不良、精神健康三重危害：後COVID-19時代</h4>
+            <p class="en-title-sm">Triple Harm of Malnutrition and Mental Health in Low- and- Middle Income Countries: After COVID-19.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本文探討低收入與中等收入國家（LMICs）在後疫情時代面臨的「三重夾擊」：營養不良（肥胖與微量營養素缺乏共存）、精神健康問題（憂鬱、焦慮）上升，以及兩者對母體與胎兒發展的複合負面影響。基於DOHaD理論，母體營養與心理健康是胎兒長期健康關鍵，但疫情加劇糧食不安全、不健康飲食及壓力，增加母體營養不良風險。文中指出現有研究多聚焦於亞洲與歐洲，呼籲增強LMICs之本地研究與介入，以打破惡性循環。此具公共衛生與政策層面意義，但非減重直接研究。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span><span class="tag">行為與心理</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42612603/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌿</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm"> emergents 植物對全氟及多氟烷基物質（PFAS）的適應策略</h4>
+            <p class="en-title-sm">Adaptive strategies of emergent plants to per- and polyfluoroalkyl substances.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究探討四種 emergents 水生植物（ rush、 umbrella grass、 cattail、 iris）在含PFAS廢水中的生理與吸收策略。結果顯示 umbrella grass (Ca) 根系最長、stele 佔比最高，同時在根莖中累積PFAS濃度最高（根：19909±45.76 ng/g；莖：11561±97.78 ng/g），顯示其結構特徵（長根系、高stele比例）促進PFAS 的吸收與 translocation。此外，替代劑F-53B在該系統中表現出最強 enrichment。此研究主要貢獻於環境修復領域，與人類肥胖或代謝疾病無直接關聯。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42612843/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💢</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">瞬間壓力與身體（非）活動之關聯：生態瞬間評量研究探討不同時程延遲的影響</h4>
+            <p class="en-title-sm">Stressed out! Not working out? Relationship between momentary stress and physical (in)activity across different time lags: An Ecological Momentary Assessment study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究運用生態瞬間評量（EMA）方法，邀請76名參與體重維持的成年人，於7天內每小時完成智慧型手機問卷，評估瞬間 perceived stress、安全感，並佩戴胸帶感測器測量躲迴迴神經心率變異（vmHRV）、步數與身體活動強度。結果顯示，瞬間許多壓力（特別是生理壓力指標低vmHRV）與隨後30分鐘內輕度及中等至劇烈身體活動呈負相關，但未見與總步數或久坐時間顯著關聯。壓力對活動的影響具時間依賴性：壓力後15–30分鐘活動顯著下降，但1小時後效應消失。此證實壓力是身體活動的即時但短暫阻礙，提醒體重管理介入應納入即時壓力偵測與應對策略（如呼吸訓練、微運動）以打破惡性循環。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">運動與體能活動</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42612762/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">複合污名：比較使用Ozempic、減重手術或行為改變者之社會感知的實驗研究</h4>
+            <p class="en-title-sm">Compounding stigma: An experimental study comparing perceptions of an individual using Ozempic, bariatric surgery, or behavior modification.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本實驗研究邀請297參與者（78.8%女性，平均年齡20.2歲，42.4% BMI&gt;25）隨機分配評估三種體重減少策略（Ozempic/GLP-1RA、胃袖狀切除術或行為改變）對應之人物形象。結果顯示，參與者對接受手術者的污名最高（視為「走後門」），其次為使用減重藥物者，行為改變者則被認為最具自律性。兩種醫療介入（手術與藥物）均遭遇「補足污名」（compounding stigma）：即既因肥胖身體受歧視，又因選擇被視為「不自然」或「懶惰」的醫療手段而再次被污名化。此凸顯即使有效的醫療療法，其社會接受度仍受污名影響，臨床推薦時需併行反污名教育與支持。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">藥物治療</span><span class="tag">減重手術</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42612445/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🛡️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">解碼肥胖中脂肪組織的免疫代謝動態：新興證據與未來方向</h4>
+            <p class="en-title-sm">Decoding Immunometabolic Dynamics of Adipose Tissue in Obesity: Evolving Evidence and Way Forward.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此Review文章整合近年證據，闡述肥胖中脂肪組織如何從單一能量儲存器官轉變為動態免疫代謝中心。慢性低度發炎（由巨噬細胞、T細胞等免疫細胞滲透引發）擾亂代謝平衡，導致胰島素抵抗、脂質代謝異常，並影響對GLP-1受體激動劑等減重藥物的反應 heterogeneity。文章指出，脂肪組織內免疫細胞亞型（如 M1/M2巨噬細胞比例）、細胞因子網絡及代謝產物（如 leptin、adiponectin）共同決定治療反應，未來需發展精準免疫代謝調整策略（如標靶性炎症抑制、腸道菌群調整）以克服藥物抵抗與體重回升問題，是實現個體化肥胖治療的關鍵。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42614861/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔧</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">雙軌重建術於Roux-en-Y胃旁路術後小腸細菌過度生長之管理</h4>
+            <p class="en-title-sm">Double tract reconstruction for the management of small intestinal bacterial overgrowth after Roux-en-Y gastric bypass.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究回顧5例接受Roux-en-Y胃旁路術後，經正常呼氣檢測確診小腸細菌過度生長（SIBO），保守治療（抗生素、飲食調整）失敗，且排除腸道解剖異常（如糖果桿效應或過長胰蝕管）後，接受雙軌腸道重建（double tract reconstruction）手術的患者。結果顯示，所有患者術後呼氣檢測正常， SIBO症狀（腹脹、腹痛、腹瀉）明顯緩解，未見營養不良加重。雖樣本小，但顯示此手術技術可透過改善腸道解剖結構（減緩通過時間、降低停滯）有效管理術後SIBO，對於曾因吸收不良或併發症影響生活品質的患者，提供一個具體的修復選擇。此為高風險減重手術併發症的創新管理方案。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42616998/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📈</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">袖狀胃切除術後8年生活品質之演變：前瞻性隊列研究</h4>
+            <p class="en-title-sm">Eight-year evolution of quality of life after sleeve gastrectomy: A prospective cohort study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本前瞻性隊列研究追蹤106例接受腹腔鏡袖狀胃切除術（LSG）之患者（2016–2017年施術），於術前、1年、5年及8年進行身體測量、肥胖相關醫療問題評估及使用Moorehead-Ardelt II問卷量測生活品質。有54例完成8年追蹤。結果顯示，多餘体重減少百分比（%EWL）由1年之73.2%下降至8年之63.4%，肥胖相關問題（如糖尿病、高血壓）改善幅度隨時間緩縮，但大多數患者仍維持顯著獲益。生活品質總體呈現初期急速提升後平緩下降趨勢，提示雖LSG短中期效果優秀，長期維持需關注行為支持與代謝監測。此為罕見的長期真實世界LSG結果，具重要參考價值。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42616963/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🏥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">門診基礎之減重手術：區域醫院中心經驗與避免失誤的關鍵</h4>
+            <p class="en-title-sm">Bariatric surgery on an outpatient basis: Our experience in a regional hospital centre and key pitfalls to avoid for enhanced success.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本回顧性研究分析2019年1月至2024年5月間，一家法國區域醫院中心之69例門診袖狀胃切除術（SG）或Roux-en-Y胃旁路術（RYGB）患者，評估其安全性、可行性及影響門診成功的因素。平均年齡36.4歲，女性佔88.4%，平均BMI 40.7 kg/m²。結果顯示，極少數患者術後需轉診為住院治療（主要原因：出血、疼痛控制不足、嘔吐）。成功門診關鍵包括：嚴格遵循HAS指南（術前篩選低風險患者）、多學科團隊協同、完善術後疼痛與惡心管理、及快速排氣與進食啟動方針。研究證實，在適當選擇與流程下，門診減重手術可安全進行，適合於資源有限但願意推行微創減重之地區，提升可及性而不犧牲安全。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42616939/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧫</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">雙歧桿菌與腸-免疫軸：機制見解與治療潛力</h4>
+            <p class="en-title-sm">Bifidobacterium and the gut-immune axis: Mechanistic insights and therapeutic potential.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此敘述性综述整合前臨床與臨床證據，闡述雙歧桿菌種如何透過特定代謝產物（如乙酸、多醣、色胺衍生 indoles、細胞外囊泡）調節腸上皮屏障、黏膜與全身免疫。主要機制包括：促進樹突細胞容忍性、調節巨噬細胞極化（增加抗炎M2）、增強分泌型IgA、緊密連接蛋白完整性、平衡Treg/Th17細胞比例。益處釐定性（strain specificity）與宿主背景（年齡、疾病狀態、腸道環境）至關重要，未來需進行個體化益生菌選擇與劑量設計，以針對特定免疫功能失調（如過敏、炎腸、代謝疾病）發展精準益生菌療法。此為腸道微生物治療之重要理論基礎。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42612400/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">👶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">透過主動篩檢計畫識別兒童肺外結核：來自孟加拉國的發現與計畫啟示</h4>
+            <p class="en-title-sm">Identifying pediatric extrapulmonary tuberculosis through an active screening program: Findings and programmatic implications from Bangladesh.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究於孟加拉國評估188例診斷為肺外結核（extrapulmonary tuberculosis）的兒童，發現超過半數（54.3%）年齡在10–14歲間。主要症狀包括發燒（91.5%）、體重減少（88.3%）及食慾下降（72.9%）。四名兒童在治療前死亡；在176例接受治療者中，4.0%治療失敗，潛在受年齡低及體重過輕影響。結果凸顯兒童肺外結核之診斷困難（症狀非特異性），強調需建立主動、以社區為基礎的篩檢程序，並結合營養支持（特別是對體重不足兒童）以提高治療成功率。此研究雖不直接論述肥胖，但提醒在營養不良盛行地區，體重狀況是影響傳染病治療結果的重要社會決定因素。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42616726/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">公共衛生</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">7</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:86%"></div></div>
+          <span class="bar-count">6</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:71%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:71%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill" style="width:71%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:57%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:57%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:57%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:43%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:43%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:29%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:14%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">肥胖</span><span class="keyword-pill">體重減少</span><span class="keyword-pill">減重手術</span><span class="keyword-pill">2型糖尿病</span><span class="keyword-pill">代謝症候群</span><span class="keyword-pill">腸道微生物</span><span class="keyword-pill">炎症</span><span class="keyword-pill">胰島素抵抗</span><span class="keyword-pill">生活品質</span><span class="keyword-pill">行為改變</span><span class="keyword-pill">污名</span><span class="keyword-pill">兒童肥胖</span><span class="keyword-pill">睡眠</span><span class="keyword-pill">褪黑素</span><span class="keyword-pill">維生素D</span><span class="keyword-pill">多囊卵巢症候群</span><span class="keyword-pill">脂肪肝</span><span class="keyword-pill">TG/HDL比值</span><span class="keyword-pill">機械手手術</span><span class="keyword-pill">門診手術</span><span class="keyword-pill">SIBO</span><span class="keyword-pill">益生元益生菌</span><span class="keyword-pill">蛋白質補充</span><span class="keyword-pill">抗阻訓練</span><span class="keyword-pill">唾液蛋白質</span><span class="keyword-pill">MYSM1</span><span class="keyword-pill">GAD65</span><span class="keyword-pill">壓力</span><span class="keyword-pill">身體活動</span><span class="keyword-pill">生態瞬間評量</span><span class="keyword-pill">長期追蹤</span><span class="keyword-pill">營養不良</span><span class="keyword-pill">精神健康</span><span class="keyword-pill">DOHaD</span><span class="keyword-pill">PFAS</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
