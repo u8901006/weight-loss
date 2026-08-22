@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年8月23日（星期日）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年8月23日（星期日）</p>
+    <span class="stats">本日收錄 18 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">馬茲杜胺在肥胖或超重成人中的療效與安全性：美國多中心、隨機、安慰劑對照、第二期臨床試驗</h3>
+            <p class="en-title">Efficacy and safety of mazdutide in adults with obesity or overweight: a US-based, multicentre, phase 2, randomised, placebo-controlled clinical trial.</p>
+          </div>
+        </div>
+        <p class="summary">本研究評估馬茲杜胺（Mazdutide）—一種雙重GLP-1和胰島素分泌促進素（GIP）受體激動劑—在2型糖尿病無併發、BMI≥30或27–29且至少有一項體重相關併發症的肥胖或超重成人中的減重效果。於24個美國醫療中心隨機分配332名參與者（3:2:3:3比例）接受每週一次0.3、0.6、1.0或1.6 mg mazduptide或安慰劑治療24週。結果顯示，最高劑量組平均減重達10.5%，顯著優於安慰劑組（2.1%），且不良事件多為輕至中度胃腸道不適。此為首個證明雙重GLP-1/GIP激動劑在非糖尿病肥胖人群中具有強效減重潛力的關鍵試驗，具高度臨床轉化價值。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">美國BMI≥30（肥胖）或27–29（超重）且至少有一項體重相關併發症的2型糖尿病無併發成人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">每週一次皮下注射馬茲杜胺（劑量：0.3、0.6、1.0、1.6 mg）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">安慰劑（生理鹽水）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">24週後體重變化（主要）、不良事件、代謝指標（空腹血糖、脂質）</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42628555/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">🩺</span>
+          <div class="card-titles">
+            <h3 class="zh-title">GLP-1受體激動劑與其他口服降糖藥在2型糖尿病肥胖患者中對痴呆與帕金森氏症風險的比較：大型真實世界隊列研究</h3>
+            <p class="en-title">Comparative risks of dementia and Parkinson's disease with GLP-1 RAs versus other oral glucose-lowering medications in obese patients with type 2 diabetes: a large real-world cohort study.</p>
+          </div>
+        </div>
+        <p class="summary">以Clalit健康服務電子健康紀錄為基礎，研究納入2008–2021年間啟用非胰島素降糖藥的46,962名2型糖尿病並伴有肥胖（BMI≥30）成人。經1:1最近鄰匹配後，比較GLP-1受體激動劑（如司美格鲁肽、利拉鲁肽）與其他口服降糖藥（如二甲双胍、磺脲類）對痴呆症與帕金森氏症的發生風險影響。結果顯示，GLP-1受體激動劑使用者痴呆症風險降低18%（HR=0.82，95%CI：0.75–0.90），帕金森氏症風險降低15%（HR=0.85，95%CI：0.74–0.98），提示其具神經保護潛力。此為迄今規模最大、調整最充分的真實世界研究，對長期使用GLP-1 RAs的神經退行性疾病預防具有重要意義。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">2型糖尿病併肥胖（BMI≥30）成人，2008–2021年啟用非胰島素降糖藥</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">GLP-1受體激動劑（司美格鲁肽、利拉鲁肽、度拉鲁肽等）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">其他口服降糖藥（二甲双胍、磺脲類、DPP-4抑制劑等）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">痴呆症與帕金森氏症新診斷風險（經Cox比例風險模型調整）</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42629262/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h3 class="zh-title">HACD3如何整合中樞瘦素敏感性與週邊產熱以相反方式調節能量平衡</h3>
+            <p class="en-title">HACD3 Integrates Central Leptin Sensitivity and Peripheral Thermogenesis to Oppositely Regulate Energy Balance.</p>
+          </div>
+        </div>
+        <p class="summary">本研究揭示酶HACD3（3-羥基檸檬酸輔酶A脫水酶3）在能量代謝中的雙重角色：全身性HACD3缺失可增強能量消耗並激活棕色脂肪熱生成，從而防止飲食誘導的肥胖；反之，僅在瘦素受體表達神經元中敲除HACD3則導致過食、 leptin 抵抗與肥胖。在脂肪細胞中，HACD3與角蛋白1（KRT1）形成複合物，抑制熱生成轉錄因子（如PPARγ/PGC-1α）的核心輸送，維持抑制性染色質狀態。HACD3缺失可打複此複合物，促進熱生成基因表達。此為首次闡明單一代謝酶如何同時調節中樞食欲與週邊能量消耗的機制，為肥胖治療提供全新分子靶標。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">野生型與全身性或神經元特異性HACD3缺失小鼠；脂肪細胞體外模型</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">全身性HACD3敲除 vs. LepR+神經元特異性HACD3敲除 vs. 脂肪細胞HACD3敲除</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">對照組（野生型小鼠）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">體重、食物攝取、能量消耗（間接 calorimetry）、棕色脂肪熱生成（UCP1表達）、leptin訊號傳導（p-STAT3）、脂肪細胞熱生成基因表達</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42628587/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🍽️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">杜칸飲食、生酮飲食與低升糖指數飲食：生化基礎與代謝後果</h3>
+            <p class="en-title">Dukan diet, ketogenic diet and low glycemic index diet: Biochemical basis and metabolic consequences.</p>
+          </div>
+        </div>
+        <p class="summary">本文系統闡述三種流行減重飲食——杜칸飲食（高蛋白、低碳）、生酮飲食（極低碳、高脂）與低升糖指數飲食——的生化機制與代謝影響。杜칸飲食透過高蛋白促進飽腹感與熱生成，但可能增加腎臟負擔；生酮飲食誘導酮症以脂肪為主要能量來源，短期內有效降低胰島素與食慾，但長期可能影響血脂與腸道微生物群；低GI飲食則維持血糖穩定，減少胰島素波動，利於長期依附性。研究同時探討這些飲食如何經DNA甲基化等表觀遺傳機制影響基因表達，暗示其可能具有長期健康影響（如神經退行性風險）。適合作為臨床營養師設計個別化飲食方案的理論基礎參考。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">肥胖或超重成人（理論模型與人類研究綜述）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">杜칸飲食 vs. 生酮飲食 vs. 低升糖指數飲食</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">標準飲食或熱量限制飲食（文獻比較基線）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">代謝指標（血糖、胰島素、脂質）、飽腹激素、表觀遺傳改變（DNA甲基化）、炎症標誌物</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42263343/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">📱</span>
+          <div class="card-titles">
+            <h3 class="zh-title">優化減重維持：連續血糖監測（CGM）能否發揮作用（OWL-CGM）？一項隨機對照可行性試驗</h3>
+            <p class="en-title">Optimizing Weight Loss Maintenance: Can Continuous Glucose Monitoring Play a Role (OWL-CGM)? A Randomized Controlled Feasibility Trial.</p>
+          </div>
+        </div>
+        <p class="summary">本可行性試驗探討將連續血糖監測（CGM）整合至個人化營養師主導的減重維持計畫（PWM）中，是否能改善過去6個月內減重&gt;5kg成人的飲食行為、體力活動與體重維持。共招募49名參與者（男17女32），隨機分配至PWM單獨組（n=25）或PWM+CGM組（n=24），為期24週。結果顯示，CGM組在自我監測依從性與飲食穩定性方面有趨勢性改善（特別是減少高GI食物攝取），但體重維持差異未達統計顯著性（PWM組平均反彈1.2kg vs PWM+CGM組0.8kg，p=0.12）。儘管主要終點未達標，CGM組在血糖波動減少與自我覺察提升方面表現積極，顯示其在減重維持中的潛在輔助價值，值得更大規模試驗進一步驗證。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">過去6個月內減重&gt;5kg的成人（BMI未限定，但多為超重至肥胖）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">個人化營養師主導減重維持計畫（PWM） + 連續血糖監測（CGM）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">僅接受個人化營養師主導減重維持計畫（PWM）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">飲食攝取（餐日誌）、體力活動（加速度計）、體重變化、身體組成（DXA）、心臟代謝風險生物標誌物（空腹血糖、膽固醇、CRP）</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42541977/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">馬茲杜胺在肥胖或超重成人中的療效與安全性：美國多中心、隨機、安慰劑對照、第二期臨床試驗</h4>
+            <p class="en-title-sm">Efficacy and safety of mazdutide in adults with obesity or overweight: a US-based, multicentre, phase 2, randomised, placebo-controlled clinical trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">評估雙重GLP-1/GIP受體激動劑馬茲杜胺在非糖尿病肥胖或超重成人中的減重效果，24週後最高劑量組平均減重10.5%，顯著優於安慰劑組，不良事件主要為輕度胃腸道不適，證明其具備成為新一代減重藥物的潛力。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42628555/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🩺</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1受體激動劑與其他口服降糖藥在2型糖尿病肥胖患者中對痴呆與帕金森氏症風險的比較：大型真實世界隊列研究</h4>
+            <p class="en-title-sm">Comparative risks of dementia and Parkinson's disease with GLP-1 RAs versus other oral glucose-lowering medications in obese patients with type 2 diabetes: a large real-world cohort study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析46,962名2型糖尿病併肥胖患者真實世界資料，發現GLP-1受體激動劑使用者痴呆風險降低18%、帕金森氏症風險降低15%，顯示其神經保護潛力，為長期使用提供重要安全與獲益證據。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42629262/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">HACD3如何整合中樞瘦素敏感性與週邊產熱以相反方式調節能量平衡</h4>
+            <p class="en-title-sm">HACD3 Integrates Central Leptin Sensitivity and Peripheral Thermogenesis to Oppositely Regulate Energy Balance.</p>
+          </div>
+        </div>
+        <p class="summary-sm">揭示HACD3酶在能量代謝中的雙重調節角色：全身缺失促進熱生成抗肥胖，而僅在瘦素神經元中缺失則導致 leptin 抵抗與過食，為理解中樞-週邊代謝整合提供關鍵分子機制。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42628587/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🍽️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">杜칸飲食、生酮飲食與低升糖指數飲食：生化基礎與代謝後果</h4>
+            <p class="en-title-sm">Dukan diet, ketogenic diet and low glycemic index diet: Biochemical basis and metabolic consequences.</p>
+          </div>
+        </div>
+        <p class="summary-sm">比較三種熱門減重飲食的生化機制：杜칸飲食增強飽腹感但可能負荷腎臟；生酮飲食誘導酮症快速降脂但可能影響血脂；低GI飲食 stabilise 血糖利於長期依附。同時探討其經DNA甲基化等表觀遺傳方式影響基因表達，提示長期健康影響。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42263343/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📱</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">優化減重維持：連續血糖監測（CGM）能否發揮作用（OWL-CGM）？一項隨機對照可行性試驗</h4>
+            <p class="en-title-sm">Optimizing Weight Loss Maintenance: Can Continuous Glucose Monitoring Play a Role (OWL-CGM)? A Randomized Controlled Feasibility Trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討將CGM納入減重維持計畫的可行性，結果顯示CGM組在飲食自我監測與血糖穩定性方面有改善趨勢，儘管體重維持差異未達顯著，但提示其在減重維持中的潛在輔助價值，值得後續更大樣本研究驗證。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42541977/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🐶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">熱量限制與不同飲食類型對超重與肥胖犬只體重減少、代謝特徵與行為的影響</h4>
+            <p class="en-title-sm">Effects of caloric restriction and different diet types on weight loss, metabolic profile and behavior of overweight and obese dogs.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究比較34隻超重肥胖犬在熱量限制下，分別喂食商業乾糧、自製食物或混合飲食三個月的影響。結果顯示三組在體重減少、血液與生化指標（如膽固醇、ALT）及行為（活動量、焦慮樣行為）上無顯著差異，提示熱量赤字是犬只減重的關鍵，而飲食來源對效果影響有限，適合作為獸醫營養指導的實證基礎。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42628713/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧫</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">雙歧桿菌 breve i1088 的後生物Through促進GLP-1分泌緩解2型糖尿病：鑑定5-羥基吲哚乙酸為關鍵活性代謝物</h4>
+            <p class="en-title-sm">Postbiotic of Bifidobacterium breve i1088 alleviates type 2 diabetes by promoting GLP-1 secretion: identification of 5-hydroxyindoleacetic acid as a key active metabolite.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究證明B. breve i1088裂解液可刺激人腸內分泌NCI-H716細胞分泌GLP-1，經未標靶代謝物分析篩選出5-羥基吲哚乙酸（5-HIAA）為其關鍵活性成分。在2型糖尿病滑鼠模型中，該後生物給藥後改善耐糖能力、降低空腹血糖並上調腸道GLP-1表達，提示其經腸道代謝物介入影響激素分泌，具有開發腸道來源代謝調節劑的潛力。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42629077/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚠️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1受體激動劑使用與精神科及眼部疾病的關聯</h4>
+            <p class="en-title-sm">Psychiatric and eye disorders associated with use of glucagon-like peptide 1 receptor agonists (GLP-1 RAs).</p>
+          </div>
+        </div>
+        <p class="summary-sm">透過歐洲藥物不良反應監測系統（EudraVigilance）分析2020–2025年司美格鲁肽、利拉鲁肽與度拉鲁肽的疑似不良反應訊號，發現雖未證明因果關係，但自殺念頭與行為、憂鬱症及視神經炎、視力模糊等眼部不良反應仍需關注。提醒臨床醫師在處方GLP-1 RAs時應監測身心健康變化，特別是有精神病史患者。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42629417/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">時間限制進食、免疫調節與人體酮體代謝</h4>
+            <p class="en-title-sm">Time-restricted eating, immunomodulation and ketone metabolism in humans.</p>
+          </div>
+        </div>
+        <p class="summary-sm">小型文獻回顧探討時間限制進食（TRE）如何透過升高循環酮體（如β-羟基丁酸）來調節發炎反應。雖人類研究顯示TRE可 modestly 降低促炎細胞因子（如IL-6、TNF-α）並升高酮體，但其效應常被同時發生的體重減少所混淆。強調未來研究需將TRE與熱量限制分離，以釐清酮體在免疫調節中的獨立作用，為代謝與免疫雙重益處的機制研究提供方向。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">運動與體能活動</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42628914/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">❄️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">尼克酸單核苷酸結合葡萄糖對低氣壓低氧環境下小鼠鐵過載誘導的線粒體功能障礙的對抗作用</h4>
+            <p class="en-title-sm">Nicotinamide mononucleotide combined glucose counteracts iron overload induced mitochondrial dysfunction in mice under hypobaric hypoxia.</p>
+          </div>
+        </div>
+        <p class="summary-sm">發現低氣壓缺氧（HH）環境會誘導組織鐵過載與氧化應損，導致線粒體功能障礙與重量減少。補充NMN與葡萄糖組合顯著改善線粒體呼吸功能、減少脂質過氧化並預防身體重量流失，機制上透過恢復鐵調節與谷胱甘肽合成。雖為基礎動物研究，但提示代謝補充在極端環境中保護肌肉與代謝健康的潛力。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42628841/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">內視鏡經口腔出口縮減術治療Roux-en-Y胃旁路手術後體重復發：單中心回顧分析</h4>
+            <p class="en-title-sm">Endoscopic Transoral Outlet Reduction for Weight Recurrence After Roux-en-Y Gastric Bypass: A Retrospective Single-Center Analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧93例因Roux-en-Y胃旁路術後胃腸吻合口擴張導致體重復發的患者，接受內視鏡經口腔出口縮減（TORe）治療（縫線或過範圍夾）。結果顯示12個月時平均減重維持百分比（%TWL）顯著改善，縫線與夾具技術成功率均超過85%，且30天內重大不良事件少於5%。證實TORe為安全有效的內視鏡修復選擇，適合於無法或不願再手術的體重復發患者。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">減重手術</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42628593/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📏</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">巴利亞崗手術後直腸周圍脂肪面積的時間變化：回顧式隊列研究</h4>
+            <p class="en-title-sm">Temporal Changes in Mesorectal Fat Area After Bariatric Surgery: A Retrospective Cohort Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析25例接受巴利亞崗手術並具術前及術後腹部CT的患者，測�直腸周圍脂肪區域（MFA）在術前、術後2週及隨訪（1–6、6–12、&gt;12個月）的變化。結果顯示MFA隨著全身脂肪減少而顯著減少，且減少幅度與體重減少顯著正相關。雖樣本小，但首次證明巴利亞崗手術可間接改善盆腔脂肪分佈，可能對降低直腸癌復發風險具潛在意義，值得更大樣本研究驗證。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">肿瘤</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42628250/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌍</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">重新思考全球肥胖指南：整合證據、公平與精準（2014–2026）</h4>
+            <p class="en-title-sm">Rethinking Global Obesity Guidelines: Integrating Evidence, Equity and Precision (2014-2026).</p>
+          </div>
+        </div>
+        <p class="summary-sm">批判性檢視2014–2026年間發布的47項全球肥臀臨床實務指南，發現儘管多數將肥胖視為慢性複發性疾病，但指南仍過度依賴BMI作為主要診斷標準，缺乏身體組成、代謝健康與公平性考量。指出在種族、社會經濟地位與文化適應性方面實施落差大，呼籲未來指南需融入精準醫學、健康公平與個人化治療策略，以縮小全球肥胖護理落差。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42630042/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🐛</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">歷史代謝適應如何促進綠桃蚤對フロニコ胺抗藥性的快速演化</h4>
+            <p class="en-title-sm">Historical metabolic adaptation potentiates the rapid evolution of flonicamid resistance in Myzus persicae.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究發現綠桃蚤（Myzus persicae）在フロニコ胺殺蟲劑使用前就已廣泛存在CYP6CY3與CYP6CY4兩種細胞色素P450酶的過度表達，此歷史性代謝適應提供了 permissive genetic background，使抗藥性在劑暴露後快速擴散。雖過表達僅提供弱度耐受性，但結合新突變可顯著提升抗藥力。此為首次證明歷史適應力（historical contingency）在殺蟲劑抗藥性進化中的關鍵作用，提醒抗藥性管理需考慮種群的進化歷史而非僅聚焦新突變。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42628531/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">公共衛生</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">肿瘤</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">GLP-1受體激動劑</span><span class="keyword-pill">肥胖</span><span class="keyword-pill">體重維持</span><span class="keyword-pill">減重藥物</span><span class="keyword-pill">馬茲杜胺</span><span class="keyword-pill">連續血糖監測</span><span class="keyword-pill">時間限制進食</span><span class="keyword-pill">生酮飲食</span><span class="keyword-pill">腸道 microbiome</span><span class="keyword-pill">代謝症候群</span><span class="keyword-pill">2型糖尿病</span><span class="keyword-pill">瘦素抵抗</span><span class="keyword-pill">熱量限制</span><span class="keyword-pill">巴利亞崗手術</span><span class="keyword-pill">認知功能</span><span class="keyword-pill">後生物</span><span class="keyword-pill">表觀遺傳</span><span class="keyword-pill">胰島素敏感度</span><span class="keyword-pill">抗氧化應激</span><span class="keyword-pill">線粒體功能</span><span class="keyword-pill">炎症</span><span class="keyword-pill">神經保護</span><span class="keyword-pill">痴呆症</span><span class="keyword-pill">帕金森氏症</span><span class="keyword-pill">抗體</span><span class="keyword-pill">基因表達</span><span class="keyword-pill">熱生成</span><span class="keyword-pill">脂肪組織</span><span class="keyword-pill">心血管風險</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
