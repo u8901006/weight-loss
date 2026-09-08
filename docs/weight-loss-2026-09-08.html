@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年9月8日（星期二）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年9月8日（星期二）</p>
+    <span class="stats">本日收錄 17 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">地中海飲食在肥佝兒童哮喘中的應用：單臂試點研究</h3>
+            <p class="en-title">Mediterranean Diet in Obese Children with Asthma: A Single-Arm Pilot Study.</p>
+          </div>
+        </div>
+        <p class="summary">本研究評估為期8週的個人化地中海飲食干預對肥佝兒童伴哮喘的影響。納入37名6-15歲肥佝哮喘兒童，進行前後測量身體指標、肺功能、哮喘控制、生活品質、飲食指數、代謝標誌物、炎症因子及氧化應激指標。結果顯示BMI Z-score、腰圍及炎症標誌物顯著下降，生活品質與哮喘控制改善，提示地中海飲食可同時改善肥佝與哮喘相關的代謝與炎症病程。此研究支持飲食介入作為肥佝哮喘共病患者的安全有效輔助療法。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">6-15歲肥佝兒童併哮喘（BMI &gt; 第95百分位）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">為期8週的個人化地中海飲食干預</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">無對照組（單臂試點研究）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">BMI Z-score、腰圍、哮喘控制、生活品質、代謝與炎症指標改善</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704628/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">⏱️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">脊髓損傷退役軍人伴肥佝進行時間限制進食的體驗探索：質性研究</h3>
+            <p class="en-title">Exploring the experience of time-restricted eating in veterans with spinal cord injury and obesity: a qualitative study.</p>
+          </div>
+        </div>
+        <p class="summary">本質性研究探討脊髓損傷（SCI）退役軍人（肥佝佔近80%）參與10小時時間限制進食（TRE）的主觀體驗。訪談15名完成或退出試驗的退役軍人，發現雖TRE被視為可行且符合日常規律，但殘疾相關限制（如肌肉攣縮、作息受限、藥物時間衝突）影響依從性。參與者報告飲食結構改善與身體感受覺察增強，但社會支持不足與環境障礙為主要挑戰。研究強調需個人化與殘疾友善設計的飲食介入，以提升此高風險群體的長期依從性。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">有脊髓損傷與肥佝的退役軍人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">10小時每日時間限制進食（TRE）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">無明確對照（質性探索經驗）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">參與者體驗、依從性挑戰與主觀益處</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">行為與心理</span><span class="tag">社會決定因素</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704206/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">GLP-1受體激動藥 vs DPP-4抑製劑對2型糖尿病神經併發症的影響比較</h3>
+            <p class="en-title">GLP-1 receptor agonists vs DPP-4 inhibitors and neuropathic complications in type 2 diabetes.</p>
+          </div>
+        </div>
+        <p class="summary">此研究利用TriNetX美國協作網路資料，比較2型糖尿病伴神經病變患者使用GLP-1受體激動藥（GLP-1 RA）與DPP-4抑製劑在下肢併發症上的差異。結果顯示GLP-1 RA組在糖足潰瘍、下肢切斷、足踝骨髓炎、Charcot神經關節病變及全因死亡率方面均顯著低於DPP-4組。這些發現支持GLP-1 RA不僅改善血糖與體重，更能降低神經病變相關的嚴重足部併發症，具重要臨床決策價值。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">2型糖尿病併神經病變的成年患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">GLP-1受體激動藥療法</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">DPP-4抑製劑療法</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">糖足潰瘍、下肢切斷、骨髓炎、Charcot病變、全因死亡率</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704495/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🏃</span>
+          <div class="card-titles">
+            <h3 class="zh-title">有氧運動緩解高脂飲食小鼠腎損傷：經Drp1-mtROS通路的新機制</h3>
+            <p class="en-title">Aerobic Exercise Ameliorates Renal Injury in High-Fat Diet-Fed Mice: A Novel Effect Mediated by the Drp1-mtROS Pathway.</p>
+          </div>
+        </div>
+        <p class="summary">本動物研究探討有氧運動對高脂飲食（HFD）小鼠腎臟保護作用及其機制。結果顯示，HFD小鼠接受8週有氧運動後，腎損傷指標改善，線粒體DRP1激活減弱，線粒體活性氧（mtROS）產生下降，腎細胞凋亡與氧化應激減輕。體外實驗urther證實，在PA處理的腎上皮細胞中，DRP1敲減或使用Mdivi-1抑製劑可模擬運動效應。此研究首次證明有氧運動透過抑制Drp1介導的mtROS過度產生，保護腎臟免於脂毒性損傷，為肥佝相關腎病提供新幹預策略。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">高脂飲食誘導肥佝小鼠模型</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">8週有氧運動</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">久坐對照組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">腎組織病理、mtROS水平、Drp1激活、ATP產生、線粒體結構</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42703697/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">減重手術候選者的心理樣式：橫斷面研究</h3>
+            <p class="en-title">Psychological Profile of Bariatric Surgery Candidates: A Cross-Sectional Study.</p>
+          </div>
+        </div>
+        <p class="summary">本研究分析118名減重手術候選者（平均37.5歲，88%女性）的心理特徵，探討童年創傷、父母照護與應對策略對成年抑鬱症狀與整體心理病理的影響。結果顯示，儘管肥佝程度與心理變數無顯著關聯，但候選者普遍存在較高的創傷史與不適應應對方式，提示心理評估應為手術前標準流程。雖未直接顯示心理因素對手術結果的影響，但凸顯整合心理支持於減重治療之重要性，尤其對有早期不良經驗者。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">減重手術候選者（臨床診斷肥佝）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">無（橫斷面描述心理特徵）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">無對照組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">童年創傷（CTQ-SF）、父母照護、應對策略（COPE）、抑鬱（BDI）、心理病理（SCL-90-R）</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">減重手術</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42702926/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧫</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">去鐵酮透過調節鐵死亡來保護巨噬細胞與肝臟免於Neospora caninum感染</h4>
+            <p class="en-title-sm">Deferiprone Modulates Ferroptosis to Protect Macrophages and Liver during Neospora caninum Infection.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討鐵螯合劑去鐵酮（DFP）在Neospora caninum義務細胞內寄生蟲感染中的作用，發現DFP可抑制鐵死亡（ferroptosis），減少巨噬細胞與肝臟的氧化損傷與脂質過氧化，提示鐵代謝調節可能為抗寄生蟲療法的新靶點，但與人類肥佝減重無直接關聯。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704398/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⏱️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">脊髓損傷退役軍人伴肥佝進行時間限制進食的體驗探索：質性研究</h4>
+            <p class="en-title-sm">Exploring the experience of time-restricted eating in veterans with spinal cord injury and obesity: a qualitative study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探討脊髓損傷退役軍人（肥佝佔近80%）參與10小時時間限制進食（TRE）的體驗，發現儘管TRE被視為可行，但殘疾相關生理與環境障礙（如作息、藥物時間、肌肉狀態）影響依從性，強調需個人化設計以提升此群體的長期執行力與飲食行為改善。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">行為與心理</span><span class="tag">社會決定因素</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704206/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">👁️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm"> adenosine deaminase 2缺乏兒童伴視網膜動脈阻塞但視網膜旁支血管保護的個案報告</h4>
+            <p class="en-title-sm">Cilioretinal-Sparing Central Retinal Artery Occlusion in a Child with Adenosine Deaminase 2 (ADA2) Deficiency.</p>
+          </div>
+        </div>
+        <p class="summary-sm">報告一例11歲女童，因ADA2缺乏導致多發性血管炎樣症狀，其後發生中央視網膜動脈阻塞（CRAO），幸好視網膜旁側動脈供血保留，避免了完全失明。提示ADA2缺乏患者即使有全身性血管炎，仍可能受益於視網膜側枝循環，但與肥佝減重無關。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42703705/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">72歲婦女在停用奧氮平後出現晚發性厭食症伴行為失調的個案報告</h4>
+            <p class="en-title-sm">A case of late-onset anorexia nervosa with behavioural dysregulation in a 72-year-old woman, precipitated after olanzapine discontinuation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">描述一位72歲婦女，在長期使用奧氮平治療精神症狀後，藥物停用後突然而嚴重的體重下降、強迫性運動、身體形象扭曲及行為衝動，被診斷為晚發性厭食症。凸顯精神藥物撤離可能誘發或再燃飲食行為疾病，尤其在老年人中需警覺其代謝與精神健康的雙重影響。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42702522/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔪</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">袖狀胃切除術前進行上腸胃內視鏡檢查的臨床價值：30日結果的回顧性隊列研究</h4>
+            <p class="en-title-sm">Clinical Relevance of Preoperative Upper Gastrointestinal Endoscopy before Sleeve Gastrectomy: A Retrospective Cohort Study of 30-Day Outcomes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧分析315例接受腹腔鏡袖狀胃切除術的患者，評估術前內視鏡所見（如食道巴雷特、胃炎、幽門螺旋桿菌）是否與30日內術後併發症（特別是漏與逆流）相關。結果顯示，內視鏡發現與主要漏或逆流事件無顯著關聯，質疑常規術前內視鏡的必要性，但建議高風險個案仍應個別評估。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704683/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🥗</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">地中海飲食在肥佝兒童哮喘中的應用：單臂試點研究</h4>
+            <p class="en-title-sm">Mediterranean Diet in Obese Children with Asthma: A Single-Arm Pilot Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">評估8週個人化地中海飲食干預對37名肥佝哮喘兒童的影響，結果顯示BMI Z-score、腰圍顯著下降，生活品質、哮喘控制改善，並伴隨炎症與氧化應激指標減少。支持地中海飲食作為改善肥佝哮喘共病的有潛力生活方式介入，尤其對兒童族群具預防醫學意義。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704628/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🚶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">成人行走時的能量消耗：身體質量指數與性別的影響</h4>
+            <p class="en-title-sm">Energy Expenditure During Walking in Adults: Impact of Body Mass Index and Sex.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究182名成人（96女性）在不同速度行走時的能量消耗，發現BMI顯著影響每公斤体重每米的能量成本（Cw），較高BMI者在相同速度下消耗更多能量，但此影響隨速度增加而減弱。性別差異在調整体重後不顯著。結果強調肥佝者行走效率較低，但可透過適適運動強度改善，具運動處方參考價值。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">肥佝機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704768/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">中心性肥佝相關認知障礙的腸道微生物群-腦軸機制</h4>
+            <p class="en-title-sm">Microbiota-Gut-Brain Axis Mechanisms in Cognitive Impairment Associated with Central Obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">綜述當前證據，指出腰圍、腰臀比及影像測量的內臟脂肪（VAT）比BMI更與認知功能下降、腦萎縮及白質異常相關。腸道微生物群失調可能經由促炎訊號、代謝物及迷走神經影響腦部功能，支持腸道微生物群-腦軸為中心性肥佝導致認知風險的關鍵機制，提示益生菌、飲食或糞便移植為潛在預防策略。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704561/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💉</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1受體激動藥 vs DPP-4抑製劑對2型糖尿病神經併發症的影響比較</h4>
+            <p class="en-title-sm">GLP-1 receptor agonists vs DPP-4 inhibitors and neuropathic complications in type 2 diabetes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">使用大型真實世界資料庫（TriNetX），比較2型糖尿病伴神經病變患者使用GLP-1受體激動藥與DPP-4抑製劑的長期下肢併發症。結果顯示GLP-1 RA組在糖足潰瘍、截肢、骨髓炎、Charcot病變及死亡率方面均顯著優於DPP-4組，支持其在預防糖尿病足及神經病變惡化中的優勢，具高臨床轉化價值。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704495/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🍽️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">飲食攝入與GLP-1生物學的相互作用：對代謝功能障礙與老化的意涵</h4>
+            <p class="en-title-sm">Interactions between dietary intake and GLP-1 biology: implications for metabolic dysfunction and aging.</p>
+          </div>
+        </div>
+        <p class="summary-sm">綜述最新證據，指出飲食因素（熱量、餐時、營養素組成）可調節內源性GLP-1分泌，而GLP-1基礎療法又會改變食物選擇與偏好（如減少高脂高糖慾望）。此雙向關係提示，結合個人化飲食指導與GLP-1療法可能增強減重持久性與代謝收益，尤其對老年人或代謝綜合症患者具預防醫學意義。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">飲食介入</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704078/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">�</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">藜麦幼苗脫 Etiolation 期間光響應型黃酮 biosynthesis 的 CqbZIP55-CqPIF3 調控模組</h4>
+            <p class="en-title-sm">A CqbZIP55-CqPIF3 regulatory module associated with light-responsive flavonoid biosynthesis during quinoa seedling de-etiolation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探索藜麥幼苗在光照下脫離etiolation的早期反應，發現轉錄因子CqbZIP55響應光訊號並與CqPIF3互動，促進黃酮生合成相關基因表達。儘管 flavonoid 具健康益處，但此基礎植物學研究與人類肥佝減重無直接關聯。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42702308/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧫</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">超聲波輔助發酵在康普茶中的應用：通過代謝重塑Komagataeibacter intermedius以控制澀澀感</h4>
+            <p class="en-title-sm">Metagenomic and physicochemical insights into ultrasound-assisted fermentation: Reprogramming Komagataeibacter intermedius metabolic efficiency for astringency control.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究低功率超聲波（20kHz, 240W）輔助康普茶發酵，發現可顯著減少澀澀感官評分與唾液蛋白沉淀，同時保留單體茶多酚（兒茶素），維持抗氧化潛力。透過改變細菌群落與代謝流向，超聲波促進了抗氧化物質保留而非單純降低多酚含量，為功能性飲料提供非破壞性品質提升策略。雖與腸道健康間接相關，但對減重效果證據有限。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42702160/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🩸</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">口服尿素在小細胞肺癌引起的抗利尿激素分泌不適當症候群中的應用：門診管理下的持續、安全且具成本效益的糾正</h4>
+            <p class="en-title-sm">[Oral urea in paraneoplastic syndrome of inadequate antidiuretic hormone secretion due to small-cell carcinoma ‑ Sustained, safe, and cost-effective correction through outpatient management].</p>
+          </div>
+        </div>
+        <p class="summary-sm">報告一例71歲吸煙者，因小細胞肺癌導致SIADH（抗利尿激素分泌過多症）而出現嚴重低鈉血症與精神狀態改變。經初期高張食鹽水處理後，改用口服尿素進行門診維持療法，成功維持鈉離子平衡，避免反覆住院。雖提及體重減少為初症狀之一，但研究焦點在電解質管理而非減重介入。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42704009/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">減重手術候選者的心理樣式：橫斷面研究</h4>
+            <p class="en-title-sm">Psychological Profile of Bariatric Surgery Candidates: A Cross-Sectional Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">調查118名減重手術候選者（平均37.5歲，88%女性），評估童年創傷、父母照護與應對策略與成年抑鬱及心理病理的關聯。結果顯示BMI與心理變數無顯著關聯，但候選者創傷史高發，提示手術前需常規納入心理評估與創傷知照護雖未顯示對手術結果的直接影響，但強調整合心理支持的重要性，尤其對既往有早期不良生活經驗者。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">減重手術</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42702926/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🏃‍♂️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">有氧運動緩解高脂飲食小鼠腎損傷：經Drp1-mtROS通路的新機制</h4>
+            <p class="en-title-sm">Aerobic Exercise Ameliorates Renal Injury in High-Fat Diet-Fed Mice: A Novel Effect Mediated by the Drp1-mtROS Pathway.</p>
+          </div>
+        </div>
+        <p class="summary-sm"> HFD小鼠經8週有氧運動後，腎損傷指標改善，DRP1激活下降，線粒體活性氧（mtROS）減少，ATP生成提升。細胞實驗證實，Drp1敲減或Mdivi-1處理可類似運動效應。此研究揭示有氧運動透過抑制Drp1介導的mtROS過度產生，保護腎臟免於脂毒性損傷，為肥佝相關腎病提供新預防機制。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42703697/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧒</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">下視丘性肥佝與一般性肥佝兒童的食慾調節激素定量比較</h4>
+            <p class="en-title-sm">Quantification of appetite-regulating hormones in children with hypothalamic and common obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">比較下視丘性肥佝（HyOb）、一般性肥佝（Ob）與正常體重兒童在 leptin、胃relin、alpha-MSH 等食慾激素水平。發現 HyOb 組 leptin 高但 alpha-MSH 低，提示下視丘損傷導致飽腹訊號傳導缺陷，尽管高 leptin 卻無法抑制食慾。此結果有助理解 HyOb 的獨特病理機制，與常見肥佝不同，提示需針對性治療策略而非單純熱量限制。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42703509/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🦠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">益生菌補充改善格鬥運動員在減重階段的身體組成、血脂與脂肪酸代謝</h4>
+            <p class="en-title-sm">Probiotic supplementation improves body composition, lipid profiles, and fatty acid metabolism in combat sports athletes during the weight reduction phase.</p>
+          </div>
+        </div>
+        <p class="summary-sm">32名格鬥運動員在4週減重期被隨機分配至益生菌組或安慰劑組。雙組皆顯著減少體重、BMI、體脂百分比與肌肉質量，但益生菌組在體脂減少、血脂優化（LDL↓, HDL↑）及短鏈脂肪酸代謝改善方面表現更佳。提示益生菌可能作為輔助策略，改善減重期間的代謝品質而非僅體重數字，尤其對需快速減重又願保持運動表現的運動員具潛在價值。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42702994/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素</span>
+          <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">公共衛生</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">肥佝</span><span class="keyword-pill">減重</span><span class="keyword-pill">GLP-1</span><span class="keyword-pill">飲食介入</span><span class="keyword-pill">運動</span><span class="keyword-pill">益生菌</span><span class="keyword-pill">地中海飲食</span><span class="keyword-pill">時間限制進食</span><span class="keyword-pill">胰島素</span><span class="keyword-pill">代謝症候群</span><span class="keyword-pill">2型糖尿病</span><span class="keyword-pill">炎症</span><span class="keyword-pill">氧化應激</span><span class="keyword-pill">腸道微生物群</span><span class="keyword-pill">腦腸軸</span><span class="keyword-pill">手術</span><span class="keyword-pill">行為治療</span><span class="keyword-pill">兒童肥佝</span><span class="keyword-pill">體重維持</span><span class="keyword-pill">脂肪代謝</span><span class="keyword-pill">胃relin</span><span class="keyword-pill">leptin</span><span class="keyword-pill">ADA2</span><span class="keyword-pill">ferroptosis</span><span class="keyword-pill">超聲波發酵</span><span class="keyword-pill">SIADH</span><span class="keyword-pill">尿素</span><span class="keyword-pill">奧氮平</span><span class="keyword-pill">厭食症</span><span class="keyword-pill">脊髓損傷</span><span class="keyword-pill">退役軍人</span><span class="keyword-pill">哮喘</span><span class="keyword-pill">腎損傷</span><span class="keyword-pill">Drp1</span><span class="keyword-pill">mtROS</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
