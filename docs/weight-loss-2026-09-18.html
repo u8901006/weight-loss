@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年9月18日（星期五）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年9月18日（星期五）</p>
+    <span class="stats">本日收錄 34 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">序贯型促胰岛素疗法在普拉德-威利综合征患者中实现超过100公斤的持续减重</h3>
+            <p class="en-title">Sustained weight loss exceeding 100 kg with sequential incretin-based therapy in Prader-Willi syndrome.</p>
+          </div>
+        </div>
+        <p class="summary">针对一名29岁、体重185公斤（BMI 59.7）、合并2型糖尿病的普拉德-威利综合征（PWS）男性患者，研究其接受序贯促胰岛素疗法（先用retatrutide，后因供应中断改用口服司美格鲁肽和度拉鲁肽）结构化低热量饮食和监督运动的效果。结果显示，患者在治疗期间实现了超过100公斤的持续体重下降，并伴随2型糖尿病缓解（HbA1c从8.3%降至正常范围）。此案例表明，即使是传统上减重极困难的PWS患者，也可通过个体化、阶梯式的促胰岛素类药物联合生活方式干预达到显著且持续的体重与代谢改善，为PWS伴重度肥胖的治疗提供了新范式。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">29岁男性，遗传确诊母系单亲二倍体PWS，体重185公斤（BMI 59.7），新诊断2型糖尿病（HbA1c 8.3%）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">序贯促胰岛素疗法：retatrutide（1-12 mg/周）→口服司美格鲁肽→度拉鲁肽，结合结构化低热量饮食和监督运动</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">无对照组（病例报告）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">超过100公斤持续体重减轻；2型糖尿病缓解（HbA1c恢复正常）</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42751099/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">口服司美格鲁肽与其他非胰岛素降糖药在2型糖尿合并动脉粥样硬化性心血管疾病成人中的心血管疗效比较</h3>
+            <p class="en-title">Comparing Cardiovascular Outcomes in New Users of Oral Semaglutide Versus Other Noninsulin Glucose-Lowering Therapies Among Adults with Type 2 Diabetes and Atherosclerotic Cardiovascular Disease.</p>
+          </div>
+        </div>
+        <p class="summary">基于Optum Clinformatics数据库的真实世界队列研究，比较新用口服司美格鲁肽（OS）与其他非胰岛素降糖疗法（ONIGLT，包括DPP-4i、SGLT2i、胰岛素）在2型糖尿病并合并动脉粥样硬化性心血管疾病（ASCVD）成人中的心血管获益。主要结果为3点、修改3点、5点、修改5点和2点主要不良心血管事件（MACE）、缺血性卒中、心肌梗死及全因和心血管相关死亡。研究发现，口服司美格鲁肽使用者在所有MACE定义下均显著降低心血管事件风险，尤其在降低心肌梗死和缺血性卒中方面获益显著，支持其在高危2型糖尿病患者中的真实世界心血管保护作用，与随机对照试验结果一致。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">2型糖尿病并合并动脉粥样硬化性心血管疾病（ASCVD）的成年人</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">新使用口服司美格鲁肽</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">其他非胰岛素降糖疗法（ONIGLTs：DPP-4抑制剂、SGLT2抑制剂、胰岛素等）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">口服司美格鲁肽组在MACE、缺血性卒中、心肌梗死及心血管死亡方面风险显著降低</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42753116/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h3 class="zh-title"> obese 孕鼠使用二甲双胍治疗可正常化后代感觉-运动反射</h3>
+            <p class="en-title">Maternal metformin treatment in obese pregnant dams normalizes neonatal sensory-motor reflexes.</p>
+          </div>
+        </div>
+        <p class="summary">研究探讨母体肥胖对后代神经发育的影响及二甲双胍的干预作用。雌性C57BL/6小鼠断奶后喂食西式高脂高糖饮食（WSD）至配孕期，妊娠及哺乳期，其中一组孕鼠在妊娠期接受二甲双胍治疗。结果显示，WSD组后代出现感觉-运动反射迟缓，而接受母体二甲双胍治疗的后代，其感觉-运动反射（如右身反射、悬垂抓握、步态）恢复至对照组水平。提示母体肥胖通过胎儿期编程影响后代神经运动发育，而二甲双胍可改善母体代谢状态并起到胎儿保护作用，正常化早期神经功能，支持其在妊娠期肥胖中的潜在神经保护角色。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">怀孕的C57BL/6雌性小鼠，分为标准饮食对照组（CO）和西式饮食肥胖组（OB）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">OB组孕鼠在妊娠期接受二甲双胍治疗</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">OB组未治疗对照组及CO组</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">二甲双胍处理使WSD暴露后代的感觉-运动反射正常化至对照组水平</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42749905/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">基于网络的多站点试点可行性RCT：改善焦虑升高青少年女孩的心代谢健康</h3>
+            <p class="en-title">Improving Cardiometabolic Health in Adolescent Girls With Elevated Anxiety: Web-Based Multisite, Pilot, and Feasibility Randomized Controlled Trial.</p>
+          </div>
+        </div>
+        <p class="summary">针对超重/肥胖并伴有焦虑升高（BMI ≥85百分位）的青少年女孩（N=？），研究比较两种线上心理干预：人际心理治疗（IPT）与认知行为疗法（CBT）的可行性、接受度及对焦虑、情绪性进食和心代谢指标（如体重、腰围、胰岛素抵抗）的影响。尽管为试点研究，结果显示两种干预均具有较高完成率和接受度，CBT在减少焦虑和情绪性进食方面趋于更优，IPT则在改善人际关系方面表现突出。两组均示心代谢指标有轻微改善趋势。提示线上心理干预是可行且潜在有效的策略，可通过改善情绪调节间接改善肥胖青少年的饮食行为与代谢健康，尤其对焦虑驱动的进食模式有干预价值。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">焦虑升高且体重超重/肥胖（BMI ≥第85百分位）的青少年女孩</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">网络配信的人际心理治疗（IPT）或认知行为疗法（CBT）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">未说明明确对照（可能为等待名单或常规护理）</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">两组焦虑显著下降；CBT在减少情绪性进食方面趋优；心代谢指标有轻度改善</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42753249/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🥗</span>
+          <div class="card-titles">
+            <h3 class="zh-title">在多内分泌代谢卵巢综合征（PMOS）中管理代谢和内分泌功能障碍的营养护理与饮食疗法：从PCOS更名为PMOS的视角看其意义与机遇</h3>
+            <p class="en-title">Nutrition care and Dietetic Practice in Managing Metabolic and Endocrine Dysfunction in Polyendocrine Metabolic Ovarian Syndrome (PMOS): Implications and Opportunities in the Context of the Name Change of Polycystic Ovarian Syndrome (PCOS) to PMOS.</p>
+          </div>
+        </div>
+        <p class="summary">论文指出，PCOS更名为PMOS（Polyendocrine Metabolic Ovarian Syndrome）更准确反映其核心为代谢及内分泌功能障碍，而非仅卵巢问题。全球8-13%育龄女性受影响，合并肥胖、胰岛素抵抗、2型糖尿病及心血管风险增加。强调饮食干预是国际指南中一线治疗，营养师在其中扮演关键角色——通过个体化医学营养疗法（MNT）、饮食行为改造及生活方式干预，可改善胰岛素敏感性、减重、调经及降低併發症风险。文章呼吁将营养护理纳入PMOS标准管理流程，并指出需提升医师对饮食疗法的认识、强化营养师培训及建立跨学科协作模式，以应对其复杂的代谢病理。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">育龄女性，患PMOS（前称PCOS），尤以合并肥胖、代谢综合征者为主</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">营养护理与饮食疗法（医学营养治疗、生活方式干预、行为改造）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">标准护理或仅药物干预</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">改善代谢指标（胰岛素抵抗、血脂）、体重管理、月经周期规律及降低2型糖尿病和心血管疾病风险</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">糖尿病與代謝</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42749129/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">促进早期生活长期健康</h4>
+            <p class="en-title-sm">Promotion of long-term health in early life.</p>
+          </div>
+        </div>
+        <p class="summary-sm">探讨早期生活暴露（如微生物组、表观遗传学、营养和心理因素）如何通过多条路径（代谢-内分泌、免疫、神经发育）影响非传染性慢性疾病（如肥胖、糖尿病、心血管病）的长期风险，强调需建立协调的早期干预体系以预防成人期疾病。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42752199/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">双重GLP-1/GIP受体激动剂在肝移植后体重管理中的应用</h4>
+            <p class="en-title-sm">Redefining weight management after liver transplantation with glucagon-like peptide one and gastric inhibitory polypeptide receptor agonists.</p>
+          </div>
+        </div>
+        <p class="summary-sm">讨论肝移植受者肥胖及代谢综合征的挑战，指出GLP-1及GLP-1/GIP双重激动剂（如司美格鲁肽、替西帕肽）经FDA批准用于长期体重管理，可改善移植后代谢并预防并发症如代谢功能障碍相关脂肪肝、肾功能下降和糖尿病，为该群体提供新的治疗策略。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42751234/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">肥胖与收入对肾移植机会的影响：回顾性队列研究</h4>
+            <p class="en-title-sm">Impact of obesity and income on the likelihood of kidney transplantation: A retrospective cohort study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析美国54,891名肾脏移植候选人数据，发现肥胖（BMI≥30）者接受亡者或活体供体肾移植的可能性降低，且这一不利影响在非西班牙裔白人和黑人中更明显；低收入进一步加剧了肥胖对移植机会的负面影响，提示社会决定因素与BMI共同影响器官分配公平性。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42751251/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌿</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">怀奇黄缓解诱导的银屑病样皮损及抑�样行为</h4>
+            <p class="en-title-sm">Huaiqihuang Alleviates Imiquimod-Induced Psoriasis-Like Skin Lesions and Depressive-Like Behaviors in Mice.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究中药怀奇黄（HQH）在伊马quimod诱导的银屑病样小鼠模型中的作用，发现HQH不仅改善皮肤病变和炎症，还减轻抑郁样行为，网络药理学提示其可能通过调节Th17通路及神经免疫轴发挥双重治疗作用，为银屑病伴抑郁的协同治疗提供天然候选方案。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42753093/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm"> obese 孕鼠使用二甲双胍治疗可正常化后代感觉-运动反射</h4>
+            <p class="en-title-sm">Maternal metformin treatment in obese pregnant dams normalizes neonatal sensory-motor reflexes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究探讨母体肥胖对后代神经发育的影响及二甲双胍的干预作用。雌性C57BL/6小鼠断奶后喂食西式高脂高糖饮食（WSD）至配孕期，妊娠及哺乳期，其中一组孕鼠在妊娠期接受二甲双胍治疗。结果显示，WSD组后代出现感觉-运动反射迟缓，而接受母体二甲双胍治疗的后代，其感觉-运动反射（如右身反射、悬垂抓握、步态）恢复至对照组水平。提示母体肥胖通过胎儿期编程影响后代神经运动发育，而二甲双胍可改善母体代谢状态并起到胎儿保护作用，正常化早期神经功能，支持其在妊娠期肥胖中的潜在神经保护角色。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42749905/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💉</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">儿童使用GLP-1受体激动剂时的营养不良、并发症及营养治疗/咨询情况</h4>
+            <p class="en-title-sm">Nutritional Deficiencies, Complications, and Nutrition Therapy/Counseling in Pediatric Patients Using GLP-1 Receptor Agonists.</p>
+          </div>
+        </div>
+        <p class="summary-sm">基于Inovalon理赔数据（2017-2022）分析2,031名使用GLP-1RA的10-17岁儿童，发现尽管用于治疗肥胖和2型糖尿病，但该群体中营养缺乏（如铁、维生素D）发生率显著增加；营养咨询的使用与缺乏发生率降低相关，提示在儿童肥胖GLP-1RA治疗中必须同步进行营养筛查与干预，以防止治疗获益被营养不良抵消。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42751742/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🤖</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">可解释机器学习模型用于预测代谢性减重手术候选者的反流性食管炎风险</h4>
+            <p class="en-title-sm">Development of an Explainable Machine Learning Model for Predicting Reflux Esophagitis Among Candidates for Metabolic Bariatric Surgery.</p>
+          </div>
+        </div>
+        <p class="summary-sm">基于1,068名代谢性减重手术（MBS）候选者的数据，开发并内部验证了一个可解释的机器学习模型（采用LASSO、SHAP等技术）来预测术前反流性食管炎（RE）风险。模型表现良好（AUC &gt;0.80），识别出年龄、腰围、既往胃食管反流病史等关键预测因子，并构建了线上风险评估工具，有助于个体化术前风险分层与决策，减少手术后反流并发症。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">人工智慧</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42749950/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🏥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">住院儿童和青少年肥胖的安全考量</h4>
+            <p class="en-title-sm">Safety Considerations for Hospitalized Children and Adolescents With Obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">综述指出住院肥胖儿童占比上升，强调需关注肥胖相关并发症（如睡眠呼吸暂停、代谢综合征）、药物剂量调整（根据体重/体表面积）、影像检查限制（如CT辐射剂量）、静脉通路困难及镇静时气道阻塞风险增加；建议使用量身策略（如专用设备、体重适配药物剂量、提前气道评估）以减少伤害并优化治疗 outcome。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42749296/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">基于网络的多站点试点可行性RCT：改善焦虑升高青少年女孩的心代谢健康</h4>
+            <p class="en-title-sm">Improving Cardiometabolic Health in Adolescent Girls With Elevated Anxiety: Web-Based Multisite, Pilot, and Feasibility Randomized Controlled Trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">针对超重/肥胖并伴有焦虑升高（BMI ≥85百分位）的青少年女孩（N=？），研究比较两种线上心理干预：人际心理治疗（IPT）与认知行为疗法（CBT）的可行性、接受度及对焦虑、情绪性进食和心代谢指标（如体重、腰围、胰岛素抵抗）的影响。尽管为试点研究，结果显示两种干预均具有较高完成率和接受度，CBT在减少焦虑和情绪性进食方面趋于更优，IPT则在改善人际关系方面表现突出。两组均示心代谢指标有轻微改善趋势。提示线上心理干预是可行且潜在有效的策略，可通过改善情绪调节间接改善肥胖青少年的饮食行为与代谢健康，尤其对焦虑驱动的进食模式有干预价值。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42753249/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">县一级食物隐性关联、社会经济因素、食物环境与健康结果的关系</h4>
+            <p class="en-title-sm">County-level food-related implicit associations, socioeconomic factors, food environment, and health outcomes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究美国县级层面的成人对健康食物的隐性关联（经隐性联想测验测量），发现这些隐性态度与当地食物环境（如快餐密度、超市可及性）和社会经济因素相关，并部分中介了食物环境对肥胖和糖尿病的影响，提示隐性认知可能是 obesogenic 环境影响行为的重要心理机制，为干预提供新靶点。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42752179/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">口服司美格鲁肽与其他非胰岛素降糖药在2型糖尿合并动脉粥样硬化性心血管疾病成人中的心血管疗效比较</h4>
+            <p class="en-title-sm">Comparing Cardiovascular Outcomes in New Users of Oral Semaglutide Versus Other Noninsulin Glucose-Lowering Therapies Among Adults with Type 2 Diabetes and Atherosclerotic Cardiovascular Disease.</p>
+          </div>
+        </div>
+        <p class="summary-sm">基于Optum Clinformatics数据库的真实世界队列研究，比较新用口服司美格鲁肽（OS）与其他非胰岛素降糖疗法（ONIGLT，包括DPP-4i、SGLT2i、胰岛素）在2型糖尿病并合并动脉粥样硬化性心血管疾病（ASCVD）成人中的心血管获益。主要结果为3点、修改3点、5点、修改5点和2点主要不良心血管事件（MACE）、缺血性卒中、心肌梗死及全因和心血管相关死亡。研究发现，口服司美格鲁肽使用者在所有MACE定义下均显著降低心血管事件风险，尤其在降低心肌梗死和缺血性卒中方面获益显著，支持其在高危2型糖尿病患者中的真实世界心血管保护作用，与随机对照试验结果一致。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42753116/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">KLF转录因子在代谢性肾病中的作用：从足细胞保护到管间质纤维化</h4>
+            <p class="en-title-sm">KLF transcription factors in metabolic kidney disease: from podocyte protection to tubulointerstitial fibrosis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">综述总结KLF家族转录因子（如KLF2、4、5、6、9、15）在代谢应激下的肾脏病变中如何调节足细胞存活、内皮功能、脂毒性、线粒体功能、氧化应激、炎症及纤维化过程。KLF在高糖、肥胖及代谢综合征背景下表达失调，促进肾脏损伤进展；部分KLF（如KLF4、6）具有保护作用，提示其为代谢性肾病的潜在治疗靶点。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42753072/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GPCRscore 能可靠预测GLP-1受体人类变异对受体功能的影响</h4>
+            <p class="en-title-sm">The GPCRscore reliably predicts the impact of GLP1R human variants on receptor function.</p>
+          </div>
+        </div>
+        <p class="summary-sm">开发GPCRscore，一种结合分子动力学模拟与AI模型（AlphaMissense、REVEL）的GLP-1受体（GLP1R）错义变异功能影响预测工具。验证显示其优于单一AI工具，能准确区分良性及致病性变异，为个体化医学提供可靠工具，尤其在预测肥胖和2型糖尿病患者对GLP-1RA药物反应的遗传变异影响方面具有重要价值。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42752967/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">不同运动模式下骨骼肌TFEB蛋白的转录后修饰调控及其核质转运</h4>
+            <p class="en-title-sm">Post transcriptional modification regulation of skeletal muscle TFEB protein nuclear cytoplasmic transport based on different exercise modes in computer biomedical research.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究不同运动方式（如抗阻 vs. 有氧）对骨骼肌TFEB蛋白磷酸化（Ser142/Ser211）、自噬lysosome功能及线粒体活力的影响，发现运动可上调自噬相关基因并增强溶酶体与线粒体功能，提示TFEB作为营养和能量状态的传感器，其核转运受运动介导的磷酸化调控，为理解运动如何通过自噬-lysosome轴改善代谢健康提供机制依据。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42752343/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">多细胞器特征图谱揭示细胞状态多样性及代谢适应性</h4>
+            <p class="en-title-sm">Multi-organelle signatures map cell-state diversity and metabolic adaptation in tissues.</p>
+          </div>
+        </div>
+        <p class="summary-sm">提出空间细胞器组学（sOrganellomics）技术，通过自动化分割和机器学习整合多细胞器信号（如线粒体、溶酶体、过氧化物酶体）来分类和空间映射细胞状态。在肝脏和胰腺中揭示传统区域假说的局限性：细胞器状态并不完全由 lobule 区域决定，而是形成跨区混合群落，支持亚区多样性模型；在营养应激下，这些器官特征可动态重排，反映代谢适应性，为理解组织异质性及代谢病机制提供新视角。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42752138/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">益生菌混合物通过降低尿毒毒素和调节肠菌群改善顺铂诱导的肾损伤</h4>
+            <p class="en-title-sm">Probiotic mixture ameliorates cisplatin-induced kidney injury by reducing uremic toxins and modulating the gut microbiota.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究益生菌混合物（PM）在顺铂诱导的肾损伤模型中的作用，发现PM能降解吲哚（尿毒毒素吲哚硫酸盐前驱），改善肠菌群失调，减少尿毒症毒素负荷，从而减轻肾炎、管型和肌酐升级，验证了肠-肾轴在药物性肾损伤中的作用，并支持益生菌作为保护性辅助疗法的潜力。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42749047/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📜</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">从吉拉怪毒素到皮肤科：GLP-1受体激动剂的历史</h4>
+            <p class="en-title-sm">From Gila Monster Venom to Dermatology: The History of GLP-1 Receptor Agonists.</p>
+          </div>
+        </div>
+        <p class="summary-sm">追溯GLP-1受体激动剂的起源：从吉拉怪（Gila monster）毒液中分离出exendin-4，由此衍生出首代GLP-1RA（如艾塞那肽），进而发展出长效制剂（利拉鲁肽、司美格鲁肽）及双重激动剂（替西帕肽）。文章还提及吉拉怪在纳瓦霍文化中的地位，强调天然产物在药物发现中的重要作用，并概述其从抗糖尿病药物演变为肥胖及代谢病一线治疗的历程。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42749027/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💧</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">乳酸钠通过重塑肠菌群和增加Akkermansia缓解DSS诱导的 colitis</h4>
+            <p class="en-title-sm">Sodium L-lactate alleviates DSS-induced colitis through gut microbiota remodeling and Akkermansia enrichment.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究乳酸钠（Na-Lac）在 dextran sulfate sodium（DSS）诱导的小鼠结肠炎模型中的作用，发现其能显著减轻体重失血、结肠缩短及组织损伤，改善黏液分泌与屏障功能，降低促炎因子IL-6并增加抗炎因子IL-10。作用机制涉及通过刺激肠菌 wykorzystание乳酸，促进粘膜栖息菌如Akkermansia增殖，提示乳酸钠可作为代谢物介入剂，通过调节肠-免疫轴发挥抗炎作用，潜在适用于炎症性肠病辅助治疗。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">公共衛生</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42748780/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1受体激动剂在泌尿科和男科的适应症、机遇及临床相关不良反应</h4>
+            <p class="en-title-sm">[GLP-1 Receptor Agonists in Urology and Andrology: Indications, Opportunities and Clinically Relevant Adverse Effects].</p>
+          </div>
+        </div>
+        <p class="summary-sm">叙述性综述总结GLP-1RA（如司美格鲁肽、利拉鲁肽、替西帕肽）在泌尿男科领域的应用：除体重降低（达体重的22%）外，尚未系统描述其妇科不良反应，但基于肥胖-代谢综合征与泌尿病理的紧密关联，提示其在勃起功能障碍、性腺功能减退、男性生育力、肾保护、前列腺癌及手术围期方面可能具有获益，同时需警惕潜在的子宫内膜不稳定性等风险，尤其在绝经后出血方面需警惕。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42748969/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🥑</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">在多内分泌代谢卵巢综合征（PMOS）中管理代谢和内分泌功能障碍的营养护理与饮食疗法：从PCOS更名为PMOS的视角看其意义与机遇</h4>
+            <p class="en-title-sm">Nutrition care and Dietetic Practice in Managing Metabolic and Endocrine Dysfunction in Polyendocrine Metabolic Ovarian Syndrome (PMOS): Implications and Opportunities in the Context of the Name Change of Polycystic Ovarian Syndrome (PCOS) to PMOS.</p>
+          </div>
+        </div>
+        <p class="summary-sm">论文指出，PCOS更名为PMOS（Polyendocrine Metabolic Ovarian Syndrome）更准确反映其核心为代谢及内分泌功能障碍，而非仅卵巢问题。全球8-13%育龄女性受影响，合并肥胖、胰岛素抵抗、2型糖尿病及心血管风险增加。强调饮食干预是国际指南中一线治疗，营养师在其中扮演关键角色——通过个体化医学营养疗法（MNT）、饮食行为改造及生活方式干预，可改善胰岛素敏感性、减重、调经及降低併發症风险。文章呼吁将营养护理纳入PMOS标准管理流程，并指出需提升医师对饮食疗法的认识、强化营养师培训及建立跨学科协作模式，以应对其复杂的代谢病理。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">糖尿病與代謝</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42749129/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">靶向自噬依赖性细胞死亡的小分子化合物以克服癌症治疗耐药性</h4>
+            <p class="en-title-sm">Drugging small-molecule compounds in autophagy-dependent cell death to overcome cancer therapy resistance.</p>
+          </div>
+        </div>
+        <p class="summary-sm">综述探讨如何利用小分子化合物将自噬从癌细胞的存活机制重编程为自噬依赖性细胞死亡（ADCD）的触发器，以克服治疗耐药性。通过靶向AMPK/mTOR/ULK1信号、应激反应通路、溶酶体功能及选择性自噬网络（如铁死亡、线粒体自噬），小分子可促进癌细胞的程序性自我消化。ADCD可独立于凋亡发生，且在具有高自噬依赖性的肿瘤中显示疗效，提示其为耐药癌症的潜在治疗策略，尤其在代谢重编程驱动的耐药背景下具有价值。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42749838/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">RNF5：调节免疫与代谢的新兴治疗靶点</h4>
+            <p class="en-title-sm">RNF5: an emerging therapeutic target for modulating immunity and metabolism.</p>
+          </div>
+        </div>
+        <p class="summary-sm">综述介绍E3连接酶RNF5（Ring finger protein 5）作为多功能调节蛋白，参与泛素化、蛋白质稳定、代谢重编程（如调节谷氨酸转运蛋白及脂质代谢关键调节因子）、自噬相互作用及免疫信号（尤其抗病毒免疫）。在癌症中其作用复杂且依赖环境；在代谢性疾病中，RNF5失调可能促进脂肪生成及胰岛素抵抗；其在病毒感染中的调节作用亦被强调，提示其为免疫代谢交叉领域的潜在治疗靶点。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42749230/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">👶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">跨文化视角：预防和管理儿童肥胖的必要方法</h4>
+            <p class="en-title-sm">[Intercultural Perspective: An Essential Approach in the Prevention and Management of Childhood Obesity].</p>
+          </div>
+        </div>
+        <p class="summary-sm">文章指出，在西班牙社会不断增长的移民人口及社会不平等加剧的背景下，低收入移民家庭儿童肥胖率显著上升，传统以体重为中心的干预难以奏效。在加泰罗尼亚儿童肥胖预防与治疗项目（POICAT）的实践中，强调融入跨文化视角的必要性——即尊重饮食文化差异、理解移民生活条件（如食物可得性、空间与活动机会）、避免污名化，并通过社区参与赋能家庭，从而制定更具文化敏感性和公平性的干预策略，以真正改善弱势群体儿童的健康公平。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42752575/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌱</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">去氧卡耳素A通过激活TGR5诱导GLP-1分泌降血糖</h4>
+            <p class="en-title-sm">Deoxycalyxin A exerts hypoglycemic effects through activating TGR5-induced GLP-1 secretion via TGR5/PKA/MEK/ERK pathway.</p>
+          </div>
+        </div>
+        <p class="summary-sm">从山姜中分离得到的二arylheptanoid-联酮杂合物去氧卡耳素A（DCA）被发现为STC-1和NCI-H716细胞中的强效GLP-1分泌刺激剂（EC50约10-13 μM）。在db/db糖尿病小鼠中，口服DCA（40、80 mg/kg）显著降低空腹血糖、改善葡萄糖耐受与胰岛素抵抗，并降低总胆固醇，机制研究证实其通过激活胆汁酸受体TGR5 → 增加cAMP → 激活PKA/MEK/ERK通路来促进肠L细胞GLP-1分泌，提示其为天然GLP-1分泌 agonist 的开发候选者。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42748751/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🧪</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">奎宁啉衍生物作为c-Met抑制剂用于非小细胞肺癌治疗的发现</h4>
+            <p class="en-title-sm">Discovery of quinoline-based derivatives as c-Met inhibitors for the treatment of non-small cell lung cancer.</p>
+          </div>
+        </div>
+        <p class="summary-sm">报道一系列新型奎宁啉基c-Met抑制剂，通过引入氨基酸衍生链接体和环己醇丙氧基奎宁啉骨架，优化了结构及药理性质。化合物41表现出最高效力（对c-Met kinase IC50 18 nM，对MET-amplified EBC-1细胞 IC50 120 nM），并在非MET依赖细胞中具有高选择性。动力学及选择性谱证实其为II型抑制剂，为克服传统c-Met抑制剂的治疗窗口窄及毒性问题提供了有希望的结构新方向。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42748863/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">你是在称体重还是前进？对儿童肥胖体重中心模式的反思</h4>
+            <p class="en-title-sm">[Do you weigh or move on? A reflection on the weight-centric approach of childhood obesity].</p>
+          </div>
+        </div>
+        <p class="summary-sm">批判性反思当前儿童肥胖管理中过度强调体重测量（体重中心模式）的弊端：忽视社会决定因素、遗传及生活条件，将责任归于个体，导致体重污名化，损害儿童自尊、情感健康及整体福祉。文章主张转向非体重中心范式，关注生活条件（如食物环境、活动空间、课外机会）及心理社会福祉，倡导在儿科中使用更友好的沟通方式，以减少羞耻感并促进长期健康行为，而非短期减重。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">小兒肥胖</span><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42752590/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">德黑兰南部成人超重与肥胖的社会经济决定因素：横断面研究</h4>
+            <p class="en-title-sm">Socioeconomic Determinants Associated With Overweight and Obesity in Adults in Southern Tehran: A Cross-Sectional Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">在德黑兰南部的800名成人（18-64岁）中通过结构化电话访谈调查，发现超重/肥胖与低教育程度、非正式就业、住房条件差及社会支持缺失显著相关。提示在伊朗城市弱势群体中，社会经济劣势是超重肥胖的重要驱动因素，干预需结合生活条件改善而非仅靠个体行为改变，以实现公平有效的预防。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42750912/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">序贯型促胰岛素疗法在普拉德-威利综合征患者中实现超过100公斤的持续减重</h4>
+            <p class="en-title-sm">Sustained weight loss exceeding 100 kg with sequential incretin-based therapy in Prader-Willi syndrome.</p>
+          </div>
+        </div>
+        <p class="summary-sm">针对一名29岁、体重185公斤（BMI 59.7）、合并2型糖尿病的普拉德-威利综合征（PWS）男性患者，研究其接受序贯促胰岛素疗法（先用retatrutide，后因供应中断改用口服司美格鲁肽和度拉鲁肽）结构化低热量饮食和监督运动的效果。结果显示，患者在治疗期间实现了超过100公斤的持续体重下降，并伴随2型糖尿病缓解（HbA1c从8.3%降至正常范围）。此案例表明，即使是传统上减重极困难的PWS患者，也可通过个体化、阶梯式的促胰岛素类药物联合生活方式干预达到显著且持续的体重与代谢改善，为PWS伴重度肥胖的治疗提供了新范式。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42751099/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📉</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">行为因素与严重肥胖成人≥15% vs &lt;5%减重的关联：回顾性临床研究</h4>
+            <p class="en-title-sm">Behavioral Factors Associated With ≥15% Versus &lt;5% Weight Loss in Adults With Severe Obesity: A Retrospective Clinical Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顾性分析进入结构化肥胖治疗项目的严重肥胖（BMI≥35 kg/m²）成人，比较达到≥15%减重者与&lt;5%减重者在自报National Weight Control Registry（NWCR）行为策略上的差异。结果显示，成功减重组更常报告持续限制热量摄入、减少高热量食物摄入、规律自我监测体重及饮食、以及保持较高水平的身体活动，提示这些行为维度是长期减重成功的关键行为预测因子，而非仅依赖短期干预强度。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42750977/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1受体激动剂作为难治性高甘油三酯血症（伴反复性胰腺炎）的辅助治疗</h4>
+            <p class="en-title-sm">Glucagon-like peptide-1 receptor agonists as adjunctive therapy in refractory hypertriglyceridemia following recurrent pancreatitis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">病例报告：一名39岁华裔男性，既往9年内6次因高甘油三酯诱导的胰腺炎就医，峰值TG达2329 mg/dL，伴有控制不佳的糖尿病、低血糖及中度纤维化的代谢功能障碍相关脂肪肝。尽管既往对GLP-1RA在胰腺炎中的安全性有担忧，在多学科评估后慎重启用司美格鲁肽，其随后使甘油三酯持续下降至正常水平（213 mg/dL），改善了胰腺炎复发及代谢状况，提示在谨慎评估后，GLP-1RA可作为难治性高TG伴胰腺炎的有效辅助选择，尤其当传统药物（他汀、贝特类、鱼油）失效时。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42750924/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">👶</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">澳大利亚子宫内膜癌保留生育力治疗的现状调查</h4>
+            <p class="en-title-sm">Fertility-Sparing Treatment of Endometrial Cancer: Survey of Australian Practice.</p>
+          </div>
+        </div>
+        <p class="summary-sm">通过向澳大利亚管理子宫内膜癌临床医生分发47项在线问卷，调查保留生育力的管理实践。发现尽管国际指南存在，但缺乏高级别证据支持及澳洲本地指南或登记系统，导致临床实践存在显著差异（如黄体酮类型、剂量、疗程），主要障碍包括缺乏随访资源、病理确诊挑战及患者依从性问题。研究呼吁建立澳洲特定的指南、登记系统及进一步研究以标准化该领域管理。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42750454/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">⚠️</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">绝经后出血与司美格鲁肽使用相关：一个诊断挑战</h4>
+            <p class="en-title-sm">Postmenopausal bleeding associated with semaglutide: a diagnostic challenge.</p>
+          </div>
+        </div>
+        <p class="summary-sm">病例报告：一名58岁绝经后妇女，开始司美格鲁肽0.5 mg/周减重6周后出现新鲜阴道出血，伴血红蛋白从12.9降至10.8 g/dL，FSH升高（68.4 mIU/mL）、雌二醇被压制（3.5 pg/mL），提示绝经状态。尽管宫内膜厚度未在报告中提及，但提示司美格鲁肽可能通过体重快速下降引起雌激素波动或直接影响子宫内膜稳定性，引发绝经后出血，强调在使用GLP-1RA的绝经后妇女中需警惕此类罕见但潜在严重的妇科不良反应，并建议进行宫腔超声或组织病理学评估以排除病变。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42751094/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🥬</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">结构化生活方式干预对正常BMI非酒精性脂肪肝病的效果</h4>
+            <p class="en-title-sm">Efficacy of Structured Lifestyle Intervention in Normal Body Mass Index Non-alcoholic Fatty Liver Disease.</p>
+          </div>
+        </div>
+        <p class="summary-sm">前瞻性对照研究纳入120名超声检测为肝脂肪变、转氨酶升高但BMI&lt;23 kg/m²的非酒精性脂肪肝（NAFLD）患者，分配至干预组（结构化饮食咨询 + 有氧运动150-200 mins/周）或对照组（常规护理）。干预后，干预组在ALT、AST显著下降，肝硬度（经弹性成像）也有改善趋势，提示即便是瘦型或正常BMI的NAFLD患者，结构化生活方式干预也能改善肝脏生化及早期纤维化迹象，支持生活方式作为该亚型的一线治疗，尽管需更长随访验证硬度变化的统计显著性。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">運動與體能活動</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42751023/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">🌽</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">不同储存包装对玉米收获后品质的比较分析</h4>
+            <p class="en-title-sm">Comparative Analysis of the Effects of Various Storage Packages on Maize (L.) Postharvest Quality.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究比较不同储存方式（密封袋、尼龙袋、麻袋 vs. 未包装）对加纳Tain District玉米的收获后损失影响。结果显示，密封袋（hermetic bags）在减少虫蛀、维持稳定水分含量、防止霉变及降低黄曲毒素方面表现最优，显著优于传统袋类及散装存放，验证了密封储存技术在降低粮食后损、保障粮食安全方面的关键作用，尤其适用于高温高湿地区的小农储存场景。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42750817/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">8</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">8</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+          <span class="bar-count">6</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">公共衛生</span>
+          <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+          <span class="bar-count">6</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:63%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:63%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill" style="width:38%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:13%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:13%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">GLP-1受体激动剂</span><span class="keyword-pill">司美格鲁肽</span><span class="keyword-pill">肥胖</span><span class="keyword-pill">2型糖尿病</span><span class="keyword-pill">儿童肥胖</span><span class="keyword-pill">代谢综合征</span><span class="keyword-pill">体重管理</span><span class="keyword-pill">饮食干预</span><span class="keyword-pill">行为干预</span><span class="keyword-pill">社会决定因素</span><span class="keyword-pill">胰岛素抵抗</span><span class="keyword-pill">营养不良</span><span class="keyword-pill">促胰岛素</span><span class="keyword-pill">retatrutide</span><span class="keyword-pill">普拉德-威利综合征</span><span class="keyword-pill">二甲双胍</span><span class="keyword-pill">腹膜透析</span><span class="keyword-pill">肾移植</span><span class="keyword-pill">非酒精性脂肪肝</span><span class="keyword-pill">心血管事件</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
