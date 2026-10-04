@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年10月4日（星期日）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年10月4日（星期日）</p>
+    <span class="stats">本日收錄 18 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">具瘦素敏感性的視網下 Lepr+/Glp1r+ 神經元抑制飲食性肥胖中的過度進食與體重增加</h3>
+            <p class="en-title">Leptin-sensitive hypothalamic Lepr+/Glp1r+ neurons limit hyperphagia and weight gain in diet-induced obesity.</p>
+          </div>
+        </div>
+        <p class="summary">此研究透過空間轉錄組與單核RNA測序，發現在高脂飲食誘導肥胖的小鼠中，雖多數視網下Lepr+神經元對瘦素反應遲鈍，但一小部分同時表達Glp1r的神經元仍保持對瘦素的高度敏感。該族群的神經元投射至並抑制食慾促進的Agrp神經元，其Lepr基因的敲除會阻斷外源性瘦素的減食效應，導致過食與體重增加。此發現揭示了一個關鍵的神經迴路，解釋為何內源性瘦素在肥胖中仍具部分抑食功能，並提示雙靶向Lepr/Glp1r通路可能為未來肥胖治療的有力策略。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">高脂飲食誘導肥胖的小鼠模型</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">檢視具有瘦素受體(Lepr)和GLP-1受體(Glp1r)共表達的視網下神經元功能</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">對照組為野生型小鼠或特定基因敲除組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">Lepr/Glp1r+ 神經元保持瘦素敏感性，抑制Agrp神經元活動，減少食物攝入與體重增加；其Lepr敲除導致過食與肥胖惡化</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827204/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">代謝與減重手術的格局變遷：使獲得途徑與臨床肥胖框架相一致</h3>
+            <p class="en-title">The Changing Landscape of Metabolic and Bariatric Surgery: Aligning Access With the Clinical Obesity Framework.</p>
+          </div>
+        </div>
+        <p class="summary">雖然代謝與減重手術（MBS）是治療重度肥胖最有效的方法，但其使用率仍偏低。本文指出，現行的預處理要求——如強制性心理評估、記錄失敗的飲食嘗試及數月生活方式介入——雖初衷為確保安全，但證據顯示許多缺乏具體效果支持，且已成為獲得照護的障礙，特別是第三方付費方利用此類要求限制報銷。相反地，肥胖管理藥物（如GLP-1激動劑）的使用監管較寬鬆。作者呼籲重新評估MBS的門檻，以臨床肥胖框架為基礎，減少非必要障礙，提升公平可及性。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">尋求代謝與減重手術的肥胖患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">檢討現行MBS預處理要求（心理評估、飲食失敗紀錄、生活方式介入）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">以其他常見胃腸道手術的預處理要求為比較</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">當前MBS門檻過度嚴格，缺乏結果證據支持，成為照護障礙；建議整合臨床肥胖框架以改善獲取途徑</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827283/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">🧫</span>
+          <div class="card-titles">
+            <h3 class="zh-title">黏菌阿kkermansia HHAKKα 透過調節腸道微生物群與肝脂質代謝預防高脂飲食誘導的肥胖</h3>
+            <p class="en-title">Akkermansia muciniphila HHAKKα Prevents High-Fat Diet-Induced Obesity in Mice via Gut Microbiota Modulation and Regulation of Hepatic Lipid Metabolism.</p>
+          </div>
+        </div>
+        <p class="summary">本研究評估特定株Akkermansia muciniphila HHAKKα在高脂飲食餵養之C57BL/6J小鼠中的抗肥胖效果。連續8週口服給藥後，HHAKKα組顯著抑制體重增加（5.76g vs 對照組10.79g），效果達到或甚至優於傳統減肥藥或listat。該菌株同時改善葡萄糖穩態，降低血清三酸甘油酯與LDL膽固醇，提升 adiponectin 與GLP-1水平，並抑制促炎細胞因子（TNF-α、IL-1β、MCP-1），改善脂肪肝與脂肪組織發炎。結果支持其透過調節腸道微生物群與肝代謝發揮抗肥胖與抗炎作用。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">高脂飲食誘導肥胖的C57BL/6J小鼠</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">口服Akkermansia muciniphila HHAKKα 8週</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">僅接受高脂飲食的對照組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">HHAKKα顯著減少體重增加，改善代謝指標，降低炎症與脂肪肝，效果比擬或listat</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827406/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">誰獲益最大？在Feel4Diabetes研究中鑑別體重改善顯著的親子二元組</h3>
+            <p class="en-title">Who Benefited Most? Identifying Parent-Child Dyads With Improved Weight Outcomes in the Feel4Diabetes Study.</p>
+          </div>
+        </div>
+        <p class="summary">本研究分析來自六個歐洲國家、2402個高風險家庭的Feel4Diabetes介入資料，旨在辨識哪些親子二元組在1至2年內達成臨床意義上的體重改善（父母減重≥5%，兒童BMI z分數降低≥0.15）。結果顯示，具有較高 socio-economic status、父母較年輕、且家庭較重視健康行為的二元組更可能達成改善。提示家庭為基礎的介入需考量社會結構與家庭動態，若能精準辨識高反應族群，將可提升資源使用效率與介入效果。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">歐洲六國的高風險2型糖尿病家庭（兒童及父母超重或肥胖）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">學校與社區為基礎的Feel4Diabetes家庭介入計畫</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">未達成體重改善標準的親子二元組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">父母減重≥5%且兒童BMI z分數降低≥0.15 的二元組具較高社經地位、年輕父母及較佳健康行為基礎</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827214/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🔬</span>
+          <div class="card-titles">
+            <h3 class="zh-title">DUSP4 透過CRTC3脫磷酸化依賴的UCP1表達啟動脂肪細胞產熱</h3>
+            <p class="en-title">DUSP4 activates adipocyte thermogenesis via CRTC3 dephosphorylation-dependent UCP1 expression.</p>
+          </div>
+        </div>
+        <p class="summary">此研究發現雙特異性磷酸酶4（DUSP4）為脂肪細胞產熱的關鍵正向調節因子。在瀕臨肥胖的小鼠中，DUSP4缺乏導致產熱能力受損、UCP1表達下降，並增加對高脂飲食誘導肥胖與胰島素抵抗的易感性。機制上，DUSP4通過去磷酸化轉錄共激活因子CRTC3，促進其進入細胞核，進而提升UCP1基因轉錄，增強棕色脂肪樣細胞的非顫顫產熱。此結果填補了產熱調節中磷酸酶的空白，提示DUSP4/CRTC3/UCP1軸為激活內在能量消耗以對抗肥胖的潛在治療標的。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">野生型與DUSP4敲除小鼠模型</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">遺伝子敲除Dusp4以評估其對脂肪細胞產熱的影響</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">野生型對照組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">DUSP4 KO導致UCP1下降、產熱受損、對高脂飲食誘導肥胖及胰島素抵抗更易感；機制上經由CRTC3脫磷酸化促進UCP1表達</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827111/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">共存心血管-肝臟疾病的差異：現有理解與未來方向</h4>
+            <p class="en-title-sm">Comorbid Cardiovascular-Liver Disease Disparities: Current Understanding and Future Directions.</p>
+          </div>
+        </div>
+        <p class="summary-sm">文章探討代謝功能異常相關脂肪肝病（MASLD）患者中心血管疾病的發生與管理差異，指出種族、性別、社會經濟因素與醫療可及性如何影響疾病負担，並強調需結合結構性不平等來理解健康差距。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827168/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">我們是否面臨肌肉減少症增加的風險？對骨關節炎與骨質疏鬆的影響</h4>
+            <p class="en-title-sm">Are we at risk of increasing sarcopenia? Implications for osteoarthritis and osteoporosis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">討論肌肉減少症（sarcopenia）是否在增加，指出儘管診斷標準多樣使流行率難以量化，但人口老化、多重慢性病、肥胖等因素正增加肌肉儲備不足者數量，進而加重骨關節炎與骨質疏鬆的功能後果。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">小兒肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827061/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">淮山多醣透過調節腸道微生物群與二十碳烯酸代謝緩解DSS誘導的潰瘍性結腸炎</h4>
+            <p class="en-title-sm">Chinese yam polysaccharide attenuates DSS-induced ulcerative colitis by modulating gut microbiota and eicosanoid metabolism.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究顯示淮山多糖（CYP）可改善黏膜屏障、降低氧化應激與發炎通路（MAPK/NF-κB），但未顯著影響DSS誘導的體重減輕，主要腸道保護作用透過 microbiota 與脂質代謝介導。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42826781/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">代謝與減重手術的格局變遷：使獲得途徑與臨床肥胖框架相一致</h4>
+            <p class="en-title-sm">The Changing Landscape of Metabolic and Bariatric Surgery: Aligning Access With the Clinical Obesity Framework.</p>
+          </div>
+        </div>
+        <p class="summary-sm">雖然代謝與減重手術（MBS）是治療重度肥胖最有效的方法，但其使用率仍偏低。本文指出，現行的預處理要求——如強制性心理評估、記錄失敗的飲食嘗試及數月生活方式介入——雖初衷為確保安全，但證據顯示許多缺乏具體效果支持，且已成為獲得照護的障礙，特別是第三方付費方利用此類要求限制報銷。相反地，肥胖管理藥物（如GLP-1激動劑）的使用監管較寬鬆。作者呼籲重新評估MBS的門檻，以臨床肥胖框架為基礎，減少非必要障礙，提升公平可及性。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827283/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">代謝性減重手術前糖尿病緩解評分的比效研究：馬來西亞族群回顧隊列</h4>
+            <p class="en-title-sm">Comparative Performance of Preoperative Diabetes-Remission Scores Following Metabolic Bariatric Surgery: A Retrospective Cohort Study in a Malaysian Population.</p>
+          </div>
+        </div>
+        <p class="summary-sm">評估DiaRem、DiaRem2及Ad-DiaRem三種預手術得分系統在預測腹腔鏡袖狀胃切除術或Roux-en-Y胃旁手術後2型糖尿病緩解方面的表現。結果顯示在以袖狀胃切除為主的馬來西亞族群中，Ad-DiaRem因納入糖尿病期間、治療負荷與重新加權，具有較佳預測力。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827212/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">具瘦素敏感性的視網下 Lepr+/Glp1r+ 神經元抑制飲食性肥胖中的過度進食與體重增加</h4>
+            <p class="en-title-sm">Leptin-sensitive hypothalamic Lepr+/Glp1r+ neurons limit hyperphagia and weight gain in diet-induced obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此研究透過空間轉錄組與單核RNA測序，發現在高脂飲食誘導肥胖的小鼠中，雖多數視網下Lepr+神經元對瘦素反應遲鈍，但一小部分同時表達Glp1r的神經元仍保持對瘦素的高度敏感。該族群的神經元投射至並抑制食慾促進的Agrp神經元，其Lepr基因的敲除會阻斷外源性瘦素的減食效應，導致過食與體重增加。此發現揭示了一個關鍵的神經迴路，解釋為何內源性瘦素在肥胖中仍具部分抑食功能，並提示雙靶向Lepr/Glp1r通路可能為未來肥胖治療的有力策略。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827204/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">破解慾望密碼：內源性大麻素與視網下食慾中樞</h4>
+            <p class="en-title-sm">Cracking the Code of Cravings: Endocannabinoids and the Hypothalamic Appetite Nexus.</p>
+          </div>
+        </div>
+        <p class="summary-sm">文章指出肥胖不僅是選擇問題，更與內源性大麻素系統失調有關，該系統影響視網下狀況核的食慾調節，導致進食動機更受慾望而非真實飢餓驅動，強調需從神經生物學角度理解進食行為。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42826789/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">抑制NR4A1介導的細胞週期檢查點可增強肥大性脂肪生成與肥胖中的葡萄糖穩態</h4>
+            <p class="en-title-sm">Inhibition of the NR4A1-mediated cell cycle checkpoint enhances hyperplastic adipogenesis and glucose homeostasis in obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究發現核受體NR4A1抑制早期脂肪細胞形成；使用其拮抗劑C-DIM8（尤其中合羅格列酮）在肥胖小鼠中促進脂肪細胞增殖與代謝改善，顯示其在調節脂肪組織可塑性與代謝健康中的雙重角色。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827337/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">DUSP4 透過CRTC3脫磷酸化依賴的UCP1表達啟動脂肪細胞產熱</h4>
+            <p class="en-title-sm">DUSP4 activates adipocyte thermogenesis via CRTC3 dephosphorylation-dependent UCP1 expression.</p>
+          </div>
+        </div>
+        <p class="summary-sm">此研究發現雙特異性磷酸酶4（DUSP4）為脂肪細胞產熱的關鍵正向調節因子。在瀕臨肥胖的小鼠中，DUSP4缺乏導致產熱能力受損、UCP1表達下降，並增加對高脂飲食誘導肥胖與胰島素抵抗的易感性。機制上，DUSP4通過去磷酸化轉錄共激活因子CRTC3，促進其進入細胞核，進而提升UCP1基因轉錄，增強棕色脂肪樣細胞的非顫顫產熱。此結果填補了產熱調節中磷酸酶的空白，提示DUSP4/CRTC3/UCP1軸為激活內在能量消耗以對抗肥胖的潛在治療標的。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827111/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">SERINC2：從膜脂質合成到人類疾病</h4>
+            <p class="en-title-sm">SERINC2: From membrane lipid synthesis to human disease.</p>
+          </div>
+        </div>
+        <p class="summary-sm">综述總結SERINC2在絲氨酸相關磷脂（如磷脂酰絲氨酸、鞘脂）合成中的角色，並闡述其變異如何與癌症、心血管疾病及神經精神疾病相關，強調其作為生物標記與潛在治療標的的重要性。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span><span class="tag">藥物治療</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42826880/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">乙醛脫氫酶2在造血中的作用取決於應激強度</h4>
+            <p class="en-title-sm">The Role of Aldehyde Dehydrogenase 2 in Hematopoiesis is Stress-Severity Dependent.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究發現ALDH2缺乏在單一基因毒應激（如巴 sulphfan或單獨全身照射）下造成輕度造血幹細胞DNA損傷與移植力下降，但當併用巴 sulphfan與全身照射時，會顯著惡化DNA損傷與造血失敗，提示其保護作用依賴於應激嚴重程度。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42826831/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">線粒體-內質網-脂肪滴 Crosstalk 透過 VMP1 調節剪應力下的代謝適應</h4>
+            <p class="en-title-sm">Mitochondria-ER-lipid droplet crosstalk regulates metabolic adaptation to shear stress via VMP1.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究顯示腎上皮細胞在生理剪應力下會快速重塑線粒體形態（產生甜甜圈狀線粒體）、暫時穩定線粒體與內質網接觸點（MERCs），此過程依賴VMP1，並促進脂質分解與線粒體活性，揭示一個機械感應代謝調節新機制。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">運動與體能活動</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42826711/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">黏菌阿kkermansia HHAKKα 透過調節腸道微生物群與肝脂質代謝預防高脂飲食誘導的肥胖</h4>
+            <p class="en-title-sm">Akkermansia muciniphila HHAKKα Prevents High-Fat Diet-Induced Obesity in Mice via Gut Microbiota Modulation and Regulation of Hepatic Lipid Metabolism.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究評估特定株Akkermansia muciniphila HHAKKα在高脂飲食餵養之C57BL/6J小鼠中的抗肥胖效果。連續8週口服給藥後，HHAKKα組顯著抑制體重增加（5.76g vs 對照組10.79g），效果達到或甚至優於傳統減肥藥或listat。該菌株同時改善葡萄糖穩態，降低血清三酸甘油酯與LDL膽固醇，提升 adiponectin 與GLP-1水平，並抑制促炎細胞因子（TNF-α、IL-1β、MCP-1），改善脂肪肝與脂肪組織發炎。結果支持其透過調節腸道微生物群與肝代謝發揮抗肥胖與抗炎作用。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827406/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">維生素D透過上調TIGAR並增強線粒體功能來改善脊髓損傷後骨骼肌萎縮</h4>
+            <p class="en-title-sm">Vitamin D Ameliorates Skeletal Muscle Atrophy After Spinal Cord Injury by Upregulating TIGAR and Enhancing Mitochondrial Function.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究發現維生素D補充（150 IU/kg）在脊髓損傷小鼠中可上調TIGAR（一個調節糖酵解與抗氧化的關鍵酶），改善線粒體功能，減少肌肉萎縮，提升肌橫斷面積與肌力，提示其具有緩解神經性肌肉萎縮的潛力。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">運動與體能活動</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827299/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">誰獲益最大？在Feel4Diabetes研究中鑑別體重改善顯著的親子二元組</h4>
+            <p class="en-title-sm">Who Benefited Most? Identifying Parent-Child Dyads With Improved Weight Outcomes in the Feel4Diabetes Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究分析來自六個歐洲國家、2402個高風險家庭的Feel4Diabetes介入資料，旨在辨識哪些親子二元組在1至2年內達成臨床意義上的體重改善（父母減重≥5%，兒童BMI z分數降低≥0.15）。結果顯示，具有較高 socio-economic status、父母較年輕、且家庭較重視健康行為的二元組更可能達成改善。提示家庭為基礎的介入需考量社會結構與家庭動態，若能精準辨識高反應族群，將可提升資源使用效率與介入效果。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827214/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">內視鏡胃成形術治療肥胖後營養狀況分析</h4>
+            <p class="en-title-sm">Analysis of the nutritional profile after endoscopic gastroplasty in the treatment of obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">回顧分析接受內視鏡胃成形術（EG）治療肥胖的患者，發現其在術後6個月內血紅素、血清鐵、鋅、維生素B12及25-羥維生素D等營養素顯著下降，提示需常規監測並補充易缺乏營養素以防止術後營養不良。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重手術</span><span class="tag">營養</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42820570/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">母體高脂飲食（於著床前或懷孕/哺乳期間）會改變小鼠後代的代謝、分子與運動表型</h4>
+            <p class="en-title-sm">Maternal High-Fat Diet, During Preimplantation or Gestation/Lactation, Alters Mouse Offspring Metabolic, Molecular and Locomotor Phenotypes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究發現母體高脂飲食會依暴露時窗不同影響後代：僅著床前暴露（EmbHFD）的雌性後代 leptin 升高、收縮壓上升、活動力下降及運動協調變差；整個懷孕哺乳暴露（HFD）則さらに增加體重與惡化運動表現，提示早期營養對後代長期代謝健康具有程式化影響。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42820045/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">生酮飲食在試驗中改善肝健康，但在真實世界中意義為何？</h4>
+            <p class="en-title-sm">The Ketogenic Diet Improved Liver Health in Trial, But What Does That Mean in the Real World?</p>
+          </div>
+        </div>
+        <p class="summary-sm">雖然部分試驗顯示生酮飲食可改善脂肪肝及肝酶，但作者質疑其在真實世界中的適用性，指出缺乏長期數據、依從性挑戰、潛在營養不足及個體差異大，強調需謹慎解釋試驗結果並考慮永續性與個別化飲食策略。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42826040/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">7</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:71%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:57%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:57%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:43%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:43%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:29%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:29%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:14%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">肥胖</span><span class="keyword-pill">代謝</span><span class="keyword-pill">糖尿病</span><span class="keyword-pill">腸道微生物群</span><span class="keyword-pill">GLP-1</span><span class="keyword-pill">減重手術</span><span class="keyword-pill">視網下</span><span class="keyword-pill">瘦素</span><span class="keyword-pill">發炎</span><span class="keyword-pill">胰島素抵抗</span><span class="keyword-pill">脂肪肝</span><span class="keyword-pill">心血管疾病</span><span class="keyword-pill">內源性大麻素</span><span class="keyword-pill">維生素D</span><span class="keyword-pill">肌肉減少症</span><span class="keyword-pill">兒童肥胖</span><span class="keyword-pill">家庭介入</span><span class="keyword-pill">醫療不平等</span><span class="keyword-pill">脂肪細胞產熱</span><span class="keyword-pill">UCP1</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
