@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年10月5日（星期一）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年10月5日（星期一）</p>
+    <span class="stats">本日收錄 17 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">尼索托羅胺（LY3457263）作為新穎NPY2受體激動劑，用於2型糖尿病和肥胖的治療：從發現到臨床概念證明</h3>
+            <p class="en-title">Nisotirostide (LY3457263), a novel NPY2 receptor agonist for type 2 diabetes and obesity: From discovery to clinical proof of concept.</p>
+          </div>
+        </div>
+        <p class="summary">本研究探討尼索托羅胺（Nisotirostide，LY3457263）作為選擇性NPY2受體激動劑，對2型糖尿病伴胰高血糖素樣肽-1受體激動劑（GLP-1 RA）治療患者的補助療法潛力。透過體外受體結合親和力及活性測定，滑鼠模型的體重、食物攝取、身體組成、血糖與胰島素水平評估，以及第一期人類臨床試驗（健康參與者及使用雙阿群肽1.5 mg週給的2型糖尿病患者），驗證其安全性、耐受性、藥動學與藥效學。結果顯示尼索托羅胺能強效且選擇性地激活NPY2受體訊號通路，在滑鼠中顯著減少食物攝取和体重增加，改善葡萄糖耐受量及胰島素敏感性，且在人類中耐受性良好，未觀察到顯著不良反應。此研究提供了NPY2受體激動作用作為GLP-1 RA補助療法的新機制證據，對肥胖與2型糖尿病合併治療具高臨床轉化潛力。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">2型糖尿病患者，正在使用1.5 mg週給雙阿群肽（GLP-1 RA）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">單次皮下給予尼索托羅胺（劑量範圍：0.025至1 mg）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">安慰劑對照</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">安全性、耐受性、藥動學、藥效學（身體組成、血糖、胰島素、食慾變化）</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829171/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">💉</span>
+          <div class="card-titles">
+            <h3 class="zh-title">敗血症後2型糖尿病患者先前使用GLP-1受體激動劑與SGLT2抑制劑的臨床結果比較：傾向評分匹配隊列研究</h3>
+            <p class="en-title">Prior Use of GLP-1 Receptor Agonists versus SGLT2 Inhibitors and Clinical Outcomes After Sepsis in Patients with Type 2 Diabetes: A Propensity Score-Matched Cohort Study.</p>
+          </div>
+        </div>
+        <p class="summary">本研究利用TriNetX美國協作網絡資料，比較2型糖尿病合併敗血症患者在敗血症發生前3個月內是否使用GLP-1受體激動劑（GLP-1RA）或SGLT2抑制劑（SGLT2i）對90天全因死亡率、主要不良心腎臟事件（MACE/MAKE）、ICU住院率及重大不良腎臟事件的影響。經1:1傾向評分匹配後，納入11,969名患者於每組。結果顯示，先前使用GLP-1RA組相比SGLT2i組，90天死亡率顯著降低（HR 0.82，95%CI 0.75–0.90），MACE風險亦較低（HR 0.86），但MAKE與ICU住院率無顯著差異。此發現支持GLP-1RA在敗血症期間可能具備心腎保護效益，尤其在高心血管風險的2型糖尿病患者中，提供臨床用药決策的實世界證據。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">2型糖尿病併發敗血症的成人患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">敗血症前3個月內使用GLP-1受體激動劑</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">敗血症前3個月內使用SGLT2抑制劑</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">90天全因死亡率、主要不良心腎臟事件（MACE/MAKE）、ICU住院</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829714/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">⚖️</span>
+          <div class="card-titles">
+            <h3 class="zh-title">來自大型三級轉診中心的2型糖尿病伴不同動脈粥樣硬化性心血管病（ASCVD）亞型患者SGLT2抑制劑與GLP-1受體激動劑的真實世界處方模式</h3>
+            <p class="en-title">Real-world prescribing patterns of SGLT2 inhibitors and GLP-1 receptor agonists in Type 2 diabetes with various ASCVD subtypes from a large tertiary referral center.</p>
+          </div>
+        </div>
+        <p class="summary">本研究回顧Houston Methodist Cardiovascular Learning Health System註冊資料（2016年6月至2023年8月），分析有臨床診斷的動脈粥樣硬化性心血管病（ASCVD）的2型糖尿病患者中，SGLT2抑制劑（SGLT2i）和GLP-1受體激動劑（GLP-1RA）的處方模式及影響因素。結果顯示， malgré指南推薦，SGLT2i和GLP-1RA的處方率仍偏低（合計僅約30-40%），尤其在女性、少數種族群及低收入族群中處方使用率顯著不足。處方使用與年輕年齡、較低HbA1c、既往心力衰竭或中風史正相關，而與較高年齡、腎功能不良及社會經濟劣勢負相關。此凸顯醫療公平與指南遵從之間的顯著落差，提醒需強化醫師教育與系統層面干預以提升心血管獲益藥物在高風險2型糖尿病中的使用。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">2型糖尿病併診斷出動脈粥樣硬化性心血管病（ASCVD）的成人患者</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">SGLT2抑制劑或GLP-1受體激動劑的處方</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">未處方該類藥物</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">處方率及其相關人口統計學、臨床與社會經濟因素</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility high">臨床實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827863/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">輕度創傷性腦傷後重疊網絡結構的縱向演變：來自邊中心功能網絡的證據</h3>
+            <p class="en-title">Longitudinal evolution of overlapping network structure after mild traumatic brain injury: Evidence from edge-centric functional network.</p>
+          </div>
+        </div>
+        <p class="summary">本研究利用邊中心功能連接組模型，追蹤64名急性期輕度創傷性腦傷（mTBI）患者及32名健康對照者，其中31名患者完成慢性期隨訪，透過靜態fMRI及神經心理評量分析其腦網絡重疊度（S-index）的變化。發現mTBI患者在急性期顯示出預前葉與顶葉網絡的暫時性增加重疊，但在慢性期（約數月後）此模式恢復近似對照組，且此變化與認知復原（特別是執行功能與記憶）呈正相關。進一步轉錄組分析提示星形膠質細胞與突觸功能相關基因表達可能介導此網絡重組過程。此研究首次證明mTBI後腦網絡具備可塑性重組能力，且其動態變化可能服務於認知復原的生物標記，為腦傷後恢復機制提供新視角。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">急性期輕度創傷性腦傷（mTBI）患者（n=64）及健康對照者（n=32）</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">自然病史觀察，急性期及慢性期（約3-6個月後）fMRI與神經心理評量</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">健康對照組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">腦網絡重疊度（S-index）、神經心理分數（執行功能、記憶）、轉錄組變化（星形膠質細胞、突觸相關基因）</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42828448/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🍯</span>
+          <div class="card-titles">
+            <h3 class="zh-title">蜂蜜可食用塗層延長冷藏切芒果的保鮮期並保其品質</h3>
+            <p class="en-title">-Honey Edible Coating Prolongs Shelf Life and Preserves Quality of Refrigerated Fresh-Cut Mango ().</p>
+          </div>
+        </div>
+        <p class="summary">本研究探討由藥膠（aloe vera gel）與混花蜂蜜配製的可食用塗層對孟加拉國當地芒果切塊在4°C下冷藏保存20天的影響。比較六種塗層配方（未塗層對照、純藥膠、純混花蜂蜜及不同比例的藥膠/蜂蜜二元混合）對理化性質（重量流失、可溶性固形物、pH）、抗氧化化合物、顏色變化（L*a*b*值）、硬度及微生物品質的影響。結果顯示，所有塗層組均顯著降低重量流失及微生物總數，其中藥膠與混花蜂蜜的50:50混合塗層在維持硬度、延緇黃變及保留總酚類與 flavonoid 含量方面效果最佳，使芒果切塊在第20天仍保有良好感官品質與市售價值。此研究提供了一種天然、可降解、低成本的後收穫保鮮策略，適用於熱帶水果的鮮切加工業。</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">孟加拉國本地品種芒果（Mangifera indica）切塊</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">藥膠與混花蜂蜜複合可食用塗層（六種配方）</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">未塗層對照組</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">重量流失、硬度、顏色變化、微生物總數、抗氧化化合物（總酚類、 flavonoid）、感官品質</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829615/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">輕度創傷性腦傷後重疊網絡結構的縱向演變：來自邊中心功能網絡的證據</h4>
+            <p class="en-title-sm">Longitudinal evolution of overlapping network structure after mild traumatic brain injury: Evidence from edge-centric functional network.</p>
+          </div>
+        </div>
+        <p class="summary-sm">追蹤mTBI患者腦網絡變化，發現急性期前額-顶葉網絡重疊增加，隨時間恢復正常，與認知復原相關，提示神經可塑性修復機制。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">神經科學與機制</span><span class="tag">行為與心理</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42828448/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">海洋細菌介導聚對苯二甲酸乙二醇酯（PET）微生物降解：生物流程開發的永續方法</h4>
+            <p class="en-title-sm">Microbial-mediated biodegradation of polyethylene terephthalate (PET) by marine bacterial isolates: A sustainable approach to bioprocess development.</p>
+          </div>
+        </div>
+        <p class="summary-sm">從阿拉伯海分離出兩株能有效降解PET的海洋細菌（MPW7、MPW8），在35°C、pH 6.5條件下重量損失率分別達10.7%和12.1%，經FTIR和SEM證實其聚酯鍵斷裂，具潛力開發為塑料生物降解菌株。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">公共衛生</span><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829342/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">秘魯南部以患者為中心的全方位生活方式介入作健康促進</h4>
+            <p class="en-title-sm">A Holistic Patient-Centered Lifestyle Intervention for Health Promotion in Southern Peru.</p>
+          </div>
+        </div>
+        <p class="summary-sm">透過8週、四輪PDSA循環的SBIRT流程（篩檢、簡介介入、轉介治療）結合Nueva Esperanza評分，促進社區成員健康行為改變，尤其針對肥胖檢測與生活方式改善，初步顯示可行性與參與度提升。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">行為與心理</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829209/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">雄志祛風止痛顆粒對雷斯匹汀誘發偏頭痛小鼠之抗偏頭痛效應與機制：網絡藥理、分子動力學模擬與實驗驗證</h4>
+            <p class="en-title-sm">New insights into understanding Xiongzhi Qufeng Zhitong Granule's anti-migraine effects and mechanism on reserpine-induced mice: from network pharmacology, molecular dynamics simulation, and experimental validation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究傳統中藥雄志祛風止痛顆粒（XZQF）對雷斯匹汀誘發的偏頭痛小鼠模型的療效，發現其可調節5-HTB/TPH2/CGRP及PI3K/cAMP訊號通路，減少疼痛行為與血管擴張，提供其抗偏頭痛作用的分子基礎，支持其臨床應用與現代化發展。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">神經科學與機制</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829070/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">龍珠果花水萃取物藉由TLR4/MyD88/NF-κB通路抑制流感病毒感染</h4>
+            <p class="en-title-sm">Flower aqueous extract of Hylocereus undatus (Haw.) Britton &amp; Rose attenuates influenza infection: involvement of the TLR4/MyD88/NF-κB signaling axis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">龍珠果（仙人掌花）水萃取物在小鼠流感感染模型中顯著降低病毒載量與肺損傷，機制為透過阻斷TLR4/MyD88/NF-κB發炎通路，減少促發炎細胞因子產生，顯示其具有潛力作為流感預防的天然免疫調節劑。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829069/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">胰高血糖素樣肽-1受體激動劑在汗腺膿症中的應用：全國性隊列研究</h4>
+            <p class="en-title-sm">Glucagon-like peptide-1 receptor agonists in hidradenitis suppurativa: A nationwide cohort study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">全國デンマーク登記研究顯示，使用GLP-1RA（如利拉鲁肽、司美格鲁肽）的汗腺膿症患者相較於銀屑病對照組，具較低的併發症負擔（特別是心血管疾病與糖尿病），且啟用治療後醫療資源使用趨於減少，支持GLP-1RA在此慢性發炎性皮膚病中的代謝併用益處。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42828450/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">丹麥成人2型糖尿病患者中暴食症症狀的流行率及相關特徵：橫斷面研究</h4>
+            <p class="en-title-sm">Prevalence of binge eating disorder symptoms and associated characteristics in Danish adults with type 2 diabetes: A cross-sectional study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">在丹麥2型糖尿病隊列（DD2）中，約18%的成人患者經BED-Q篩檢顯示有暴食症症狀，該群體顯著關聯較低幸福感、較高BMI、較差血糖控制及較多精神 comorbidity，提示需將暴食症篩檢納入糖尿病常規照護中以改善整體預後。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">行為與心理</span><span class="tag">糖尿病與代謝</span><span class="tag">肥胖</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42828436/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">兒童肥胖的微生物組特徵與機制路徑：從早期生命風險到精準介入</h4>
+            <p class="en-title-sm">Microbiome signatures and mechanistic pathways in pediatric obesity: from early-life risk to precision interventions.</p>
+          </div>
+        </div>
+        <p class="summary-sm">系統性文獻回顧總結了兒童腸道菌群與肥胖的關聯：肥胖兒童常見菌群多樣性降低、甜菊桿菌比例升高及短鏈脂肪酸代謝異常，這些微生物特徵與能量攝取、免疫激腸道屏障功能相關，支持以菌群為目標的預防（如益生菌、飲食纖維）與介入策略開發精準醫學應用。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">小兒肥胖</span><span class="tag">飲食介入</span><span class="tag">糖尿病與代謝</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829422/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">尼索托羅胺（LY3457263）作為新穎NPY2受體激動劑，用於2型糖尿病和肥胖的治療：從發現到臨床概念證明</h4>
+            <p class="en-title-sm">Nisotirostide (LY3457263), a novel NPY2 receptor agonist for type 2 diabetes and obesity: From discovery to clinical proof of concept.</p>
+          </div>
+        </div>
+        <p class="summary-sm">本研究探討尼索托羅胺作為選擇性NPY2受體激動劑，對2型糖尿病伴GLP-1 RA治療患者的補助療法潛力。結果顯示其能強效激活NPY2訊號，減少滑鼠食慾與體重增加，改善葡萄糖耐受，且在人類首次給藥中安全耐受，提供肥胖與糖尿病合併治療的新藥物機制。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829171/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">鋅缺乏透過損害代謝適應與抗氧化防禦，加重 cisplatin 引發的急性腎損傷</h4>
+            <p class="en-title-sm">Zinc Deficiency Exacerbates Cisplatin-Induced Acute Kidney Injury by Impairing Metabolic Adaptation and Antioxidant Defenses.</p>
+          </div>
+        </div>
+        <p class="summary-sm">鋅缺乏小鼠在cisplatin處理後腎損傷嚴重度顯著升高，機制為損傷腎小管上皮細胞的AMPK/SIRT1/PGC-1α代謝適應軸及Nrf2抗氧化反應，導致線粒體功能障礙與氧化應激增加，提示鋅營養在化療腎毒性預防中的潛在重要性。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829133/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">轉錄調節因子ArcR抑制金黃色葡萄球菌USA300 LAC株的 virulence 和 γ-溶血素表達</h4>
+            <p class="en-title-sm">The transcriptional regulator ArcR represses virulence and γ-hemolysin expression in Staphylococcus aureus USA300 LAC.</p>
+          </div>
+        </div>
+        <p class="summary-sm">研究證明金黃色葡萄球菌中的ArcR蛋白為Arg抑制素途徑的調節因子，其缺失會導致溶血素Hla、Hld及PSMα上調，同時下調PSMβ，並促進Agr quorum-sensing系統及RNAIII的活化，增強菌株致病力，揭示代謝與病原性調節的直接連接。</p>
+        <div class="card-footer">
+          <span class="utility low">實用性：低</span>
+          <div class="tags"><span class="tag">其他</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42828977/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">蜂蜜可食用塗層延長冷藏切芒果的保鮮期並保其品質</h4>
+            <p class="en-title-sm">-Honey Edible Coating Prolongs Shelf Life and Preserves Quality of Refrigerated Fresh-Cut Mango ().</p>
+          </div>
+        </div>
+        <p class="summary-sm">藥膠與混花蜂蜜複合可食用塗層顯著降低切芒果在4°C冷藏20天中的重量流失與微生物生長，其中50:50配方最佳維持硬度、色澤及抗氧化物質，提供天然、可持續的鮮切水果保鮮方案。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">飲食介入</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829615/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">日本各地區日本胃腸內視鏡學會認證 Fellow 密度與結腸直腸癌死亡率之反向關聯：生態學分析</h4>
+            <p class="en-title-sm">Inverse Association Between Regional Availability of Board-Certified Fellows of the Japan Gastroenterological Endoscopy Society and Colorectal Cancer Mortality in Japan: An Ecological Analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">透過全國47個都道府縣的公開資料，發現認證內視鏡專科醫師（BCFJGES）密度較高的地區，其75歲以下結腸直腸癌年齡標準化死亡率顯著較低，即使控制篩檢率、吸菸、飲酒、肥胖及身體活動後此關聯仍存在，支持內視鏡醫師資源分配對降低癌症負擔的系統級影響。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">公共衛生</span><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42828085/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">懷孕前後社區剝奪度與妊娠及產後高血壓疾病風險：人口基礎隊列研究</h4>
+            <p class="en-title-sm">Periconceptional neighborhood deprivation and risk of gestational and postpartum hypertensive disorders in a population-based cohort.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析加州北部Kaiser Permanente超過28萬名孕婦資料，發現懷孕前後居住在高剝奪度社區（根據NDI四分位數）者，妊娠高血壓與子癇前症風險顯著增加，即使調整年齡、種族及既往 comorbidity，提示社會結構因素是孕產期高血壓的重要危險因子，需納入產前照護的社會決定因素篩檢。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42828263/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">來自大型三級轉診中心的2型糖尿病伴不同動脈粥樣硬化性心血管病（ASCVD）亞型患者SGLT2抑制劑與GLP-1受體激動劑的真實世界處方模式</h4>
+            <p class="en-title-sm">Real-world prescribing patterns of SGLT2 inhibitors and GLP-1 receptor agonists in Type 2 diabetes with various ASCVD subtypes from a large tertiary referral center.</p>
+          </div>
+        </div>
+        <p class="summary-sm">分析近7年真實世界數據發現，尽管指南強烈推薦，SGLT2i和GLP-1RA在2型糖尿病伴ASCVD患者中的處方率仍偏低（合計僅30-40%），尤其女性、少數民族及低SES群體使用不足，提示醫療公平與藥物可及性是心血管獲益藥物應用的重要障礙。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">社會決定因素與政策</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42827863/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">敗血症後2型糖尿病患者先前使用GLP-1受體激動劑與SGLT2抑制劑的臨床結果比較：傾向評分匹配隊列研究</h4>
+            <p class="en-title-sm">Prior Use of GLP-1 Receptor Agonists versus SGLT2 Inhibitors and Clinical Outcomes After Sepsis in Patients with Type 2 Diabetes: A Propensity Score-Matched Cohort Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">傾向評分匹配的全美真實世界研究顯示，先前使用GLP-1RA的2型糖尿病敗血症患者90天死亡率較SGLT2i組低18%，主要心腎臟不良事件亦減少，支持GLP-1RA在急性重症中可能具備超越血糖控制的器官保護效益。</p>
+        <div class="card-footer">
+          <span class="utility high">實用性：高</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">公共衛生</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42829714/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">高心血管風險人群中的 incretin 藥物處方情況：來自心臟科代謝整合項目的啟示</h4>
+            <p class="en-title-sm">Incretin therapy prescription in a high cardiovascular risk population: Insights from a cardiology-based cardiometabolic program.</p>
+          </div>
+        </div>
+        <p class="summary-sm">雖然標題與摘要內容未完整提供，但根據關鍵詞可推論此研究探討semaglutide、tirzepatide等GLP-1或雙GIP/GLP-1受體激動劑在高心血管風險2型糖尿病患者中的真實世界使用模式，可能涉及體重減輕、血糖控制及心血管事件減少的臨床觀察。</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">藥物治療</span><span class="tag">糖尿病與代謝</span><span class="tag">體重維持</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42828252/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">藥物治療</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">5</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">行為與心理</span>
+          <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">飲食介入</span>
+          <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+          <span class="bar-count">3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">運動與體能活動</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">糖尿病與代謝</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">減重手術</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">神經科學與機制</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">社會決定因素與政策</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">體重維持</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">小兒肥胖</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+          <span class="bar-count">1</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">GLP-1受體激動劑</span><span class="keyword-pill">SGLT2抑制劑</span><span class="keyword-pill">2型糖尿病</span><span class="keyword-pill">肥胖</span><span class="keyword-pill">體重管理</span><span class="keyword-pill">敗血症</span><span class="keyword-pill">心血管疾病</span><span class="keyword-pill">胰島素</span><span class="keyword-pill">食慾調節</span><span class="keyword-pill">NPY2受體</span><span class="keyword-pill">尼索托羅胺</span><span class="keyword-pill">腸道微生物群</span><span class="keyword-pill">兒童肥胖</span><span class="keyword-pill">輕度創傷性腦傷</span><span class="keyword-pill">功能連接組</span><span class="keyword-pill">社會決定因素</span><span class="keyword-pill">健康促進</span><span class="keyword-pill">生活方式介入</span><span class="keyword-pill">可食用塗層</span><span class="keyword-pill">蜂蜜</span><span class="keyword-pill">藥膠</span><span class="keyword-pill">芒果保鮮</span><span class="keyword-pill">腦網絡重疊</span><span class="keyword-pill">星形膠質細胞</span><span class="keyword-pill">暴食症</span><span class="keyword-pill">益生菌</span><span class="keyword-pill">精準醫學</span><span class="keyword-pill">炎症通路</span><span class="keyword-pill">TLR4/MyD88/NF-κB</span><span class="keyword-pill">結腸直腸癌</span><span class="keyword-pill">內視鏡醫師密度</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
