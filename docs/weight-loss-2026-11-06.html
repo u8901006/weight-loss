@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年11月6日（星期五）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年11月6日（星期五）</p>
+    <span class="stats">本日收錄 24 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Structure-guided design and optimization of 3-amino-pyrazine-2-oxadiazole derivatives as novel FGFR2 inhibitors.</h3>
+            <p class="en-title">Structure-guided design and optimization of 3-amino-pyrazine-2-oxadiazole derivatives as novel FGFR2 inhibitors.</p>
+          </div>
+        </div>
+        <p class="summary">Aberrant FGFR activation is a key oncogenic driver in multiple solid tumors. Although five small-molecule kinase inhibitors have been approved for the treatment of FGFR2/3-altered malignancies, pan-is</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42981877/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Obesity management medications: The way forward.</h3>
+            <p class="en-title">Obesity management medications: The way forward.</p>
+          </div>
+        </div>
+        <p class="summary">Obesity is now widely recognized as a chronic progressive condition. The altered biological mechanisms that cause obesity frequently require long-term treatment, including pharmacotherapies or bariatr</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42986954/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">🥗</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Rethinking endpoints for anti-obesity pharmacotherapy in patients with hr+ early breast cancer receiving endocrine therapy: from body weight and BMI to body composition.</h3>
+            <p class="en-title">Rethinking endpoints for anti-obesity pharmacotherapy in patients with hr+ early breast cancer receiving endocrine therapy: from body weight and BMI to body composition.</p>
+          </div>
+        </div>
+        <p class="summary">INTRODUCTION: Body weight (BW) and body mass index (BMI) are commonly used to assess obesity and response to weight-management interventions in patients with hormone receptor-positive (HR+) early brea</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42986421/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🏃</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Does obesity pharmacotherapy change eating behaviour in humans? Evaluation of the literature using learnings from bariatric surgery.</h3>
+            <p class="en-title">Does obesity pharmacotherapy change eating behaviour in humans? Evaluation of the literature using learnings from bariatric surgery.</p>
+          </div>
+        </div>
+        <p class="summary">Obesity is characterised by the dysregulation of the neurobiological systems governing hunger, satiety and food reward. Dysfunction in signalling across the gut-brain axis impairs both homeostatic and</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42985840/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Plant-Forward Dietary Patterns and Cardiometabolic Risk Among US Adults: Findings From the National Health and Nutrition Examination Survey, 2009-2023.</h3>
+            <p class="en-title">Plant-Forward Dietary Patterns and Cardiometabolic Risk Among US Adults: Findings From the National Health and Nutrition Examination Survey, 2009-2023.</p>
+          </div>
+        </div>
+        <p class="summary">OBJECTIVE: The objective of this study was to describe the relationship between plant-forward dietary patterns and metabolic profiles. METHODS: A repeated cross-sectional analysis of adults aged 18 ye</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42986797/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Structure-guided design and optimization of 3-amino-pyrazine-2-oxadiazole derivatives as novel FGFR2 inhibitors.</h4>
+            <p class="en-title-sm">Structure-guided design and optimization of 3-amino-pyrazine-2-oxadiazole derivatives as novel FGFR2 inhibitors.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Aberrant FGFR activation is a key oncogenic driver in multiple solid tumors. Although five small-mol</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42981877/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Obesity management medications: The way forward.</h4>
+            <p class="en-title-sm">Obesity management medications: The way forward.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Obesity is now widely recognized as a chronic progressive condition. The altered biological mechanis</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42986954/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Rethinking endpoints for anti-obesity pharmacotherapy in patients with hr+ early breast cancer receiving endocrine therapy: from body weight and BMI to body composition.</h4>
+            <p class="en-title-sm">Rethinking endpoints for anti-obesity pharmacotherapy in patients with hr+ early breast cancer receiving endocrine therapy: from body weight and BMI to body composition.</p>
+          </div>
+        </div>
+        <p class="summary-sm">INTRODUCTION: Body weight (BW) and body mass index (BMI) are commonly used to assess obesity and res</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42986421/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Does obesity pharmacotherapy change eating behaviour in humans? Evaluation of the literature using learnings from bariatric surgery.</h4>
+            <p class="en-title-sm">Does obesity pharmacotherapy change eating behaviour in humans? Evaluation of the literature using learnings from bariatric surgery.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Obesity is characterised by the dysregulation of the neurobiological systems governing hunger, satie</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42985840/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Plant-Forward Dietary Patterns and Cardiometabolic Risk Among US Adults: Findings From the National Health and Nutrition Examination Survey, 2009-2023.</h4>
+            <p class="en-title-sm">Plant-Forward Dietary Patterns and Cardiometabolic Risk Among US Adults: Findings From the National Health and Nutrition Examination Survey, 2009-2023.</p>
+          </div>
+        </div>
+        <p class="summary-sm">OBJECTIVE: The objective of this study was to describe the relationship between plant-forward dietar</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42986797/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">National evidence on the association between recommended adult diets and access to modern and traditional food retail environments.</h4>
+            <p class="en-title-sm">National evidence on the association between recommended adult diets and access to modern and traditional food retail environments.</p>
+          </div>
+        </div>
+        <p class="summary-sm">OBJECTIVE: This study investigated the association between the food environment, along with other fa</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42984158/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Obesity pharmacotherapies and cognition.</h4>
+            <p class="en-title-sm">Obesity pharmacotherapies and cognition.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Pharmacotherapies for obesity and type 2 diabetes are increasingly being evaluated for their effects</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42986976/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">How Plants Feed Our Microbes: Plant-Based Diets and Gut Microbiota Modulation-A Systematic Review.</h4>
+            <p class="en-title-sm">How Plants Feed Our Microbes: Plant-Based Diets and Gut Microbiota Modulation-A Systematic Review.</p>
+          </div>
+        </div>
+        <p class="summary-sm">CONTEXT: Diet is a key factor shaping gut microbiota composition and function, with important implic</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42986715/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">NSAID initiation and risk for gastrointestinal bleeding in patients receiving GLP-1 receptor agonists: A retrospective cohort study.</h4>
+            <p class="en-title-sm">NSAID initiation and risk for gastrointestinal bleeding in patients receiving GLP-1 receptor agonists: A retrospective cohort study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">PURPOSE: Glucagon-like peptide-1 receptor agonists (GLP-1 RAs) have been purported to increase risk </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42985835/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Mindful eating versus prayer before meals for psycho-physiological outcomes in middle-aged women: A randomized controlled trial.</h4>
+            <p class="en-title-sm">Mindful eating versus prayer before meals for psycho-physiological outcomes in middle-aged women: A randomized controlled trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Meal-time contemplative practices may provide simple complementary self-care strategies </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42982352/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">From compartments to dynamic physiology: toward actionable body composition.</h4>
+            <p class="en-title-sm">From compartments to dynamic physiology: toward actionable body composition.</p>
+          </div>
+        </div>
+        <p class="summary-sm">The 12th International Symposium on In Vivo Body Composition Studies (ISBCR 2025) highlighted a fund</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42982999/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Caloric restriction and intermittent fasting initiated during lactation alter maternal behaviour and amygdalar redox status in dams.</h4>
+            <p class="en-title-sm">Caloric restriction and intermittent fasting initiated during lactation alter maternal behaviour and amygdalar redox status in dams.</p>
+          </div>
+        </div>
+        <p class="summary-sm">The lactational period requires substantial metabolic and behavioural adaptations, and more than 70%</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42982361/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Effects of Functional Inspiratory Muscle Training in Individuals with Obesity: A Randomized Controlled Trial.</h4>
+            <p class="en-title-sm">Effects of Functional Inspiratory Muscle Training in Individuals with Obesity: A Randomized Controlled Trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">OBJECTIVE: To evaluate effects of functional inspiratory muscle training (FIMT) on functional capaci</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42982319/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Endoscopic Gastric Mucosal Resection Targeting Gastric Volume Reduction Attenuates Body Weight gain and Suppresses Fasting Ghrelin in a Porcine Model.</h4>
+            <p class="en-title-sm">Endoscopic Gastric Mucosal Resection Targeting Gastric Volume Reduction Attenuates Body Weight gain and Suppresses Fasting Ghrelin in a Porcine Model.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Based on the principle of fibrotic remodeling and stricture formation post-resection, we</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42983175/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Effects of Anthocyanin-Containing Interventions on Adiponectin in Obesity: Implications for Inflammation and Oxidative Stress - A Systematic Review and Meta-Analysis.</h4>
+            <p class="en-title-sm">Effects of Anthocyanin-Containing Interventions on Adiponectin in Obesity: Implications for Inflammation and Oxidative Stress - A Systematic Review and Meta-Analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Adiponectin is an adipokine involved in insulin sensitivity, lipid metabolism, and inflammation regu</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42982344/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Enhanced pesticide degradation and preservation efficacy of cowpeas using ozone micro-nano bubble ice precooling.</h4>
+            <p class="en-title-sm">Enhanced pesticide degradation and preservation efficacy of cowpeas using ozone micro-nano bubble ice precooling.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Cowpea is prone to postharvest quality deterioration and pesticide contamination. This study evaluat</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42981939/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Effects of glucagon-like peptide-1 analogs on prolactin levels: A secondary analysis of a randomized, double-blind, placebo-controlled crossover trial.</h4>
+            <p class="en-title-sm">Effects of glucagon-like peptide-1 analogs on prolactin levels: A secondary analysis of a randomized, double-blind, placebo-controlled crossover trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Prolactin (PRL) is involved in the modulation of sexual function. Glucagon-like peptide-1 receptor a</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42985994/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Acetylated starch-based edible films incorporating thyme essential oil: physicochemical properties, antifungal activity, and in vivo evaluation on papaya.</h4>
+            <p class="en-title-sm">Acetylated starch-based edible films incorporating thyme essential oil: physicochemical properties, antifungal activity, and in vivo evaluation on papaya.</p>
+          </div>
+        </div>
+        <p class="summary-sm">UNLABELLED: The effect of thyme essential oil (TEO) on the physicochemical and antifungal properties</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42985201/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Corrigendum to `Hope for the best, but prepare for the worst - Diagnostic accuracy of the American College of Surgeons National Surgical Quality Improvement Program - Risk model for patients undergoing abdominoplasty after massive weight loss - Results from a Retrospective Cohort Study' [JPRAS Open 43 (2025) 347-356].</h4>
+            <p class="en-title-sm">Corrigendum to `Hope for the best, but prepare for the worst - Diagnostic accuracy of the American College of Surgeons National Surgical Quality Improvement Program - Risk model for patients undergoing abdominoplasty after massive weight loss - Results from a Retrospective Cohort Study' [JPRAS Open 43 (2025) 347-356].</p>
+          </div>
+        </div>
+        <p class="summary-sm">[This corrects the article DOI: 10.1016/j.jpra.2024.12.002.].</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42984703/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Effects of Multicomponent Training on Body Composition and Cardiorespiratory Fitness in Adults With Type&amp;#xa0;2 Diabetes: A Randomized Controlled Trial.</h4>
+            <p class="en-title-sm">Effects of Multicomponent Training on Body Composition and Cardiorespiratory Fitness in Adults With Type&amp;#xa0;2 Diabetes: A Randomized Controlled Trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">We investigated whether 14&amp;#x2009;weeks of multicomponent training delivered as small-sided soccer i</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42986000/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Development and Validation of an Interpretable Machine-Learning Model for Predicting Suboptimal Clinical Response After Sleeve Gastrectomy: A Multicenter Study.</h4>
+            <p class="en-title-sm">Development and Validation of an Interpretable Machine-Learning Model for Predicting Suboptimal Clinical Response After Sleeve Gastrectomy: A Multicenter Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Suboptimal clinical response (SCR) after sleeve gastrectomy (SG) remains a major clinical challenge,</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42985237/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">NUTRITIONAL OUTCOMES AFTER ONE ANASTOMOSIS GASTRIC BYPASS VERSUS ROUX-EN-Y GASTRIC BYPASS: A ONE-YEAR COMPARATIVE STUDY.</h4>
+            <p class="en-title-sm">NUTRITIONAL OUTCOMES AFTER ONE ANASTOMOSIS GASTRIC BYPASS VERSUS ROUX-EN-Y GASTRIC BYPASS: A ONE-YEAR COMPARATIVE STUDY.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Metabolic and bariatric surgery is an effective obesity treatment. One anastomosis gastr</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42987034/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Ameliorative Effects and Underlying Molecular Mechanisms of Nootkatone in DSS-Induced Ulcerative Colitis in Mice.</h4>
+            <p class="en-title-sm">Ameliorative Effects and Underlying Molecular Mechanisms of Nootkatone in DSS-Induced Ulcerative Colitis in Mice.</p>
+          </div>
+        </div>
+        <p class="summary-sm">OBJECTIVE: Nootkatone (NKT), a natural sesquiterpenoid ketone with anti-inflammatory properties, has</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42984779/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Social jetlag and DXA-derived adiposity in Korean adults: A nationwide study using the 2024 Korea National Health and Nutrition Examination Survey.</h4>
+            <p class="en-title-sm">Social jetlag and DXA-derived adiposity in Korean adults: A nationwide study using the 2024 Korea National Health and Nutrition Examination Survey.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Social jetlag, the discrepancy between weekday and weekend sleep timing, is a behavioral</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42986857/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">減重研究</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">24</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">weight loss</span><span class="keyword-pill">obesity</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
