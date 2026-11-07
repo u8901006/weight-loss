@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年11月7日（星期六）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年11月7日（星期六）</p>
+    <span class="stats">本日收錄 39 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Hypoxia in lymphoma: Mechanistic remodeling of the tumor microenvironment, disease progression and therapeutic resistance (Review).</h3>
+            <p class="en-title">Hypoxia in lymphoma: Mechanistic remodeling of the tumor microenvironment, disease progression and therapeutic resistance (Review).</p>
+          </div>
+        </div>
+        <p class="summary">Hypoxia is increasingly recognized as a determinant of tumor behavior across multiple malignancies; yet, its role in lymphoma remains incompletely defined and is frequently generalized across biologic</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42992585/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Comparative evaluation of ediblespecies in repairing 5-fluorouracil induced intestinal microenvironment damage.</h3>
+            <p class="en-title">Comparative evaluation of ediblespecies in repairing 5-fluorouracil induced intestinal microenvironment damage.</p>
+          </div>
+        </div>
+        <p class="summary">Chemotherapy-induced disruption of the intestinal microenvironment severely compromises both the quality of life and clinical prognosis of cancer patients. Despite the potential of edibleto alleviate </p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993570/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">🥗</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Metabolic and biochemical predictors of glycemic response after bariatric surgery: a scoping review.</h3>
+            <p class="en-title">Metabolic and biochemical predictors of glycemic response after bariatric surgery: a scoping review.</p>
+          </div>
+        </div>
+        <p class="summary">BACKGROUND: Bariatric and metabolic surgery is one of the most effective treatments for severe obesity and type 2 diabetes mellitus (T2DM), promoting metabolic changes beyond weight loss. However, the</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993473/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🏃</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Short- and long-term effects of dapagliflozin as an adjunct to insulin therapy in diabetic dogs: a pilot study.</h3>
+            <p class="en-title">Short- and long-term effects of dapagliflozin as an adjunct to insulin therapy in diabetic dogs: a pilot study.</p>
+          </div>
+        </div>
+        <p class="summary">This study evaluated adjunctive dapagliflozin therapy in insulin-treated diabetic dogs to assess short- and long-term glycemic, clinical, and laboratory outcomes in dogs with naturally occurring diabe</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993417/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Clinical pharmacology of antidiabetic drugs: an update.</h3>
+            <p class="en-title">Clinical pharmacology of antidiabetic drugs: an update.</p>
+          </div>
+        </div>
+        <p class="summary">PURPOSE: This review describes the updated pharmacology of antidiabetic drugs and its translation into clinical applications. METHODS: English language literature published from January 1, 1998 to Jul</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993255/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Hypoxia in lymphoma: Mechanistic remodeling of the tumor microenvironment, disease progression and therapeutic resistance (Review).</h4>
+            <p class="en-title-sm">Hypoxia in lymphoma: Mechanistic remodeling of the tumor microenvironment, disease progression and therapeutic resistance (Review).</p>
+          </div>
+        </div>
+        <p class="summary-sm">Hypoxia is increasingly recognized as a determinant of tumor behavior across multiple malignancies; </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42992585/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Comparative evaluation of ediblespecies in repairing 5-fluorouracil induced intestinal microenvironment damage.</h4>
+            <p class="en-title-sm">Comparative evaluation of ediblespecies in repairing 5-fluorouracil induced intestinal microenvironment damage.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Chemotherapy-induced disruption of the intestinal microenvironment severely compromises both the qua</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993570/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Metabolic and biochemical predictors of glycemic response after bariatric surgery: a scoping review.</h4>
+            <p class="en-title-sm">Metabolic and biochemical predictors of glycemic response after bariatric surgery: a scoping review.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Bariatric and metabolic surgery is one of the most effective treatments for severe obesi</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993473/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Short- and long-term effects of dapagliflozin as an adjunct to insulin therapy in diabetic dogs: a pilot study.</h4>
+            <p class="en-title-sm">Short- and long-term effects of dapagliflozin as an adjunct to insulin therapy in diabetic dogs: a pilot study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">This study evaluated adjunctive dapagliflozin therapy in insulin-treated diabetic dogs to assess sho</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993417/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Clinical pharmacology of antidiabetic drugs: an update.</h4>
+            <p class="en-title-sm">Clinical pharmacology of antidiabetic drugs: an update.</p>
+          </div>
+        </div>
+        <p class="summary-sm">PURPOSE: This review describes the updated pharmacology of antidiabetic drugs and its translation in</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993255/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">A Nature-Derived Peptide Promotes Satiety Hormone Response and Weight Loss.</h4>
+            <p class="en-title-sm">A Nature-Derived Peptide Promotes Satiety Hormone Response and Weight Loss.</p>
+          </div>
+        </div>
+        <p class="summary-sm">The global rise of obesity highlights the critical need for effective weight-management strategies. </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42989960/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Evaluation of anti-obesity effects of ethanolic extract of Hydrocotyle sibthorpioides and its phytosomal formulation in high-fat diet-induced obesity in Wistar rats.</h4>
+            <p class="en-title-sm">Evaluation of anti-obesity effects of ethanolic extract of Hydrocotyle sibthorpioides and its phytosomal formulation in high-fat diet-induced obesity in Wistar rats.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Obesity is a chronic metabolic disorder characterised by dyslipidemia, hyperglycemia, oxidative stre</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993400/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Disproportionality analysis of ventricular extrasystoles reported with semaglutide in VigiBase and the FDA Adverse Event Monitoring System.</h4>
+            <p class="en-title-sm">Disproportionality analysis of ventricular extrasystoles reported with semaglutide in VigiBase and the FDA Adverse Event Monitoring System.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Semaglutide is widely used to treat type 2 diabetes and obesity and to reduce cardiovascular risk. H</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993217/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Guillain-Barr&amp;#xe9; Syndrome Following Bariatric Surgery: A Systematic Literature Review.</h4>
+            <p class="en-title-sm">Guillain-Barr&amp;#xe9; Syndrome Following Bariatric Surgery: A Systematic Literature Review.</p>
+          </div>
+        </div>
+        <p class="summary-sm">AIM: This systematic review aims to characterize the clinical features, associated micronutrient def</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993445/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Associations of adiposity with functional performance, postural awareness, and body awareness in women.</h4>
+            <p class="en-title-sm">Associations of adiposity with functional performance, postural awareness, and body awareness in women.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Obesity is associated with functional limitations and altered postural and movement-rela</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42992960/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Sarcopenic obesity: definition, pathophysiology, and intervention strategies.</h4>
+            <p class="en-title-sm">Sarcopenic obesity: definition, pathophysiology, and intervention strategies.</p>
+          </div>
+        </div>
+        <p class="summary-sm">PURPOSE OF REVIEW: Sarcopenic obesity (SO) is increasingly recognized as a clinically relevant condi</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42989942/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">The protein partitioning model of body composition.</h4>
+            <p class="en-title-sm">The protein partitioning model of body composition.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Two leading paradigms dominate discussions of obesity: the Energy Balance Model (EBM), which attribu</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42988974/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">The carcinogenic transition: toxicological, metabolic, and microbiome consequences of Westernized high-heat culinary practices in Asian populations.</h4>
+            <p class="en-title-sm">The carcinogenic transition: toxicological, metabolic, and microbiome consequences of Westernized high-heat culinary practices in Asian populations.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Colorectal and prostate cancer incidence has risen rapidly in several industrializing Asian populati</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993867/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">When Dieting Backfires: A Qualitative Exploration of Reddit Users' Emotional and Moral Responses to Setbacks.</h4>
+            <p class="en-title-sm">When Dieting Backfires: A Qualitative Exploration of Reddit Users' Emotional and Moral Responses to Setbacks.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Dieting is commonly promoted as a means of achieving better health, yet many individuals experience </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993572/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">The metabolic role of prolactin in pregnancy.</h4>
+            <p class="en-title-sm">The metabolic role of prolactin in pregnancy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Prolactin has evolved from being viewed solely as a lactogenic hormone to being recognized as a key </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993456/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Temporally evolving neuronal remodeling via the CTNNB1-NRG3-ERBB4 axis drives therapy resistance in glioblastoma.</h4>
+            <p class="en-title-sm">Temporally evolving neuronal remodeling via the CTNNB1-NRG3-ERBB4 axis drives therapy resistance in glioblastoma.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Glioblastoma (GBM) remains highly lethal despite early therapeutic responses, as resistance inevitab</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993394/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Metabolomic Changes in Biofilm of Pseudomonas aeruginosa Under Early-Stage Tobramycin Treatment Identified by 2D NMR-Based COLMARq.</h4>
+            <p class="en-title-sm">Metabolomic Changes in Biofilm of Pseudomonas aeruginosa Under Early-Stage Tobramycin Treatment Identified by 2D NMR-Based COLMARq.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Biofilms are estimated to account for a large proportion of persistent microbial infections and are </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42992865/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Semaglutide Versus Diet-Based Weight Loss in Obesity and Heart Failure with Reduced Ejection Fraction (FIT-HF): Protocol for a Randomized Controlled Trial.</h4>
+            <p class="en-title-sm">Semaglutide Versus Diet-Based Weight Loss in Obesity and Heart Failure with Reduced Ejection Fraction (FIT-HF): Protocol for a Randomized Controlled Trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND &amp; AIMS: Obesity is common in heart failure with reduced ejection fraction (HFrEF), but th</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42988221/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Combination antiviral treatment for a patient with lymphocytic choriomeningitis virus meningoencephalitis associated with bispecific antibody teclistamab therapy for myeloma.</h4>
+            <p class="en-title-sm">Combination antiviral treatment for a patient with lymphocytic choriomeningitis virus meningoencephalitis associated with bispecific antibody teclistamab therapy for myeloma.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Lymphocytic choriomeningitis virus (LCMV) is a rare cause of meningoencephalitis in humans. Although</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42987888/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Effects of Weight-Loss Diets on Circulating MicroRNA Profiles in Overweight and Obese Adults: Systematic Review of Randomized Clinical Trials.</h4>
+            <p class="en-title-sm">Effects of Weight-Loss Diets on Circulating MicroRNA Profiles in Overweight and Obese Adults: Systematic Review of Randomized Clinical Trials.</p>
+          </div>
+        </div>
+        <p class="summary-sm">CONTEXT: Obesity, particularly visceral adiposity, is associated with metabolic inflammation and inc</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42987425/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Roles for Leptin Receptor Transcriptional Targets in the Control of Body Weight.</h4>
+            <p class="en-title-sm">Roles for Leptin Receptor Transcriptional Targets in the Control of Body Weight.</p>
+          </div>
+        </div>
+        <p class="summary-sm">The adipose-derived hormone leptin activates the signaling isoform of the leptin receptor (LepRb) on</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42988112/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Factors Associated with Functional Improvement After Reverse Shoulder Arthroplasty: A Comprehensive Systematic Review and Meta-analysis.</h4>
+            <p class="en-title-sm">Factors Associated with Functional Improvement After Reverse Shoulder Arthroplasty: A Comprehensive Systematic Review and Meta-analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Reverse total shoulder arthroplasty (rTSA) is now widely used across diverse indications</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42988204/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Ketone bodies and heart failure: A dual paradox from metabolic adaptation to therapeutic target.</h4>
+            <p class="en-title-sm">Ketone bodies and heart failure: A dual paradox from metabolic adaptation to therapeutic target.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Heart failure (HF) is fundamentally a syndrome of disturbed energy metabolism. Although accumulating</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42988152/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Sleeve gastrectomy reverses obesity-associated transcriptional signatures in the salivary glands of female mice.</h4>
+            <p class="en-title-sm">Sleeve gastrectomy reverses obesity-associated transcriptional signatures in the salivary glands of female mice.</p>
+          </div>
+        </div>
+        <p class="summary-sm">OBJECTIVES: This study aimed to characterize obesity-associated transcriptomic alterations in mouse </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42987447/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">When Vomiting Becomes Neurological: A Case of Wernicke's Encephalopathy Secondary to Severe Hyperemesis Gravidarum in the Second Trimester.</h4>
+            <p class="en-title-sm">When Vomiting Becomes Neurological: A Case of Wernicke's Encephalopathy Secondary to Severe Hyperemesis Gravidarum in the Second Trimester.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Wernicke's encephalopathy is an acute neurological emergency caused by thiamine deficiency and is an</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42992308/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Efficacy and tolerability of D-&amp;#x3b2;-hydroxybutyrate ester in patients with amyotrophic lateral sclerosis (KETO-ALS)-a randomised, placebo-controlled, double-blind study.</h4>
+            <p class="en-title-sm">Efficacy and tolerability of D-&amp;#x3b2;-hydroxybutyrate ester in patients with amyotrophic lateral sclerosis (KETO-ALS)-a randomised, placebo-controlled, double-blind study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Hypermetabolism and weight loss are prominent features of amyotrophic lateral sclerosis </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42990966/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Similar Tolerance of Glucagon-Like PEPTIDE-1 Agonist Therapy in Patients With Delayed and Normal Gastric Emptying.</h4>
+            <p class="en-title-sm">Similar Tolerance of Glucagon-Like PEPTIDE-1 Agonist Therapy in Patients With Delayed and Normal Gastric Emptying.</p>
+          </div>
+        </div>
+        <p class="summary-sm">INTRODUCTION: Gastroparesis is considered a relative contraindication to glucagon-like peptide-1 rec</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42989430/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Reversal of severe diuretic resistance by dexmedetomidine-associated polyuria in type 1 cardiorenal syndrome: a case report.</h4>
+            <p class="en-title-sm">Reversal of severe diuretic resistance by dexmedetomidine-associated polyuria in type 1 cardiorenal syndrome: a case report.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Dexmedetomidine is a selective &amp;#x3b1;2-adrenergic agonist widely used for sedation in i</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42992094/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">&quot;Common sense is not always enough&quot;: preschool educators' perspectives on young children's engagement with bodies and weight.</h4>
+            <p class="en-title-sm">&quot;Common sense is not always enough&quot;: preschool educators' perspectives on young children's engagement with bodies and weight.</p>
+          </div>
+        </div>
+        <p class="summary-sm">PURPOSE: The study explored how preschool educators perceive and respond to young children's interac</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993671/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Symptom improvement was not significantly associated with weight loss, dose, or treatment duration in women with lipoedema treated with tirzepatide: a retrospective cohort study of prospectively collected outcomes.</h4>
+            <p class="en-title-sm">Symptom improvement was not significantly associated with weight loss, dose, or treatment duration in women with lipoedema treated with tirzepatide: a retrospective cohort study of prospectively collected outcomes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Weight loss may not reliably improve symptoms or adipose tissue abnormalities in lipoede</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42991981/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Impacts of wild blueberries on weight regulation, appetite, and cardiometabolic biomarkers of adults: A randomized clinical trial.</h4>
+            <p class="en-title-sm">Impacts of wild blueberries on weight regulation, appetite, and cardiometabolic biomarkers of adults: A randomized clinical trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Blueberries are rich in polyphenols and other bioactive compounds that may influence appetite regula</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42991971/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Preoperative predictors of early patient-reported recovery trajectories after major surgery: a secondary analysis of a randomized controlled trial.</h4>
+            <p class="en-title-sm">Preoperative predictors of early patient-reported recovery trajectories after major surgery: a secondary analysis of a randomized controlled trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">OBJECTIVE: To examine recovery trajectories of Physical Functioning (PF) and the Ability to Particip</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42990824/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Adverse Childhood Experiences and Disordered Eating Behaviors in Adolescence:&amp;#xa0;Differences by Gender.</h4>
+            <p class="en-title-sm">Adverse Childhood Experiences and Disordered Eating Behaviors in Adolescence:&amp;#xa0;Differences by Gender.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Eating disorders often develop during adolescence. Disordered eating behaviors (DEBs) such as skippi</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42991942/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Dual&amp;#x2011;targeting therapeutic strategies for glioblastoma (Review).</h4>
+            <p class="en-title-sm">Dual&amp;#x2011;targeting therapeutic strategies for glioblastoma (Review).</p>
+          </div>
+        </div>
+        <p class="summary-sm">Glioblastoma (GBM) is the most aggressive primary malignant tumour, owing to intratumoural heterogen</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42992587/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Roles of TRIM proteins in cardiovascular diseases: From pathogenesis to therapeutic targeting (Review).</h4>
+            <p class="en-title-sm">Roles of TRIM proteins in cardiovascular diseases: From pathogenesis to therapeutic targeting (Review).</p>
+          </div>
+        </div>
+        <p class="summary-sm">Cardiovascular diseases are driven by sustained mechanical stress, metabolic derangement, inflammati</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42992565/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Rewiring cholesterol vulnerabilities with biomaterials: Mechanisms and opportunities for cancer therapy.</h4>
+            <p class="en-title-sm">Rewiring cholesterol vulnerabilities with biomaterials: Mechanisms and opportunities for cancer therapy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Tumor progression is accompanied by adaptive metabolic rewiring that extends beyond energy and amino</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42990944/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Effect of Sea-Freight Vibrations and Microclimates on Blood Chemistry, Weight Loss, and Meat Quality: A Comparison of Speedboat and Ferry Transit in Broilers.</h4>
+            <p class="en-title-sm">Effect of Sea-Freight Vibrations and Microclimates on Blood Chemistry, Weight Loss, and Meat Quality: A Comparison of Speedboat and Ferry Transit in Broilers.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Marine transportation serves as a critical component of archipelagic supply chains; however, the bio</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42991895/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Sympathovagal Imbalance and Insulin Resistance: The Autonomic Nervous System as a Convergent Therapeutic Target for Breaking a Bidirectional Pathogenic Cycle.</h4>
+            <p class="en-title-sm">Sympathovagal Imbalance and Insulin Resistance: The Autonomic Nervous System as a Convergent Therapeutic Target for Breaking a Bidirectional Pathogenic Cycle.</p>
+          </div>
+        </div>
+        <p class="summary-sm">The autonomic nervous system (ANS) and insulin resistance (IR) are linked through a bidirectional pa</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42991162/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Bariatric Surgery Tied to Lower Obesity-Related Cancer Risk.</h4>
+            <p class="en-title-sm">Bariatric Surgery Tied to Lower Obesity-Related Cancer Risk.</p>
+          </div>
+        </div>
+        <p class="summary-sm">摘要 unavailable</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/42993542/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">減重研究</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">39</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">weight loss</span><span class="keyword-pill">obesity</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
