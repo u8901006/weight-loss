@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年11月12日（星期四）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年11月12日（星期四）</p>
+    <span class="stats">本日收錄 26 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Identification of Geographical Chemical Markers in Neolitsea pallens Using UHPLC-Q-TOF-MS/MS and Multivariate Analysis.</h3>
+            <p class="en-title">Identification of Geographical Chemical Markers in Neolitsea pallens Using UHPLC-Q-TOF-MS/MS and Multivariate Analysis.</p>
+          </div>
+        </div>
+        <p class="summary">RATIONALE: Comprehensive characterization of plant metabolomes is essential for understanding phytochemical diversity and identifying location-specific metabolic signatures. However, the high complexi</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43012638/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">GLP-1 based therapy of obesity and type 2 diabetes.</h3>
+            <p class="en-title">GLP-1 based therapy of obesity and type 2 diabetes.</p>
+          </div>
+        </div>
+        <p class="summary">GLP-1 is 30-amino acid peptide that is secreted from the intestine in response to food intake. The release mechanism involves luminal exposure to as well as absorption and metabolism of the major nutr</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43011228/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">🥗</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Alcohol consumption, lifestyle behaviors, and emotional well-being during GLP-1 receptor agonist therapy: a post hoc analysis of the several study.</h3>
+            <p class="en-title">Alcohol consumption, lifestyle behaviors, and emotional well-being during GLP-1 receptor agonist therapy: a post hoc analysis of the several study.</p>
+          </div>
+        </div>
+        <p class="summary">BACKGROUND: Glucagon-like peptide-1 receptor agonists (GLP-1 RAs) have been associated with alcohol-related and other behavioral outcomes, although much of the observational evidence derives from retr</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43008461/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🏃</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Cardiovascular Health Promotion for US Veterans: Current State, Gaps, and Strategies: A Scientific Statement From the American Heart Association.</h3>
+            <p class="en-title">Cardiovascular Health Promotion for US Veterans: Current State, Gaps, and Strategies: A Scientific Statement From the American Heart Association.</p>
+          </div>
+        </div>
+        <p class="summary">US veterans represent a large and diverse population with distinctive demographic characteristics, comorbidity profiles, and social determinants of health shaped by military service. These factors con</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43012109/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Durable and Additive Disease Control at 52 Weeks With Ixekizumab Plus Tirzepatide Versus Ixekizumab Alone in Adults With Psoriatic Arthritis and Obesity or Overweight: Additional Results From a Randomized Clinical Trial.</h3>
+            <p class="en-title">Durable and Additive Disease Control at 52 Weeks With Ixekizumab Plus Tirzepatide Versus Ixekizumab Alone in Adults With Psoriatic Arthritis and Obesity or Overweight: Additional Results From a Randomized Clinical Trial.</p>
+          </div>
+        </div>
+        <p class="summary">OBJECTIVE: Obesity or overweight occurs in 72% to 82% of individuals with psoriatic arthritis (PsA). Previous data revealed greater disease control with concomitant ixekizumab (IXE) and tirzepatide (T</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43012507/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Identification of Geographical Chemical Markers in Neolitsea pallens Using UHPLC-Q-TOF-MS/MS and Multivariate Analysis.</h4>
+            <p class="en-title-sm">Identification of Geographical Chemical Markers in Neolitsea pallens Using UHPLC-Q-TOF-MS/MS and Multivariate Analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">RATIONALE: Comprehensive characterization of plant metabolomes is essential for understanding phytoc</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43012638/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1 based therapy of obesity and type 2 diabetes.</h4>
+            <p class="en-title-sm">GLP-1 based therapy of obesity and type 2 diabetes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">GLP-1 is 30-amino acid peptide that is secreted from the intestine in response to food intake. The r</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43011228/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Alcohol consumption, lifestyle behaviors, and emotional well-being during GLP-1 receptor agonist therapy: a post hoc analysis of the several study.</h4>
+            <p class="en-title-sm">Alcohol consumption, lifestyle behaviors, and emotional well-being during GLP-1 receptor agonist therapy: a post hoc analysis of the several study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Glucagon-like peptide-1 receptor agonists (GLP-1 RAs) have been associated with alcohol-</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43008461/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Cardiovascular Health Promotion for US Veterans: Current State, Gaps, and Strategies: A Scientific Statement From the American Heart Association.</h4>
+            <p class="en-title-sm">Cardiovascular Health Promotion for US Veterans: Current State, Gaps, and Strategies: A Scientific Statement From the American Heart Association.</p>
+          </div>
+        </div>
+        <p class="summary-sm">US veterans represent a large and diverse population with distinctive demographic characteristics, c</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43012109/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Durable and Additive Disease Control at 52 Weeks With Ixekizumab Plus Tirzepatide Versus Ixekizumab Alone in Adults With Psoriatic Arthritis and Obesity or Overweight: Additional Results From a Randomized Clinical Trial.</h4>
+            <p class="en-title-sm">Durable and Additive Disease Control at 52 Weeks With Ixekizumab Plus Tirzepatide Versus Ixekizumab Alone in Adults With Psoriatic Arthritis and Obesity or Overweight: Additional Results From a Randomized Clinical Trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">OBJECTIVE: Obesity or overweight occurs in 72% to 82% of individuals with psoriatic arthritis (PsA).</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43012507/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Comparative Mid-Term Outcomes of Omega Gastric Bypass Versus SASI Bypass: A Retrospective Cohort Study.</h4>
+            <p class="en-title-sm">Comparative Mid-Term Outcomes of Omega Gastric Bypass Versus SASI Bypass: A Retrospective Cohort Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: One-anastomosis gastric bypass (OAGB) and single-anastomosis sleeve ileal (SASI) bypass </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43013204/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Preoperative Lesser Curvature Length Measured by Three-Dimensional Computed Tomography and Weight Loss After Laparoscopic Sleeve Gastrectomy.</h4>
+            <p class="en-title-sm">Preoperative Lesser Curvature Length Measured by Three-Dimensional Computed Tomography and Weight Loss After Laparoscopic Sleeve Gastrectomy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: The lesser curvature forms the longitudinal anatomical axis of the gastric sleeve, and i</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43013201/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Conventional Preoperative Prediction of MASLD-Compatible Histologic Abnormality, Fibrosis, and Higher-Grade Steatohepatitis, and Exploratory Machine-Learning Classification of MASH Severity in Patients Undergoing Roux-en-Y Gastric Bypass.</h4>
+            <p class="en-title-sm">Conventional Preoperative Prediction of MASLD-Compatible Histologic Abnormality, Fibrosis, and Higher-Grade Steatohepatitis, and Exploratory Machine-Learning Classification of MASH Severity in Patients Undergoing Roux-en-Y Gastric Bypass.</p>
+          </div>
+        </div>
+        <p class="summary-sm">INTRODUCTION: Metabolic dysfunction-associated steatotic liver disease (MASLD) is highly prevalent i</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43009696/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">KEAP1-mediated regulation of ferroptosis: from canonical and non-canonical mechanisms to therapeutic targeting.</h4>
+            <p class="en-title-sm">KEAP1-mediated regulation of ferroptosis: from canonical and non-canonical mechanisms to therapeutic targeting.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Kelch-like ECH-associated protein 1 (KEAP1) is a substrate adaptor of the Cullin-RING E3 ubiquitin l</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43013282/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Carbon source-dependent growth heterogeneity acrossserotypes revealed through interactive data visualization.</h4>
+            <p class="en-title-sm">Carbon source-dependent growth heterogeneity acrossserotypes revealed through interactive data visualization.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Bacteria at the host-pathogen interface must continuously adapt their metabolism to the nutrient lan</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43012512/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Different Patterns of Rapid Weight Loss in National-Team Judo and Muay Thai Athletes: Magnitude, Frequency, Methods, and Sources of Influence.</h4>
+            <p class="en-title-sm">Different Patterns of Rapid Weight Loss in National-Team Judo and Muay Thai Athletes: Magnitude, Frequency, Methods, and Sources of Influence.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Rapid weight loss (RWL) is common in weight-class sports, but its magnitude, frequency, </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43012377/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Association Between Orforglipron and Blood Pressure in Adults With Obesity With or Without Type 2 Diabetes: Post Hoc Analyses From ATTAIN-1 and ATTAIN-2 Trials.</h4>
+            <p class="en-title-sm">Association Between Orforglipron and Blood Pressure in Adults With Obesity With or Without Type 2 Diabetes: Post Hoc Analyses From ATTAIN-1 and ATTAIN-2 Trials.</p>
+          </div>
+        </div>
+        <p class="summary-sm">INTRODUCTION: This post hoc analysis assessed the association between orforglipron and blood pressur</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43010686/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Cardiovascular Outcomes in Semaglutide Versus Tirzepatide Users With Obesity and Atherosclerotic Disease: A Target Trial Emulation.</h4>
+            <p class="en-title-sm">Cardiovascular Outcomes in Semaglutide Versus Tirzepatide Users With Obesity and Atherosclerotic Disease: A Target Trial Emulation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">AIMS: Semaglutide, a glucagon-like peptide-1 (GLP-1) receptor agonist, is approved for cardiovascula</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43010688/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Temporal dynamics and prognostic value of serum calcitonin during tirzepatide therapy in adults with obesity.</h4>
+            <p class="en-title-sm">Temporal dynamics and prognostic value of serum calcitonin during tirzepatide therapy in adults with obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">PURPOSE: To characterize serum calcitonin dynamics during six months of tirzepatide therapy for obes</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43009382/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Nutrition Care Strategies at the Intersection of Menopause and Obesity Pharmacotherapy.</h4>
+            <p class="en-title-sm">Nutrition Care Strategies at the Intersection of Menopause and Obesity Pharmacotherapy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">The premenopause to menopause transition, known as perimenopause, is a critical period of metabolic </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43009103/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Excessive Intrapancreatic Fat Deposition and the Potential Therapeutic Role of Glucagon-Like Peptide-1 Receptor Agonists: A Systematic Review.</h4>
+            <p class="en-title-sm">Excessive Intrapancreatic Fat Deposition and the Potential Therapeutic Role of Glucagon-Like Peptide-1 Receptor Agonists: A Systematic Review.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Excessive intrapancreatic fat deposition, also called non-alcoholic fatty pancreas disease, is marke</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43008789/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Metabolic Bariatric Surgery Leads to Similar Benefits for Diabetes Management and Glycaemia in Remitters and Non-Remitters.</h4>
+            <p class="en-title-sm">Metabolic Bariatric Surgery Leads to Similar Benefits for Diabetes Management and Glycaemia in Remitters and Non-Remitters.</p>
+          </div>
+        </div>
+        <p class="summary-sm">AIMS: Metabolic bariatric surgery (MBS), for example, Roux-en-Y gastric bypass (RYGB) can lead to di</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43010194/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Optimal Dose and Modality of Exercise for Reducing Visceral Adipose Tissue in Individuals with Overweight or Obesity: A Systematic Review and Dose-Response Network Meta-Analysis.</h4>
+            <p class="en-title-sm">Optimal Dose and Modality of Exercise for Reducing Visceral Adipose Tissue in Individuals with Overweight or Obesity: A Systematic Review and Dose-Response Network Meta-Analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: The aim of this study is to evaluate the comparative efficacy of exercise modalities and</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43010723/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Multi-omics analyses of HFpEF progression and regression reveals multi-organ-specific metabolic dysregulation and impaired inflammation resolution.</h4>
+            <p class="en-title-sm">Multi-omics analyses of HFpEF progression and regression reveals multi-organ-specific metabolic dysregulation and impaired inflammation resolution.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Heart failure with preserved ejection fraction (HFpEF) is a complex cardiometabolic synd</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43009128/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Brainstem orexigenic neurons drive long-term energy balance via distributed hypothalamic circuits.</h4>
+            <p class="en-title-sm">Brainstem orexigenic neurons drive long-term energy balance via distributed hypothalamic circuits.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Energy balance control has long been primarily attributed to hypothalamic neurons, whereas the physi</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43008734/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Association Between Cytomegalovirus and Fibromyalgia: A Large-Scale Retrospective Case-Control Study.</h4>
+            <p class="en-title-sm">Association Between Cytomegalovirus and Fibromyalgia: A Large-Scale Retrospective Case-Control Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">INTRODUCTION: Fibromyalgia is a chronic widespread pain disorder with incompletely understood pathog</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43010777/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Unlabelled Spatial Metabolic Covariance Analysis (US-MCA) Reveals Tumor-Associated Reorganization of Interorgan Choline Metabolic Response Patterns in Lung Cancer.</h4>
+            <p class="en-title-sm">Unlabelled Spatial Metabolic Covariance Analysis (US-MCA) Reveals Tumor-Associated Reorganization of Interorgan Choline Metabolic Response Patterns in Lung Cancer.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Tumor progression is increasingly recognized as a systemic disease that extends beyond local metabol</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43010523/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Microbiome changes following immigration: Rethinking &quot;Westernization&quot; as an explanatory concept.</h4>
+            <p class="en-title-sm">Microbiome changes following immigration: Rethinking &quot;Westernization&quot; as an explanatory concept.</p>
+          </div>
+        </div>
+        <p class="summary-sm">An emerging focus in microbiome science is on changes to people's microbiomes following immigration,</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43010182/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Awareness of the signs and symptoms of pancreatic cancer: a cross-sectional study from a developing country setting.</h4>
+            <p class="en-title-sm">Awareness of the signs and symptoms of pancreatic cancer: a cross-sectional study from a developing country setting.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Pancreatic cancer (PC) is associated with poor prognosis, largely due to delayed diagnos</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43010177/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Substrate-specific mitochondrial bioenergetics and metabolic flexibility in visceral adipose tissue across obesity-related glycemic states.</h4>
+            <p class="en-title-sm">Substrate-specific mitochondrial bioenergetics and metabolic flexibility in visceral adipose tissue across obesity-related glycemic states.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Obesity is characterized by the expansion of metabolically dysfunctional visceral adipose tissue (VA</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43013478/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">The Microbiota-Metabolism Axis: Mechanistic Insights and Translational Targets Across Diabetes and Gastrointestinal Disorders.</h4>
+            <p class="en-title-sm">The Microbiota-Metabolism Axis: Mechanistic Insights and Translational Targets Across Diabetes and Gastrointestinal Disorders.</p>
+          </div>
+        </div>
+        <p class="summary-sm">The gut microbiota (GM) modulates host energy balance, glucose-lipid metabolism, and enteroendocrine</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43011569/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">減重研究</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">26</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">weight loss</span><span class="keyword-pill">obesity</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
