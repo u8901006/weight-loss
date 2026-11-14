@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年11月14日（星期六）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年11月14日（星期六）</p>
+    <span class="stats">本日收錄 23 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Mitochondrial LONP1: Linking structure and function to context&amp;#x2011;dependent roles in disease (Review).</h3>
+            <p class="en-title">Mitochondrial LONP1: Linking structure and function to context&amp;#x2011;dependent roles in disease (Review).</p>
+          </div>
+        </div>
+        <p class="summary">Mitochondrial proteostasis is essential for maintaining organellar integrity, metabolic adaptation and cellular survival under physiological and stress conditions. Among mitochondrial quality control </p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43023233/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">In silico analysis of BDNF (brain-derived neurotrophic factor) with active components from Coronopus didymus and Parthenium hysterophorus for potential treatment of obesity.</h3>
+            <p class="en-title">In silico analysis of BDNF (brain-derived neurotrophic factor) with active components from Coronopus didymus and Parthenium hysterophorus for potential treatment of obesity.</p>
+          </div>
+        </div>
+        <p class="summary">Obesity is a multifactorial disorder that results from complex interactions among environmental, behavioral, psychological, and genetic determinants. Brain-derived neurotrophic factor (BDNF) plays a k</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43019853/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">🥗</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Physiological and metabolomic insights into tea tree essential oil-induced suppression of browning in fresh-cut pineapple.</h3>
+            <p class="en-title">Physiological and metabolomic insights into tea tree essential oil-induced suppression of browning in fresh-cut pineapple.</p>
+          </div>
+        </div>
+        <p class="summary">This study investigated the mechanism of tea tree essential oil (TTO) in inhibiting browning of fresh-cut pineapple using physiological and non-targeted metabolomic analyses. TTO effectively maintaine</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43019715/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🏃</span>
+          <div class="card-titles">
+            <h3 class="zh-title">The Impact of Lifestyle Interventions and Mental Health Management on Arrhythmias in Heart Failure.</h3>
+            <p class="en-title">The Impact of Lifestyle Interventions and Mental Health Management on Arrhythmias in Heart Failure.</p>
+          </div>
+        </div>
+        <p class="summary">PURPOSE OF REVIEW: To summarise contemporary evidence on the impact of lifestyle interventions and mental health management on arrhythmias in patients with heart failure (HF), and to highlight emergin</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43024140/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Atlas-Based Mapping of Hepatic Fat by Sex: Results From the Lifestyle Intervention (LION) Study.</h3>
+            <p class="en-title">Atlas-Based Mapping of Hepatic Fat by Sex: Results From the Lifestyle Intervention (LION) Study.</p>
+          </div>
+        </div>
+        <p class="summary">BACKGROUND: Hepatic proton density fat fraction (PDFF) is often reported as a whole-liver mean, without a population reference for individual fat distribution. PURPOSE: To construct longitudinal, sex-</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43023627/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Mitochondrial LONP1: Linking structure and function to context&amp;#x2011;dependent roles in disease (Review).</h4>
+            <p class="en-title-sm">Mitochondrial LONP1: Linking structure and function to context&amp;#x2011;dependent roles in disease (Review).</p>
+          </div>
+        </div>
+        <p class="summary-sm">Mitochondrial proteostasis is essential for maintaining organellar integrity, metabolic adaptation a</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43023233/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">In silico analysis of BDNF (brain-derived neurotrophic factor) with active components from Coronopus didymus and Parthenium hysterophorus for potential treatment of obesity.</h4>
+            <p class="en-title-sm">In silico analysis of BDNF (brain-derived neurotrophic factor) with active components from Coronopus didymus and Parthenium hysterophorus for potential treatment of obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Obesity is a multifactorial disorder that results from complex interactions among environmental, beh</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43019853/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Physiological and metabolomic insights into tea tree essential oil-induced suppression of browning in fresh-cut pineapple.</h4>
+            <p class="en-title-sm">Physiological and metabolomic insights into tea tree essential oil-induced suppression of browning in fresh-cut pineapple.</p>
+          </div>
+        </div>
+        <p class="summary-sm">This study investigated the mechanism of tea tree essential oil (TTO) in inhibiting browning of fres</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43019715/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">The Impact of Lifestyle Interventions and Mental Health Management on Arrhythmias in Heart Failure.</h4>
+            <p class="en-title-sm">The Impact of Lifestyle Interventions and Mental Health Management on Arrhythmias in Heart Failure.</p>
+          </div>
+        </div>
+        <p class="summary-sm">PURPOSE OF REVIEW: To summarise contemporary evidence on the impact of lifestyle interventions and m</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43024140/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Atlas-Based Mapping of Hepatic Fat by Sex: Results From the Lifestyle Intervention (LION) Study.</h4>
+            <p class="en-title-sm">Atlas-Based Mapping of Hepatic Fat by Sex: Results From the Lifestyle Intervention (LION) Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Hepatic proton density fat fraction (PDFF) is often reported as a whole-liver mean, with</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43023627/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Microdosing, fractional and split dosing of injectable GLP-1-based drugs: balancing potential benefits and risks.</h4>
+            <p class="en-title-sm">Microdosing, fractional and split dosing of injectable GLP-1-based drugs: balancing potential benefits and risks.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Glucagon-like peptide-1 (GLP-1)-based drugs (also known as incretin receptor agonists) have revoluti</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43021748/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Contemporary Revisional Bariatric Surgery Reflects Historical Primary Procedure Selection: A Fourteen-Year Cohort Study.</h4>
+            <p class="en-title-sm">Contemporary Revisional Bariatric Surgery Reflects Historical Primary Procedure Selection: A Fourteen-Year Cohort Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Revisional metabolic and bariatric surgery is part of long-term obesity management. Cont</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43021031/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">postbiotics attenuateLPS-triggered neuroinflammation by modulating the microbiota-gut-brain axis in a pig model.</h4>
+            <p class="en-title-sm">postbiotics attenuateLPS-triggered neuroinflammation by modulating the microbiota-gut-brain axis in a pig model.</p>
+          </div>
+        </div>
+        <p class="summary-sm">This study explored the effects of(LP) postbiotics onLPS-induced neuroinflammation, and elucidated t</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43024353/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">When hypertensive crisis mimics septic shock: A case report of pheochromocytoma-induced severe lactic acidosis following GLP-1 receptor agonist administration.</h4>
+            <p class="en-title-sm">When hypertensive crisis mimics septic shock: A case report of pheochromocytoma-induced severe lactic acidosis following GLP-1 receptor agonist administration.</p>
+          </div>
+        </div>
+        <p class="summary-sm">RATIONALE: Pheochromocytoma is a rare catecholamine-secreting tumor that may present atypically with</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43024315/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1-based therapies for reduction of heart failure and cardiovascular outcomes: A systematic review and meta-analysis of randomized controlled trials.</h4>
+            <p class="en-title-sm">GLP-1-based therapies for reduction of heart failure and cardiovascular outcomes: A systematic review and meta-analysis of randomized controlled trials.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Glucagon-like peptide-1 (GLP-1) based therapies have demonstrated cardiovascular benefit</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43024260/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Implication of Perivascular Adipose Tissue as a Potential Therapeutic Target for the Vascular Defensive Actions of Incretin-Based Therapies and SGLT2 Inhibitors.</h4>
+            <p class="en-title-sm">Implication of Perivascular Adipose Tissue as a Potential Therapeutic Target for the Vascular Defensive Actions of Incretin-Based Therapies and SGLT2 Inhibitors.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Cardiovascular disease is a predominant cause of illness in individuals with type 2 diabetes mellitu</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43024174/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Personalised mobile health coaching from early pregnancy to 12-months postpartum for females at risk of gestational diabetes (Bump2Baby and Me): a multicentre, randomised controlled trial.</h4>
+            <p class="en-title-sm">Personalised mobile health coaching from early pregnancy to 12-months postpartum for females at risk of gestational diabetes (Bump2Baby and Me): a multicentre, randomised controlled trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Maternal overweight and obesity increase the risk of gestational diabetes and adverse pr</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43020746/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Real-world effectiveness of tirzepatide in individuals with obesity: weight response, treatment-related factors and diabetes status.</h4>
+            <p class="en-title-sm">Real-world effectiveness of tirzepatide in individuals with obesity: weight response, treatment-related factors and diabetes status.</p>
+          </div>
+        </div>
+        <p class="summary-sm">INTRODUCTION: Tirzepatide reduces body weight and improves glycemic control, but real-world comparis</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43020464/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Regional cardiac ectopic fat: From pathophysiology to therapeutic perspectives.</h4>
+            <p class="en-title-sm">Regional cardiac ectopic fat: From pathophysiology to therapeutic perspectives.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Cardiovascular disease (CVD) remains a leading cause of morbidity and mortality worldwide, while its</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43020262/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Insomnia versus daytime sleepiness: distinct behavioural phenotypes of mood and binge eating in adults with clinical obesity.</h4>
+            <p class="en-title-sm">Insomnia versus daytime sleepiness: distinct behavioural phenotypes of mood and binge eating in adults with clinical obesity.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND/OBJECTIVES: Insomnia and excessive daytime sleepiness are common in adults with obesity b</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43020904/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">CAR immunotherapy for cancer: from ex vivo manufacturing to in vivo immune cell engineering.</h4>
+            <p class="en-title-sm">CAR immunotherapy for cancer: from ex vivo manufacturing to in vivo immune cell engineering.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Over the past decade, chimeric antigen receptor (CAR) T-cell therapy has achieved durable remissions</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43021386/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GLP-1 Receptor Agonist Use and Risk of Pain-Related Medical Encounters Among Patients with Comorbid Type 2 Diabetes and Opioid Use Disorder: A Target Trial Emulation Study.</h4>
+            <p class="en-title-sm">GLP-1 Receptor Agonist Use and Risk of Pain-Related Medical Encounters Among Patients with Comorbid Type 2 Diabetes and Opioid Use Disorder: A Target Trial Emulation Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">While GLP-1 receptor agonists (RAs) are postulated to alleviate pain, limited data exist to support </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43020169/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Effects of henagliflozin proline tablets versus metformin extended-release tablets on body composition in geriatric patients with newly diagnosed type 2 diabetes mellitus (HABIT-GEMs): study protocol for a multicentre, randomised, open-label trial.</h4>
+            <p class="en-title-sm">Effects of henagliflozin proline tablets versus metformin extended-release tablets on body composition in geriatric patients with newly diagnosed type 2 diabetes mellitus (HABIT-GEMs): study protocol for a multicentre, randomised, open-label trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">INTRODUCTION: Older adults with type 2 diabetes mellitus (T2DM) frequently present with sarcopenic o</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43015023/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Dysregulated microbiota-gut-brain axis induced by intermittent access to palatable food is associated with binge-like eating regardless of obesity development.</h4>
+            <p class="en-title-sm">Dysregulated microbiota-gut-brain axis induced by intermittent access to palatable food is associated with binge-like eating regardless of obesity development.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Recurrent consumption of energy dense palatable foods contributes to the rising prevalence of obesit</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43024513/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Cardiovascular outcomes with semaglutide versus tirzepatide in patients with obesity and atherosclerotic cardiovascular disease without diabetes.</h4>
+            <p class="en-title-sm">Cardiovascular outcomes with semaglutide versus tirzepatide in patients with obesity and atherosclerotic cardiovascular disease without diabetes.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Comparative cardiovascular data on glucagon-like peptide-1 (GLP-1) agonists versus dual </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43022342/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Clinical Outcomes of Tirzepatide After Metabolic Bariatric Surgery: A Systematic Review.</h4>
+            <p class="en-title-sm">Clinical Outcomes of Tirzepatide After Metabolic Bariatric Surgery: A Systematic Review.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND AND OBJECTIVES: Suboptimal weight outcomes, including recurrent weight gain (RWG) and ins</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43022657/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">A phase II, randomised, placebo-controlled, double-blind trial of cannabis extract for amyotrophic lateral sclerosis: the EMERALD trial.</h4>
+            <p class="en-title-sm">A phase II, randomised, placebo-controlled, double-blind trial of cannabis extract for amyotrophic lateral sclerosis: the EMERALD trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">INTRODUCTION: Amyotrophic lateral sclerosis (ALS) is a progressive neurodegenerative disease with li</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43022354/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Metformin-loaded mesoporous calcium silicate nanoparticles against alkaline-resistantinfection.</h4>
+            <p class="en-title-sm">Metformin-loaded mesoporous calcium silicate nanoparticles against alkaline-resistantinfection.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: () contributes to persistent endodontic infections through biofilm formation, dentinal t</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43023111/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">減重研究</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">23</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">weight loss</span><span class="keyword-pill">obesity</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
