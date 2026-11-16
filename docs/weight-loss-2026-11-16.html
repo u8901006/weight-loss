@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>減重研究日報 - 2026年11月16日（星期一）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffaf2;--line:#d8c5ab;--text:#2b2118;--muted:#766453;--accent:#8c4f2b;--accent-soft:#ead2bf;--card-bg:color-mix(in srgb,var(--surface) 92%,white)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;background:radial-gradient(circle at top,#fff6ea 0,var(--bg) 55%,#ead8c6 100%);color:var(--text);line-height:1.75;min-height:100vh}
+.container{max-width:880px;margin:0 auto;padding:60px 32px 80px}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .6s ease-out both}
+header h1{font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:.04em}
+header .date{font-size:1.1rem;color:var(--muted);margin-bottom:8px}
+header .stats{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:.85rem;padding:4px 16px;border-radius:20px;font-weight:500}
+section{margin-bottom:40px;animation:fadeUp .6s ease-out both}
+section h2{font-size:1.3rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(43,33,24,.06);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(43,33,24,.1)}
+.card.featured{border-left:3px solid var(--accent)}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-header-simple{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rank{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.emoji{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.card-titles{flex:1;min-width:0}
+.zh-title{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:2px}
+.en-title{font-size:.82rem;color:var(--muted);line-height:1.4}
+.zh-title-sm{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:1px}
+.en-title-sm{font-size:.78rem;color:var(--muted);line-height:1.35}
+.summary{font-size:.92rem;line-height:1.8;margin-bottom:14px;color:var(--text)}
+.summary-sm{font-size:.85rem;line-height:1.7;margin-bottom:10px;color:var(--text)}
+.pico-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pico-item{background:rgba(140,79,43,.05);border-radius:10px;padding:8px 12px}
+.pico-label{display:block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.pico-text{display:block;font-size:.82rem;line-height:1.5;color:var(--text)}
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.utility{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.utility.high{background:rgba(90,122,58,.1);color:#5a7a3a}
+.utility.mid{background:rgba(159,122,46,.1);color:#9f7a2e}
+.utility.low{background:rgba(118,100,83,.08);color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.tag{background:var(--accent-soft);color:var(--accent);font-size:.72rem;padding:2px 10px;border-radius:12px;font-weight:500}
+.pubmed-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pubmed-link:hover{text-decoration:underline}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{width:130px;text-align:right;font-size:.82rem;color:var(--text);flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(216,197,171,.3);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s ease}
+.bar-count{width:30px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keyword-pill{background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:4px 14px;border-radius:16px}
+footer{text-align:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+footer .footer-links a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .footer-links a:hover{text-decoration:underline}
+footer .footer-meta{font-size:.78rem;color:var(--muted)}
+footer .coffee{display:inline-block;background:#ff813f;color:#fff;font-size:.85rem;padding:6px 18px;border-radius:20px;text-decoration:none;font-weight:500;margin-top:12px}
+footer .coffee:hover{background:#e07030}
+footer .section-divider{height:1px;background:var(--line);margin:20px 0}
+footer .subscribe{text-align:center;margin-bottom:12px}
+footer .subscribe a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+footer .subscribe a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .container{padding:32px 16px 48px}
+  header h1{font-size:1.3rem}
+  .card{padding:16px;border-radius:16px}
+  .pico-grid{grid-template-columns:1fr}
+  .bar-label{width:90px;font-size:.75rem}
+  footer .footer-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>減重研究日報</h1>
+    <p class="date">2026年11月16日（星期一）</p>
+    <span class="stats">本日收錄 21 篇文獻</span>
+  </header>
+
+  <section style="animation-delay:.1s">
+    <h2>⭐ 今日精選</h2>
+    
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#1</span>
+          <span class="emoji">🔥</span>
+          <div class="card-titles">
+            <h3 class="zh-title">HIFU-Enhanced Transdermal Delivery of Hyaluronic-Acid-Functionalized Solid Lipid Nanoparticles for Localized Melanoma Therapy.</h3>
+            <p class="en-title">HIFU-Enhanced Transdermal Delivery of Hyaluronic-Acid-Functionalized Solid Lipid Nanoparticles for Localized Melanoma Therapy.</p>
+          </div>
+        </div>
+        <p class="summary">Cutaneous melanoma is an aggressive skin cancer for which localized treatment remains difficult because of limited drug penetration through the stratum corneum and the systemic toxicity of conventiona</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033027/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#2</span>
+          <span class="emoji">💊</span>
+          <div class="card-titles">
+            <h3 class="zh-title">The Perceived Suitability of Digitally Delivered Impulse-Focused Techniques in Binge Eating: A Qualitative Intervention Development Study.</h3>
+            <p class="en-title">The Perceived Suitability of Digitally Delivered Impulse-Focused Techniques in Binge Eating: A Qualitative Intervention Development Study.</p>
+          </div>
+        </div>
+        <p class="summary">OBJECTIVE: Impulsivity and inhibitory control difficulties are key mechanisms in binge eating behaviour in individuals with eating disorders. Digital interventions targeting these mechanisms are prima</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033479/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#3</span>
+          <span class="emoji">🥗</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Lifestyle Changes for the Treatment of Hypertension.</h3>
+            <p class="en-title">Lifestyle Changes for the Treatment of Hypertension.</p>
+          </div>
+        </div>
+        <p class="summary">PURPOSE OF REVIEW: Lifestyle interventions are foundational to hypertension prevention and treatment. We review recent evidence for weight management, dietary patterns, sodium and potassium intake, ph</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033324/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#4</span>
+          <span class="emoji">🏃</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Two-Year Weight Loss With a Breath Biofeedback mHealth Program: A Real-World Evidence Study.</h3>
+            <p class="en-title">Two-Year Weight Loss With a Breath Biofeedback mHealth Program: A Real-World Evidence Study.</p>
+          </div>
+        </div>
+        <p class="summary">OBJECTIVE: Long-term effectiveness data for digital weight management programs remain limited. We evaluated 2-year weight loss among commercial users with overweight or obesity using the Key to Health</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033075/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <div class="card-header">
+          <span class="rank">#5</span>
+          <span class="emoji">🧠</span>
+          <div class="card-titles">
+            <h3 class="zh-title">Efficacy and safety of co-administered cagrilintide-semaglutide (CagriSema) 1&amp;#xb7;7 mg each and 1&amp;#xb7;0 mg each in adults with overweight or obesity (REDEFINE 9): a multicentre, randomised, double-blind within-dose-level, placebo-controlled, parallel-group, phase 3b trial.</h3>
+            <p class="en-title">Efficacy and safety of co-administered cagrilintide-semaglutide (CagriSema) 1&amp;#xb7;7 mg each and 1&amp;#xb7;0 mg each in adults with overweight or obesity (REDEFINE 9): a multicentre, randomised, double-blind within-dose-level, placebo-controlled, parallel-group, phase 3b trial.</p>
+          </div>
+        </div>
+        <p class="summary">BACKGROUND: Cagrilintide-semaglutide (CagriSema) 2&amp;#xb7;4 mg each has shown clinically meaningful bodyweight reductions in global phase 3 studies. Different dosing options might support individual tre</p>
+        
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">Patient</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Intervention</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Comparison</span><span class="pico-text">-</span></div>
+        <div class="pico-item"><span class="pico-label">Outcome</span><span class="pico-text">-</span></div>
+      </div>
+        <div class="card-footer">
+          <span class="utility mid">臨床實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033821/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.2s">
+    <h2>📚 所有文獻</h2>
+    
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">HIFU-Enhanced Transdermal Delivery of Hyaluronic-Acid-Functionalized Solid Lipid Nanoparticles for Localized Melanoma Therapy.</h4>
+            <p class="en-title-sm">HIFU-Enhanced Transdermal Delivery of Hyaluronic-Acid-Functionalized Solid Lipid Nanoparticles for Localized Melanoma Therapy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Cutaneous melanoma is an aggressive skin cancer for which localized treatment remains difficult beca</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033027/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">The Perceived Suitability of Digitally Delivered Impulse-Focused Techniques in Binge Eating: A Qualitative Intervention Development Study.</h4>
+            <p class="en-title-sm">The Perceived Suitability of Digitally Delivered Impulse-Focused Techniques in Binge Eating: A Qualitative Intervention Development Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">OBJECTIVE: Impulsivity and inhibitory control difficulties are key mechanisms in binge eating behavi</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033479/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Lifestyle Changes for the Treatment of Hypertension.</h4>
+            <p class="en-title-sm">Lifestyle Changes for the Treatment of Hypertension.</p>
+          </div>
+        </div>
+        <p class="summary-sm">PURPOSE OF REVIEW: Lifestyle interventions are foundational to hypertension prevention and treatment</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033324/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Two-Year Weight Loss With a Breath Biofeedback mHealth Program: A Real-World Evidence Study.</h4>
+            <p class="en-title-sm">Two-Year Weight Loss With a Breath Biofeedback mHealth Program: A Real-World Evidence Study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">OBJECTIVE: Long-term effectiveness data for digital weight management programs remain limited. We ev</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033075/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Efficacy and safety of co-administered cagrilintide-semaglutide (CagriSema) 1&amp;#xb7;7 mg each and 1&amp;#xb7;0 mg each in adults with overweight or obesity (REDEFINE 9): a multicentre, randomised, double-blind within-dose-level, placebo-controlled, parallel-group, phase 3b trial.</h4>
+            <p class="en-title-sm">Efficacy and safety of co-administered cagrilintide-semaglutide (CagriSema) 1&amp;#xb7;7 mg each and 1&amp;#xb7;0 mg each in adults with overweight or obesity (REDEFINE 9): a multicentre, randomised, double-blind within-dose-level, placebo-controlled, parallel-group, phase 3b trial.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Cagrilintide-semaglutide (CagriSema) 2&amp;#xb7;4 mg each has shown clinically meaningful bo</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033821/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Clinical outcomes of GLP-1 receptor agonists VS placebo among patients with heart failure with preserved ejection fraction: a systematic review and meta-analysis.</h4>
+            <p class="en-title-sm">Clinical outcomes of GLP-1 receptor agonists VS placebo among patients with heart failure with preserved ejection fraction: a systematic review and meta-analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Heart failure with preserved ejection fraction (HFpEF) is a complex form of heart failur</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033336/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Tirzepatide and inflammation: a critical reappraisal of the immunometabolic case for incretin-based therapy.</h4>
+            <p class="en-title-sm">Tirzepatide and inflammation: a critical reappraisal of the immunometabolic case for incretin-based therapy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Tirzepatide, a dual glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033301/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Development and Internal Validation of a Nomogram Model for Identifying Preoperative Osteoporosis Among Metabolic Bariatric Surgery Candidates Using Routinely Available Clinical Variables.</h4>
+            <p class="en-title-sm">Development and Internal Validation of a Nomogram Model for Identifying Preoperative Osteoporosis Among Metabolic Bariatric Surgery Candidates Using Routinely Available Clinical Variables.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Osteoporosis (OP) is a common metabolic bone disease, and metabolic bariatric surgery (M</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033375/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Disordered eating, emotional eating, and nutritional status in patients with recurrent weight gain after metabolic and bariatric surgery.</h4>
+            <p class="en-title-sm">Disordered eating, emotional eating, and nutritional status in patients with recurrent weight gain after metabolic and bariatric surgery.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND/OBJECTIVES: Recurrent weight gain (RWG) and suboptimal clinical response (SCR) after meta</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43034177/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Mu (&amp;#x3bc;) opioid receptors (MOP) in food addiction.</h4>
+            <p class="en-title-sm">Mu (&amp;#x3bc;) opioid receptors (MOP) in food addiction.</p>
+          </div>
+        </div>
+        <p class="summary-sm">The 21st century has been plagued with obesity worldwide, mostly in developed countries where access</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033891/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Dual role of citric acid in rapid stabilization and antibacterial functionality of carboxymethyl chitosan/sodium alginate/poly(vinyl alcohol)-based films and coatings for blueberry preservation.</h4>
+            <p class="en-title-sm">Dual role of citric acid in rapid stabilization and antibacterial functionality of carboxymethyl chitosan/sodium alginate/poly(vinyl alcohol)-based films and coatings for blueberry preservation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Blends of carboxymethyl chitosan (CMCS) and sodium alginate (SA) are promising replacements for petr</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033717/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Co-enzymatic hydrolysis of camel milk casein releases active peptides through gut microbiota remodeling and immune restoration.</h4>
+            <p class="en-title-sm">Co-enzymatic hydrolysis of camel milk casein releases active peptides through gut microbiota remodeling and immune restoration.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Camel milk casein is a potential high-quality source of bioactive peptides; however, its immunomodul</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43034861/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Acute nitrogen mustard skin exposure induces persistent inflammation and delayed psoriasiform pathology associated with oxidative damage, mast cell activation, and cytokine signaling in mice.</h4>
+            <p class="en-title-sm">Acute nitrogen mustard skin exposure induces persistent inflammation and delayed psoriasiform pathology associated with oxidative damage, mast cell activation, and cytokine signaling in mice.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Sulfur mustard (SM) and nitrogen mustard (NM) are potent chemical threat agents that cause severe ac</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43034748/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Standardized Korean mint () extract attenuates cancer-induced cachexia by ameliorating anorexia, muscle atrophy, and adipose tissue wasting in BALB/c mice.</h4>
+            <p class="en-title-sm">Standardized Korean mint () extract attenuates cancer-induced cachexia by ameliorating anorexia, muscle atrophy, and adipose tissue wasting in BALB/c mice.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: (Korean mint) has been used traditionally in Korea to alleviate nausea, poor appetite, a</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43034609/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">GeneXpert negativity during anti-tuberculosis treatment and drug susceptibility patterns among tuberculosis patients in displaced populations in Northwest Ethiopia: A prospective longitudinal study.</h4>
+            <p class="en-title-sm">GeneXpert negativity during anti-tuberculosis treatment and drug susceptibility patterns among tuberculosis patients in displaced populations in Northwest Ethiopia: A prospective longitudinal study.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Tuberculosis (TB) remains a major public health challenge, particularly among displaced </p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43032208/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Low-frequency electroacupuncture alleviates streptozotocin-induced neuropathic pain via noradrenaline system modulation: A combined bioelectric modeling and in vivo validation.</h4>
+            <p class="en-title-sm">Low-frequency electroacupuncture alleviates streptozotocin-induced neuropathic pain via noradrenaline system modulation: A combined bioelectric modeling and in vivo validation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Diabetic neuropathic pain is a common complication of diabetes with limited treatment op</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43032058/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Central Obesity and Estimated Coronary Heart Disease Risk Among Jordanian Women Aged 30-50&amp;#x2009;Years: A Framingham Risk Score Analysis.</h4>
+            <p class="en-title-sm">Central Obesity and Estimated Coronary Heart Disease Risk Among Jordanian Women Aged 30-50&amp;#x2009;Years: A Framingham Risk Score Analysis.</p>
+          </div>
+        </div>
+        <p class="summary-sm">BACKGROUND: Obesity is a well-established modifiable risk factor for cardiovascular disease (CVD), p</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43034662/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Probiotics and Prebiotics in Restoring Gastrointestinal Microbiota Dysbiosis: Emerging Alternatives to Antibiotic Therapy.</h4>
+            <p class="en-title-sm">Probiotics and Prebiotics in Restoring Gastrointestinal Microbiota Dysbiosis: Emerging Alternatives to Antibiotic Therapy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">The human gastrointestinal (GI) microbiota is a complex and dynamic microbial ecosystem that plays a</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43034624/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Role of the Tregs-Endothelial Cell Interaction Network in Immune Microenvironment Remodeling and Targeted Intervention in Cardiovascular Diseases.</h4>
+            <p class="en-title-sm">Role of the Tregs-Endothelial Cell Interaction Network in Immune Microenvironment Remodeling and Targeted Intervention in Cardiovascular Diseases.</p>
+          </div>
+        </div>
+        <p class="summary-sm">The pathogenesis of cardiovascular disease (CVD) involves immune and metabolic remodeling of the vas</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43034796/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">Rethinking Antioxidant Use in Breast Cancer: A Redox Decision-Node Framework for Therapeutic Risk and Translation.</h4>
+            <p class="en-title-sm">Rethinking Antioxidant Use in Breast Cancer: A Redox Decision-Node Framework for Therapeutic Risk and Translation.</p>
+          </div>
+        </div>
+        <p class="summary-sm">Antioxidant supplementation is often viewed as a rational response to oxidative imbalance, yet in ca</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43034770/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header-simple">
+          <span class="emoji">📄</span>
+          <div class="card-titles">
+            <h4 class="zh-title-sm">The right dose, not the highest dose: rethinking obesity pharmacotherapy.</h4>
+            <p class="en-title-sm">The right dose, not the highest dose: rethinking obesity pharmacotherapy.</p>
+          </div>
+        </div>
+        <p class="summary-sm">摘要 unavailable</p>
+        <div class="card-footer">
+          <span class="utility mid">實用性：中</span>
+          <div class="tags"><span class="tag">減重研究</span></div>
+          <a class="pubmed-link" href="https://pubmed.ncbi.nlm.nih.gov/43033822/" target="_blank">PubMed →</a>
+        </div>
+      </div>
+  </section>
+
+  <section style="animation-delay:.3s">
+    <h2>📊 主題分布</h2>
+    
+        <div class="bar-row">
+          <span class="bar-label">減重研究</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <span class="bar-count">21</span>
+        </div>
+  </section>
+
+  <section style="animation-delay:.4s">
+    <h2>🏷️ 熱門關鍵字</h2>
+    <div class="keywords"><span class="keyword-pill">weight loss</span><span class="keyword-pill">obesity</span></div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">📬 訂閱電子報</a>
+    </div>
+    <div class="section-divider"></div>
+    <a class="coffee" href="https://buymeacoffee.com/CYlee" target="_blank">☕ Buy Me a Coffee</a>
+    <div class="section-divider"></div>
+    <p class="footer-meta">
+      Powered by NVIDIA Nemotron 3 &middot; 資料來源：PubMed &middot;
+      <a href="https://github.com/u8901006/weight-loss" target="_blank" style="color:var(--muted)">GitHub</a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
